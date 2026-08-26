@@ -4,7 +4,7 @@
   "description": "Nibula is an open-source static site generator built on Eleventy, made for people moving from hand-written HTML to a real project setup.",
   "keywords": "nibula, eleventy, 11ty, static site generator, cli scaffolding, project generator, boilerplate",
   "domain": "rhaastrake.github.io",
-  "url": "https://rhaastrake.github.io/Nibula",
+  "url": "https://rhaastrake.github.io/nibula",
   "lang": "en",
   "author": {
     "fullName": "Michele Garofalo",
