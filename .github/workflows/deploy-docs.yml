@@ -39,9 +39,21 @@ jobs:
 
       - name: Commit and push
         working-directory: target
+        env:
+          SOURCE_SHA: ${{ github.sha }}
+          SOURCE_REPO: ${{ github.repository }}
+          SOURCE_MESSAGE: ${{ github.event.head_commit.message }}
+          ACTOR: ${{ github.actor }}
+          ACTOR_ID: ${{ github.actor_id }}
         run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git config user.name "${ACTOR}"
+          git config user.email "${ACTOR_ID}+${ACTOR}@users.noreply.github.com"
           git add docs
-          git diff --staged --quiet || git commit -m "docs: rebuild documentation site"
+
+          if git diff --staged --quiet; then
+            echo "No changes to publish."
+            exit 0
+          fi
+
+          git commit -m "docs: new docs-site build from ${SOURCE_REPO}@${SOURCE_SHA::7}"
           git push

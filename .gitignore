@@ -1,7 +1,2 @@
-
 node_modules/
-src/backend/_core/vendor/
 out/
-src/backend/config.php
-src/backend/config.js
-src/backend/cache/

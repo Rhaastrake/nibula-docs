@@ -93,12 +93,6 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/frontend/assets");
   eleventyConfig.addPassthroughCopy("src/frontend/robots.txt");
 
-  // Hosting files
-  eleventyConfig.addPassthroughCopy({
-    "src/frontend/hosting/.htaccess": ".htaccess",
-    "src/frontend/hosting/web.config": "web.config",
-  });
-
   // node_modules dependencies
   eleventyConfig.addPassthroughCopy({
     // Bootstrap
