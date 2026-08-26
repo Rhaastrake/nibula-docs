@@ -156,7 +156,7 @@ module.exports = function (eleventyConfig) {
     markdownTemplateEngine: "njk",
     htmlTemplateEngine: TEMPLATE_ENGINE,
     
-    pathPrefix: "/Nibula/",
+    pathPrefix: "/nibula/",
 
     dir: {
       input: "src/frontend",
