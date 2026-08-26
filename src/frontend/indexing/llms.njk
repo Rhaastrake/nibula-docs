@@ -1,0 +1,27 @@
+---
+permalink: /llms.txt
+eleventyExcludeFromCollections: true
+---
+# {{ site.site_name }}
+
+> {{ site.description }}
+
+Nibula is a command-line tool that generates ready-to-build Eleventy projects: it sets up folder structure, templates and configuration so you can start writing content immediately. Published on npm, Apache 2.0 licensed, maintained by {{ site.author }}.
+
+## Documentation
+
+{%- for page in collections.all | sort(attribute='url') %}
+{%- if page.data.seo and not page.data.seo.noindex %}
+- [{{ page.data.seo.title }}]({{ site.url }}{{ page.url }}): {{ page.data.seo.description }}
+{%- endif %}
+{%- endfor %}
+
+## Links
+
+- [Source code](https://github.com/Rhaastrake/Nibula): issues, releases and contribution guide
+- [npm package](https://www.npmjs.com/package/Nibula): installation and version history
+
+## Notes
+
+- Language: {{ site.lang }}
+- Content and source are licensed under the Apache License 2.0; attribution required

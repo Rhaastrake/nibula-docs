@@ -1,0 +1,46 @@
+---
+title: "team"
+permalink: "/team/"
+layout: base.njk
+---
+
+<section id="team-section">
+  <div class="team-grid">
+  {% for member in teamMembers %}
+  <article class="card team-card">
+    {% if member.imageUrl %}
+    <img src="{{ member.imageUrl }}" alt="{{ member.fullName }}" width="120" height="120" loading="lazy" />
+    {% endif %}
+
+    <h3>{{ member.fullName }}</h3>
+    <p class="role">{{ member.role }}</p>
+
+    <div class="meta">
+      {% if member.region %}<span>{{ member.region }}</span>{% endif %}
+      {% if member.languages %}<span>{{ member.languages }}</span>{% endif %}
+      {% if member.discordNickname %}<span>{{ member.discordNickname }}</span>{% endif %}
+    </div>
+
+    {% if member.websiteUrl %}
+    <a href="http://{{ member.websiteUrl }}" class="button link-button-active"
+       target="_blank" rel="noopener noreferrer">{{ member.websiteUrl }}</a>
+    {% endif %}
+
+    <div class="socials">
+      {% if member.githubUrl %}
+      <a class="button link-button" href="{{ member.githubUrl }}" target="_blank"
+         rel="noopener noreferrer" aria-label="{{ member.fullName }} su GitHub">
+        <i class="bi bi-github" aria-hidden="true"></i>
+      </a>
+      {% endif %}
+      {% if member.linkedInUrl %}
+      <a class="button link-button" href="{{ member.linkedInUrl }}" target="_blank"
+         rel="noopener noreferrer" aria-label="{{ member.fullName }} su LinkedIn">
+        <i class="bi bi-linkedin" aria-hidden="true"></i>
+      </a>
+      {% endif %}
+    </div>
+  </article>
+  {% endfor %}
+  </div>
+</section>

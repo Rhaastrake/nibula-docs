@@ -1,0 +1,67 @@
+{
+  "404": {
+    "seo": {
+      "title": "Page not found · Nibula",
+      "description": "This page doesn't exist or has been moved. Head back to the Nibula documentation to find what you're looking for.",
+      "keywords": "",
+      "noindex": true,
+      "canonical": ""
+    },
+    "cdn": {
+      "css": [],
+      "js": []
+    }
+  },
+  "homepage": {
+    "seo": {
+      "title": "Nibula · Scaffold Eleventy sites from the command line",
+      "description": "Nibula is an open-source CLI that scaffolds ready-to-build Eleventy projects in seconds — sensible structure, configurable templates, zero boilerplate.",
+      "keywords": "nibula, eleventy, 11ty scaffolding, static site generator, cli scaffolding tool, project generator, berna-stencil",
+      "noindex": false,
+      "canonical": "https://rhaastrake.github.io/nibula-docs/"
+    },
+    "cdn": {
+      "css": [],
+      "js": []
+    }
+  },
+  "docs": {
+    "seo": {
+      "title": "Documentation · Nibula",
+      "description": "Install Nibula, generate your first project and learn the CLI options, folder structure and configuration — with copy-paste examples throughout.",
+      "keywords": "nibula documentation, nibula cli, install nibula, eleventy scaffolding guide, nibula configuration, npx nibula",
+      "noindex": false,
+      "canonical": "https://rhaastrake.github.io/nibula-docs/docs/"
+    },
+    "cdn": {
+      "css": [],
+      "js": []
+    }
+  },
+  "faq": {
+    "seo": {
+      "title": "FAQ · Nibula",
+      "description": "Answers to common questions about Nibula: supported Node versions, how it compares to other generators, backend options and troubleshooting.",
+      "keywords": "nibula faq, nibula troubleshooting, nibula requirements, nibula vs eleventy starter",
+      "noindex": false,
+      "canonical": "https://rhaastrake.github.io/nibula-docs/faq/"
+    },
+    "cdn": {
+      "css": [],
+      "js": []
+    }
+  },
+  "team": {
+    "seo": {
+      "title": "Team · Nibula",
+      "description": "Meet the people behind Nibula and find out how to contribute to the project, report issues or suggest features.",
+      "keywords": "nibula team, nibula contributors, contribute to nibula, open source maintainers",
+      "noindex": false,
+      "canonical": "https://rhaastrake.github.io/nibula-docs/team/"
+    },
+    "cdn": {
+      "css": [],
+      "js": []
+    }
+  }
+}

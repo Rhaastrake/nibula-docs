@@ -1,0 +1,24 @@
+[
+    {
+        "imageUrl": "../assets/images/elio.jpg",
+        "fullName": "Full name",
+        "role": "Creator of Nibula",
+        "region": "Region",
+        "languages": "Italian, English",
+        "discordNickname": "Rhaastrake",
+        "websiteUrl": "example.com",
+        "githubUrl": "github.com/rhaastrake",
+        "linkedInUrl": "linkedin.com"
+    },
+    {
+        "imageUrl": "../assets/images/elio1.jpg",
+        "fullName": "FullName test",
+        "role": "Nibula tester",
+        "region": "Region",
+        "languages": "Italian, English",
+        "discordNickname": "discord nickname",
+        "websiteUrl": "example.com",
+        "githubUrl": "github.com/rhaastrake",
+        "linkedInUrl": "linkedin.com"
+    }
+]

@@ -1,0 +1,38 @@
+{
+  "name": "nibula-docs",
+  "version": "0.0.0",
+  "private": true,
+  "outputDir": "out",
+  "scripts": {
+    "build:css": "sass src/frontend/scss:out/css --no-source-map --style=compressed --quiet --load-path=node_modules",
+    "build:js": "esbuild \"src/frontend/js/pages/*.js\" --bundle --outdir=out/js/pages --minify",
+    "build:11ty": "eleventy",
+    "build": "npm run clean && npm run build:css && npm run build:js && npm run build:11ty",
+    "serve:css": "sass --watch src/frontend/scss:out/css --no-source-map --quiet --load-path=node_modules",
+    "serve:js": "esbuild \"src/frontend/js/pages/*.js\" --bundle --outdir=out/js/pages --watch",
+    "serve:11ty": "eleventy --serve --quiet",
+    "clean": "nib clean",
+    "serve": "npm run clean && concurrently \"npm run serve:11ty\" \"npm run serve:css\" \"npm run serve:js\"",
+    "assistant": "nib cli"
+  },
+  "dependencies": {
+    "@11ty/eleventy": "^3.1.2",
+    "@11ty/eleventy-img": "^6.0.4",
+    "bootstrap": "^5.3.8",
+    "bootstrap-icons": "^1.13.1",
+    "bulma": "^1.0.4",
+    "foundation-sites": "^6.9.0",
+    "glob": "^13.0.6",
+    "markdown-it-anchor": "^9.2.1",
+    "markdown-it-attrs": "^5.0.1",
+    "mysql2": "^3.11.0",
+    "uikit": "^3.25.13"
+  },
+  "devDependencies": {
+    "@11ty/eleventy-plugin-syntaxhighlight": "^5.0.2",
+    "concurrently": "^9.2.1",
+    "esbuild": "^0.27.3",
+    "nibula": "^2.4.3",
+    "sass": "^1.77.0"
+  }
+}

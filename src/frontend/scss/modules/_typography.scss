@@ -1,0 +1,71 @@
+//==========================
+// CSS RULES FOR TYPOGRAPHY
+//==========================
+
+// Getting root rules from _root.scss
+@use "../root" as root;
+
+@use "sass:color";
+
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap");
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "JetBrains Mono", "Fira Code", Consolas, monospace;
+}
+
+a {
+  text-decoration: none !important;
+}
+
+.markdown-body {
+  .reset {
+    color: #ffff;
+    font-weight: inherit;
+  }
+
+  h1 {
+    color: root.$docs-h1;
+  }
+
+  h2 {
+    color: root.$docs-h2;
+  }
+
+  h3 {
+    color: root.$docs-h3;
+  }
+
+  strong {
+    color: root.$evidenced-word;
+  }
+
+  a {
+    // color: root.$docs-reference;
+    font-weight: bold;
+    // text-decoration: underline !important;
+  }
+
+  summary {
+    color: root.$docs-reference;
+    font-size: 1.25rem;
+
+    .red-color {
+      color: rgba(255, 0, 0, 0.712);
+      transition: 0.5s;
+      &:hover {
+        color: rgb(214, 135, 16);
+        transition: 0.5s;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .underline {
+    text-decoration: underline !important;
+  }
+}

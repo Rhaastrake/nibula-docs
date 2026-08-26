@@ -1,0 +1,27 @@
+// NOTE: This file contains only Sass variables (no CSS output).
+// When imported with @import, all variables are global and may be
+// overwritten by other imported files with the same variable names.
+// Use @use 'root' as root; to avoid namespace collisions.
+
+
+//==========================
+// STRUCTURE
+//==========================
+$header-height: 7vh;
+$header-padding-y: 15px;
+$header-padding-x: 15px;
+$header-z-index: 1030;
+
+$nav-item-spacing: 0.75rem;
+$subnav-transition-duration: 0.3s ease;
+
+$top-offset: calc($header-height * 1.5); 
+
+$background: #11474b;
+$buttons-backgroud: #1e917a;
+$docs-h1: #ffbb00;
+$docs-h2: #42B883;
+$docs-h3: #9FC4B8;
+$link-button: #22c97d;
+$evidenced-word: #C9A227;
+$docs-reference: #4493f8;

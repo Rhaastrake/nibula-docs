@@ -1,0 +1,29 @@
+<header>
+  <nav>
+    <a class="logo" href="{{'/' | url }}">
+      <img src="{{ site.logo }}" alt="{{ site.name }}"/>
+      {{ site.title }}
+    </a>
+
+    <button class="burger-menu" id="burger-btn" aria-label="Open menu">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </button>
+
+    <div class="links" id="nav-links">
+      <a href="{{ '/docs/' | url }}" class="button link-button">Documentation</a>
+      <a href="{{ '/team/' | url }}" class="button link-button">Team</a>
+      <a href="{{ '/faq/' | url }}" class="button link-button">FAQ</a>
+      <a
+        href="https://github.com/rhaastrake/nibula"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="button link-button"
+        aria-label="GitHub repository"
+      >
+        <i class="bi bi-github" style="font-size: 1.5rem"></i>
+      </a>
+    </div>
+  </nav>
+</header>

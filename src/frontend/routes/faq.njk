@@ -1,0 +1,12 @@
+---
+title: "faq"
+permalink: "/faq/"
+layout: base.njk
+---
+
+<section id="faq-section">
+    {% for question in faq %}
+    <h3>{{question.question}}</h3>
+    <p>{{question.answer}}</p>
+    {% endfor %}
+</section>

@@ -1,0 +1,59 @@
+//==========================
+// CSS RULES FOR THE ENTIRE SITE
+//==========================
+
+// Getting root rules from _root.scss
+@use "root" as root;
+
+// Frameworks imports
+@import "modules/frameworks/bootstrap";
+// @import "modules/frameworks/bulma";
+// @import "modules/frameworks/foundation";
+// @import "modules/frameworks/uikit";
+
+// Markdown styling. Applies to content rendered with renderFile
+@import "modules/markdown";
+
+// Modules imports
+@import "modules/typography";
+
+@import "modules/header";
+@import "modules/footer";
+
+@import "modules/animations";
+@import "modules/buttons";
+
+//==========================
+// Global css rules for the entire site
+//==========================
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100svh;
+}
+
+main {
+  flex: 1;
+}
+
+a {
+  color: inherit;
+}
+
+section {
+  padding-top: root.$top-offset;
+  margin-bottom: root.$header-height;
+}

@@ -1,0 +1,110 @@
+// ╔══════════════════════════════════════════════════════╗
+// ║                   BOOTSTRAP MODULES                  ║
+// ║  Comment out any module you don't need to improve    ║
+// ║  performance. Core section is required by all others ║
+// ╚══════════════════════════════════════════════════════╝
+
+// Imports can be filtered by commenting them
+// Example:
+// @import "bootstrap/scss/example-bootstrap-module";
+
+//==========================
+// 1️⃣ CORE – Functions and variables
+// ⚠️ Do not comment these out — required by all other modules
+//==========================
+@import "bootstrap/scss/functions";        // Bootstrap SCSS functions
+@import "bootstrap/scss/variables";        // Core variables (colors, spacing, fonts)
+@import "bootstrap/scss/variables-dark";   // Dark theme variables
+@import "bootstrap/scss/maps";             // Maps for spacing, colors, breakpoints
+@import "bootstrap/scss/mixins";           // Reusable SCSS mixins
+@import "bootstrap/scss/utilities";        // Utility helpers
+@import "bootstrap/scss/root";             // Root CSS (custom properties)
+@import "bootstrap/scss/placeholders";     // Placeholder selectors
+
+//==========================
+// 2️⃣ VENDOR
+//==========================
+@import "bootstrap/scss/vendor/rfs";       // Responsive font sizes
+
+//==========================
+// 3️⃣ BASE – Base styles
+//==========================
+@import "bootstrap/scss/reboot";           // CSS reset / normalize
+@import "bootstrap/scss/type";             // Typography (headings, paragraphs)
+// @import "bootstrap/scss/images";           // Image styles
+@import "bootstrap/scss/containers";       // Containers
+// @import "bootstrap/scss/transitions";      // CSS transitions
+
+//==========================
+// 4️⃣ LAYOUT – Layout helpers
+//==========================
+@import "bootstrap/scss/grid";             // Grid system
+@import "bootstrap/scss/helpers";          // Helper classes
+
+//==========================
+// 5️⃣ HELPERS – Sub-modules
+//==========================
+// @import "bootstrap/scss/helpers/clearfix";         // Clearfix
+// @import "bootstrap/scss/helpers/color-bg";         // Color background
+// @import "bootstrap/scss/helpers/colored-links";    // Colored links
+// @import "bootstrap/scss/helpers/focus-ring";       // Focus ring
+// @import "bootstrap/scss/helpers/icon-link";        // Icon links
+@import "bootstrap/scss/helpers/position";         // Position helpers
+// @import "bootstrap/scss/helpers/ratio";            // Aspect ratio
+// @import "bootstrap/scss/helpers/stacks";           // Stack helpers
+// @import "bootstrap/scss/helpers/stretched-link";   // Stretched link
+// @import "bootstrap/scss/helpers/text-truncation";  // Text truncation
+// @import "bootstrap/scss/helpers/visually-hidden";  // Visually hidden
+@import "bootstrap/scss/helpers/vr";               // Vertical rule
+
+//==========================
+// 6️⃣ UTILITIES – Sub-modules
+//==========================
+@import "bootstrap/scss/utilities/api";            // Utilities API
+
+//==========================
+// 7️⃣ FORMS – Sub-modules
+//==========================
+@import "bootstrap/scss/forms";                    // Forms loader
+@import "bootstrap/scss/forms/labels";             // Labels
+@import "bootstrap/scss/forms/form-text";          // Form text
+@import "bootstrap/scss/forms/form-control";       // Inputs and textareas
+@import "bootstrap/scss/forms/form-select";        // Select dropdowns
+@import "bootstrap/scss/forms/form-check";         // Checkboxes and radios
+@import "bootstrap/scss/forms/form-range";         // Range sliders
+@import "bootstrap/scss/forms/floating-labels";    // Floating labels
+@import "bootstrap/scss/forms/input-group";        // Input groups
+@import "bootstrap/scss/forms/validation";         // Validation states
+
+//==========================
+// 8️⃣ COMPONENTS – All Bootstrap components
+//==========================
+// @import "bootstrap/scss/alert";            // Alerts
+// @import "bootstrap/scss/badge";            // Badges
+// @import "bootstrap/scss/breadcrumb";       // Breadcrumbs
+// @import "bootstrap/scss/buttons";          // Buttons
+// @import "bootstrap/scss/button-group";     // Button groups
+// @import "bootstrap/scss/card";             // Cards
+// @import "bootstrap/scss/carousel";         // Carousel
+@import "bootstrap/scss/close";            // Close (×) button
+@import "bootstrap/scss/dropdown";         // Dropdowns
+// @import "bootstrap/scss/list-group";       // List groups
+@import "bootstrap/scss/modal";            // Modals
+// @import "bootstrap/scss/nav";              // Nav
+// @import "bootstrap/scss/navbar";           // Navbar
+@import "bootstrap/scss/offcanvas";        // Offcanvas component
+// @import "bootstrap/scss/pagination";       // Pagination
+@import "bootstrap/scss/popover";          // Popovers
+@import "bootstrap/scss/progress";         // Progress bars
+@import "bootstrap/scss/spinners";         // Spinners
+@import "bootstrap/scss/toasts";           // Toasts
+@import "bootstrap/scss/tooltip";          // Tooltips
+// @import "bootstrap/scss/accordion";        // Accordion
+@import "bootstrap/scss/tables";           // Tables
+
+//==========================
+// 9️⃣ ICONS
+//==========================
+$bootstrap-icons-font-src: url("../fonts/bootstrap-icons.woff2") format("woff2"),
+                            url("../fonts/bootstrap-icons.woff") format("woff");
+@import "bootstrap-icons/font/bootstrap-icons";

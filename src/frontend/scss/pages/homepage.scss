@@ -1,0 +1,46 @@
+//==========================
+// CSS MODULES IMPORTS
+//==========================
+
+// Use @use with a namespace to avoid framework variable conflicts:
+// Example: root.$primary
+@use "../root" as root;
+
+// This global module contains the import framework, necessary modules for each page and any other common styles
+@import "../global";
+
+// Import any other module you need by import down here
+// @import "../modules/moduleName";
+
+//==========================
+// PAGE CUSTOM CSS RULES
+//==========================
+
+// Add any custom rule specific to this page below
+// These rules override the framework and module styles
+
+#hero {
+  height: 50vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  .hero-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+  }
+
+  h1 {
+    color: root.$link-button;
+  }
+}
+
+#get-started {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

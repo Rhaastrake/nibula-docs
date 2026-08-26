@@ -1,0 +1,32 @@
+// Getting root rules from _root.scss
+@use "../root" as root;
+
+@use "sass:color";
+
+.button {
+  cursor: pointer;
+  transition:
+  background-color 0.3s,
+  color 0.3s;
+  border-radius: 4px;
+  padding: 8px;
+}
+
+.edge-button {
+    border-radius: 0px 20px 20px 0px;
+    opacity: 0.9;
+    padding: 4px;
+}
+
+.generic-button {
+  background-color: root.$buttons-backgroud;
+
+  &:hover {
+    background-color: color.scale(root.$buttons-backgroud, $lightness: -15%);
+  }
+}
+
+.link-button-active, .link-button:hover {
+  color: color.scale(root.$link-button, $lightness: -15%) !important;
+  font-weight: normal !important;
+}

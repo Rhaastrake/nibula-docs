@@ -1,0 +1,112 @@
+{
+  "introduction": {
+    "label": "Introduction",
+    "file": "docs/introduction.md",
+    "children": {
+      "what-is-nibula": { "label": "What is Nibula" },
+      "why-choose-nibula": { "label": "Why choose Nibula" },
+      "when-not-to-use-it": { "label": "When not to use it" },
+      "about-eleventy": { "label": "About Eleventy" }
+    }
+  },
+  "quick-start": {
+    "label": "Quick start",
+    "file": "docs/quick-start.md",
+    "children": {
+      "prerequisites": { "label": "Prerequisites" },
+      "installation": { "label": "Installation" },
+      "project-creation": { "label": "Project creation" }
+    }
+  },
+  "page-structure": {
+    "label": "Page structure",
+    "file": "docs/page-structure.md",
+    "children": {
+      "composition": { "label": "Composition" },
+      "layouts": { "label": "Layouts" },
+      "nibula-cli": { "label": "Nibula CLI" }
+    }
+  },
+  "components": {
+    "label": "Components",
+    "file": "docs/components.md",
+    "children": {
+      "what-is-a-component": { "label": "What is a component" },
+      "what-is-nunjucks": { "label": "What is Nunjucks" },
+      "what-is-markdown": { "label": "What is Markdown" },
+      "include-a-component": { "label": "Include a component" }
+    }
+  },
+  "styling": {
+    "label": "Styling",
+    "file": "docs/styling.md",
+    "children": {
+      "what-is-scss": { "label": "What is SCSS" },
+      "styling-structure": { "label": "Structure" },
+      "styling-create-a-module": { "label": "Create a module" },
+      "styling-import-a-module": { "label": "Import a module" },
+      "css-frameworks": { "label": "CSS frameworks" }
+    }
+  },
+  "javascript": {
+    "label": "Javascript",
+    "file": "docs/javascript.md",
+    "children": {
+      "javascript-or-typescript": { "label": "JavaScript or TypeScript" },
+      "javascript-structure": { "label": "Structure" },
+      "javascript-create-a-module": { "label": "Create a module" },
+      "javascript-import-a-module": { "label": "Import a module" }
+    }
+  },
+  "content-and-data": {
+    "label": "Content & Data",
+    "file": "docs/content-and-data.md",
+    "children": {
+      "asset-management": { "label": "Asset management" },
+      "data-files": { "label": "Data files" }
+    }
+  },
+  "seo": {
+    "label": "SEO",
+    "file": "docs/seo.md",
+    "children": {
+      "what-is-seo": { "label": "What is SEO" },
+      "each-page-seo": { "label": "Each page SEO" },
+      "seo-best-practices": { "label": "Best practices" },
+      "sitemap-generation": { "label": "Sitemap generation" },
+      "robots-and-crawlers": { "label": "Robots & Crawlers" }
+    }
+  },
+  "backend": {
+    "label": "Backend",
+    "file": "docs/backend.md",
+    "children": {
+      "node-or-php": { "label": "Node or PHP" },
+      "backend-structure": { "label": "Structure" },
+      "endpoints-logic": { "label": "Endpoints logic" },
+      "database": { "label": "Database" },
+      "additional-packages": { "label": "Additional packages" },
+      "node-service": { "label": "Node service" }
+    }
+  },
+  "deploy": {
+    "label": "Deploy",
+    "file": "docs/deploy.md",
+    "children": {
+      "how-to-deploy": { "label": "How to deploy" },
+      "hosting-options": { "label": "Hosting options" },
+      "apache-iis": { "label": "Apache / IIS" },
+      "nginx": { "label": "Nginx" }
+    }
+  },
+  "about": {
+    "label": "About",
+    "file": "docs/about.md",
+    "children": {
+      "changelog": { "label": "Changelog" },
+      "roadmap": { "label": "Roadmap" },
+      "dependencies": { "label": "Dependencies" },
+      "support-nibula": { "label": "Support Nibula" }
+    }
+  }
+}

@@ -1,0 +1,68 @@
+//==========================
+// CSS RULES FOR FOOTER
+//==========================
+
+// Getting root rules from _root.scss
+@use "../root" as root;
+
+footer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: root.$header-padding-y root.$header-padding-x;
+  background-color: root.$background;
+
+  h3 {
+    font-size: 1rem;
+    margin-bottom: 0.75rem;
+  }
+
+  p {
+    font-size: 0.875rem;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 0.875rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .bi {
+    font-size: 1.5rem;
+    vertical-align: middle;
+  }
+
+  small {
+    display: flex;
+    gap: 1rem;
+    font-size: inherit;
+  }
+
+  hr {
+    width: 100%;
+    margin: 1.25rem 0 1rem;
+    border: 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+  }
+}
+
+.footer-columns {
+  justify-content: space-between;
+  row-gap: 1.5rem;
+}
+
+.footer-copyright {
+  text-align: center;
+
+  p {
+    margin-bottom: 0.25rem;
+  }
+
+  p:last-child {
+    margin-bottom: 0;
+  }
+}

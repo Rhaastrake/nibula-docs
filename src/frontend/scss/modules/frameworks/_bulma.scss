@@ -1,0 +1,109 @@
+// ╔══════════════════════════════════════════════════════╗
+// ║                     BULMA MODULES                    ║
+// ║  Comment out any module you don't need to improve    ║
+// ║  performance. Core section is required by all others ║
+// ╚══════════════════════════════════════════════════════╝
+
+// Imports can be filtered by commenting them
+// Example:
+// @import "bulma/sass/example-bulma-module";
+
+//==========================
+// 1️⃣ CORE – Utilities and variables
+// ⚠️ Do not comment these out — required by all other modules
+//==========================
+@import "bulma/sass/utilities/initial-variables";  // Base variables (colors, sizes, fonts)
+@import "bulma/sass/utilities/functions";           // SCSS functions
+@import "bulma/sass/utilities/derived-variables";   // Variables derived from initial ones
+@import "bulma/sass/utilities/css-variables";       // CSS custom properties
+@import "bulma/sass/utilities/controls";            // Control base styles (inputs, buttons)
+@import "bulma/sass/utilities/extends";             // Shared extends
+@import "bulma/sass/utilities/mixins";              // Reusable SCSS mixins
+
+//==========================
+// 2️⃣ BASE – Reset and base styles
+//==========================
+@import "bulma/sass/base/minireset";   // CSS reset
+@import "bulma/sass/base/generic";     // Generic base styles
+@import "bulma/sass/base/animations";  // Built-in animations
+@import "bulma/sass/base/skeleton";    // Skeleton loading styles
+
+//==========================
+// 3️⃣ THEMES
+//==========================
+@import "bulma/sass/themes/setup";  // Theme setup (required)
+@import "bulma/sass/themes/light";  // Light theme
+// @import "bulma/sass/themes/dark";// Dark theme
+
+//==========================
+// 4️⃣ LAYOUT
+//==========================
+@import "bulma/sass/layout/container";  // Containers
+@import "bulma/sass/layout/section";    // Sections
+@import "bulma/sass/layout/footer";     // Footer
+@import "bulma/sass/layout/hero";       // Hero banners
+@import "bulma/sass/layout/level";      // Level (horizontal layout)
+@import "bulma/sass/layout/media";      // Media object
+
+//==========================
+// 5️⃣ GRID
+//==========================
+@import "bulma/sass/grid/columns";  // Flexbox column grid
+@import "bulma/sass/grid/grid";     // CSS grid
+
+//==========================
+// 6️⃣ ELEMENTS – Basic HTML elements
+//==========================
+@import "bulma/sass/elements/block";        // Block spacing
+@import "bulma/sass/elements/box";          // Box container
+@import "bulma/sass/elements/button";       // Buttons
+@import "bulma/sass/elements/content";      // Rich text content
+@import "bulma/sass/elements/delete";       // Delete/close button
+@import "bulma/sass/elements/icon";         // Icons
+@import "bulma/sass/elements/image";        // Images
+@import "bulma/sass/elements/loader";       // Loader spinner
+@import "bulma/sass/elements/notification"; // Notifications
+@import "bulma/sass/elements/progress";     // Progress bars
+@import "bulma/sass/elements/table";        // Tables
+@import "bulma/sass/elements/tag";          // Tags/badges
+@import "bulma/sass/elements/title";        // Titles and subtitles
+
+//==========================
+// 7️⃣ FORM
+//==========================
+@import "bulma/sass/form/shared";          // Shared form styles
+@import "bulma/sass/form/tools";           // Form tools and field wrappers
+@import "bulma/sass/form/input-textarea";  // Inputs and textareas
+@import "bulma/sass/form/select";          // Select dropdowns
+@import "bulma/sass/form/checkbox-radio";  // Checkboxes and radios
+@import "bulma/sass/form/file";            // File upload
+
+//==========================
+// 8️⃣ COMPONENTS
+//==========================
+@import "bulma/sass/components/breadcrumb";  // Breadcrumbs
+@import "bulma/sass/components/card";        // Cards
+@import "bulma/sass/components/dropdown";    // Dropdowns
+@import "bulma/sass/components/menu";        // Vertical menu
+@import "bulma/sass/components/message";     // Message boxes
+@import "bulma/sass/components/modal";       // Modals
+@import "bulma/sass/components/navbar";      // Navbar
+@import "bulma/sass/components/pagination";  // Pagination
+@import "bulma/sass/components/panel";       // Panel
+@import "bulma/sass/components/tabs";        // Tabs
+
+//==========================
+// 9️⃣ HELPERS
+//==========================
+@import "bulma/sass/helpers/aspect-ratio";  // Aspect ratio
+@import "bulma/sass/helpers/border";        // Border utilities
+@import "bulma/sass/helpers/color";         // Color utilities
+@import "bulma/sass/helpers/flexbox";       // Flexbox utilities
+@import "bulma/sass/helpers/float";         // Float utilities
+@import "bulma/sass/helpers/gap";           // Gap utilities
+@import "bulma/sass/helpers/other";         // Other utilities
+@import "bulma/sass/helpers/overflow";      // Overflow utilities
+@import "bulma/sass/helpers/position";      // Position utilities
+@import "bulma/sass/helpers/spacing";       // Spacing utilities (m-, p-)
+@import "bulma/sass/helpers/typography";    // Typography utilities
+@import "bulma/sass/helpers/visibility";    // Visibility utilities

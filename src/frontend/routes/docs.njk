@@ -1,0 +1,77 @@
+---
+title: "docs"
+permalink: "/docs/"
+layout: base.njk
+---
+{% macro navItems(items, className) %}
+  <ul class="{{ className }}">
+    {% for id, chapter in items %}
+      <li>
+        {% if chapter.children %}
+          <div class="docs-nav-row">
+            <a class="button link-button" href="#{{ id }}">{{ chapter.label }}</a>
+            <button class="button subnav-toggle" type="button" aria-expanded="false" aria-controls="{{ id }}-subnav" aria-label="Open navigation menu">
+              <i class="bi bi-chevron-right" aria-hidden="true"></i>
+            </button>
+          </div>
+          <div class="docs-subnav-wrapper" id="{{ id }}-subnav">
+            {{ navItems(chapter.children, "docs-subnav") }}
+          </div>
+        {% else %}
+          <a class="button link-button" href="#{{ id }}">{{ chapter.label }}</a>
+        {% endif %}
+      </li>
+    {% endfor %}
+  </ul>
+{% endmacro %}
+<section id="docs-section" class="container">
+  <button
+    class="button edge-button docs-nav-tab d-lg-none"
+    type="button"
+    id="docsNavOpen"
+    aria-controls="docsNav"
+    aria-expanded="false"
+    aria-label="Open documentation navigation"
+  >
+    <i class="bi bi-chevron-right" aria-hidden="true"></i>
+  </button>
+  <div class="row">
+    <nav class="col-12 col-lg-auto offcanvas-lg offcanvas-start docs-nav" tabindex="-1" id="docsNav" aria-labelledby="docsNavLabel">
+      <div class="offcanvas-header d-lg-none">
+        <h5 class="offcanvas-title" id="docsNavLabel">Docs navigation</h5>
+        <button class="button docs-nav-close" type="button" id="docsNavClose" aria-label="Close navigation menu">
+          <i class="bi bi-x-lg" aria-hidden="true"></i>
+        </button>
+      </div>
+      <div class="offcanvas-body">
+        {{ navItems(docs, "") }}
+      </div>
+    </nav>
+    <main class="col-12 col-lg docs-content">
+      <article class="markdown-body">
+        {% for id, chapter in docs %}
+          {% if chapter.file %}
+            <div class="col-section">
+              {% renderFile chapter.file | componentsPath, "njk,md" %}
+            </div>
+          {% endif %}
+          {% if chapter.children %}
+            {% for childId, child in chapter.children %}
+              {% if child.file %}
+                {% renderFile child.file | componentsPath, "njk,md" %}
+              {% endif %}
+            {% endfor %}
+          {% endif %}
+        {% endfor %}
+      </article>
+    </main>
+    <aside class="col-auto d-none d-xl-block docs-aside" tabindex="-1" id="docsAside">
+      <p>This documentation may be incomplete.</p>
+      <p>If you notice something missing, please let us know by <a class="link-button-active" href="https://github.com/rhaastrake/nibula/issues" target="_blank">opening an issue</a></p>
+      <div class="card">
+        <p>Based on Eleventy 3.1.6</p>
+        <a class="button link-button-active" href="https://www.11ty.dev/" target="_blank">11ty.dev/</a>
+      </div>
+    </aside>
+  </div>
+</section>

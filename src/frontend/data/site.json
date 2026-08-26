@@ -1,0 +1,21 @@
+{
+  "site_name": "Nibula",
+  "title": "Nibula 2.4.3",
+  "description": "Nibula is an open-source CLI that scaffolds ready-to-build Eleventy projects in seconds — sensible structure, configurable templates, zero boilerplate.",
+  "keywords": "nibula, eleventy, 11ty, static site generator, cli scaffolding, project generator, boilerplate",
+  "domain": "rhaastrake.github.io",
+  "url": "https://rhaastrake.github.io/nibula-docs",
+  "lang": "en",
+  "author": "Michele Garofalo",
+  "theme": "dark",
+  "logo": "/assets/brand/logo.svg",
+  "legal": {
+    "privacy": "",
+    "cookie": "",
+    "terms": "",
+  "copyright": {
+    "year": "2026",
+    "text": "Licensed under the Apache License 2.0."
+  }
+  }
+}
