@@ -81,20 +81,3 @@ ten or twenty of them and wrong for a catalogue.
 **If you already work with React, Vue or Angular, stay there.** Nibula's whole
 point is being a first step for people who don't — for you it would be a step
 sideways.
-
-## ⚙️ About Eleventy (11ty) {id="about-eleventy"}
-
-**Eleventy is the engine underneath.** It takes your templates and your data and
-turns them into plain HTML files, once, when you build — which is why the result
-is just a folder you can upload anywhere.
-
-**Nibula is a layer on top, not a replacement.** Eleventy gives you the build;
-Nibula adds the folder structure, the **SCSS** and **JavaScript** pipeline, the
-page assistant, the **SEO** files and the server configs. Everything Eleventy can
-do, your project can do — including the parts Nibula doesn't set up for you.
-
-`.eleventy.js` sits in your project root, and it's the same configuration file
-you'd find in any Eleventy project. When you need something beyond what Nibula
-wires up — a new filter, a collection, a different output folder — the
-[Eleventy documentation](https://www.11ty.dev/docs/) applies directly, with no
-translation needed.
