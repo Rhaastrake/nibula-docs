@@ -5,8 +5,7 @@
     "children": {
       "what-is-nibula": { "label": "What is Nibula" },
       "why-choose-nibula": { "label": "Why choose Nibula" },
-      "when-not-to-use-it": { "label": "When not to use it" },
-      "about-eleventy": { "label": "About Eleventy" }
+      "when-not-to-use-it": { "label": "When not to use it" }
     }
   },
   "quick-start": {
@@ -106,6 +105,7 @@
       "changelog": { "label": "Changelog" },
       "roadmap": { "label": "Roadmap" },
       "dependencies": { "label": "Dependencies" },
+      "about-eleventy": { "label": "About Eleventy" },
       "support-nibula": { "label": "Support Nibula" }
     }
   }
