@@ -22,9 +22,7 @@ layout: base.njk
 | **permalink** | The address the page will have on your site |
 | **layout** | The look the page is built into (see [layouts](#layouts)) |
 
-> The **permalink** needs a slash at both ends: **/my-page/**, not **my-page**.
-> 
-> Without the trailing one you get **my-page.html** instead of a clean **/my-page/** address
+> The **permalink** needs a slash at both ends: **/my-page/**, not **my-page**
 
 ### What a page is made of {id="what-a-page-is-made-of"}
 
