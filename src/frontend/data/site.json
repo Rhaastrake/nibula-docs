@@ -11,7 +11,7 @@
     "website": "https://github.com/rhaastrake"
   },
   "theme": "dark",
-  "logo": "assets/brand/logo.svg",
+  "logo": "/assets/brand/logo.svg",
   "legal": {
     "privacy": "",
     "cookie": "",

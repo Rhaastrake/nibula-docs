@@ -74,4 +74,4 @@ cd your-project
 nib run
 ```
 
-Your site is now at `localhost:8080`, and it rebuilds every time you save a file.
+Your site is now at **localhost:8080**, and it rebuilds every time you save a file.
