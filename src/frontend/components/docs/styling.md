@@ -54,7 +54,7 @@ Heres some modules that **Nibula** already creates for you:
 
 > The leading underscore marks a file meant to be imported rather than compiled into a stylesheet of its own
 
-## Create a module {id="styling-create-a-module"}
+## Modules {id="styling-modules"}
 
 You can create your custom **SCSS** module under `src/frontend/scss/modules/`, with an underscore in front of the name.
 

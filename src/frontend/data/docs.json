@@ -42,7 +42,7 @@
     "children": {
       "what-is-scss": { "label": "What is SCSS" },
       "styling-structure": { "label": "Structure" },
-      "styling-create-a-module": { "label": "Create a module" },
+      "styling-modules": { "label": "Modules" },
       "css-frameworks": { "label": "CSS frameworks" }
     }
   },
@@ -52,7 +52,7 @@
     "children": {
       "javascript-or-typescript": { "label": "JavaScript or TypeScript" },
       "javascript-structure": { "label": "Structure" },
-      "javascript-create-a-module": { "label": "Create a module" }
+      "javascript-modules": { "label": "Modules" }
     }
   },
   "content-and-data": {
