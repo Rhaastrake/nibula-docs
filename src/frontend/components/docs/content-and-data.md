@@ -2,41 +2,39 @@
 
 Two folders hold the things your site needs but that aren't markup: `assets/` and `data/`. The difference is **when** they're used.
 
-`assets/` is copied into the output as it is, so its files exist on the published site and the browser can reach them.
+`assets/` is copied into the **out** folder as it is, so the browser can reach its files while the page is running. Images, fonts, icons, downloadable files, and **JSON** your **JavaScript** wants to fetch.
 
-`data/` is read while the site builds and then left behind. Its files never reach the output, so nothing in there is ever downloadable.
+`data/` is read while the site **builds** and then left behind. Its **JSON** files feed your [components](#what-is-a-component) and [Markdown](#what-is-markdown), and never reach the **out** folder, so nothing in there is downloadable or reachable by JavaScript.
 
-## Asset management {id="asset-management"}
+## Assets management {id="assets-management"}
 
-Everything the browser has to load goes in `src/frontend/assets/`: images, fonts, icons, downloadable files.
+Everything the browser has to load goes in `src/frontend/assets/`, in whatever structure you like. The folder is copied keeping that structure, so the path you write is the path it has.
 
 {% raw %}
 ```njk
 src/frontend/assets/
 ├── brand/
 │   ├── favicon.svg
-│   ├── favicon-32.png
-│   └── apple-touch-icon.png
+│   ├── logo.svg
+│   └── ...
 ├── images/
-└── fonts/
+└── ...
 ```
 {% endraw %}
 
-`brand/` holds the favicon and the logo, which the [layout](#what-base-gives-you) already points at. The rest is yours to organize.
+> You can create your own custom folders
 
-The folder is copied into the output keeping its structure, so the path you write is the path it has:
+`brand/` holds the **favicon** and the **logo**, which the [layout](#what-base-gives-you) already points at. The rest is yours to organize.
 
 {% raw %}
-```njk
-<img src="{{ '/assets/images/photo.jpg' | url }}" alt="A photo">
+```html
+<img src="/assets/images/example-image.jpg">
 ```
 {% endraw %}
-
-> The **url** filter is what makes the path work when the site is published in a subfolder rather than at the root of a domain. Use it for every internal path
 
 ### JSON the browser can read {id="assets-json"}
 
-Because `assets/` ends up in the output, a **JSON** file in there can be fetched by your **JavaScript** while the page is running:
+A **JSON** file in `assets/` can be fetched by your **JavaScript** while the page is running:
 
 `assets/data/products.json`
 ```json

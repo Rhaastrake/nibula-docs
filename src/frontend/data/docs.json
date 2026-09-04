@@ -59,7 +59,7 @@
     "label": "Content & Data",
     "file": "docs/content-and-data.md",
     "children": {
-      "asset-management": { "label": "Asset management" },
+      "assets-management": { "label": "Assets management" },
       "data-files": { "label": "Data files" }
     }
   },
