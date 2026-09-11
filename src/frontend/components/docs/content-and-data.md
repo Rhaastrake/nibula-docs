@@ -2,41 +2,31 @@
 
 Two folders hold the things your site needs but that aren't markup: `assets/` and `data/`. The difference is **when** they're used.
 
-`assets/` is copied into the output as it is, so its files exist on the published site and the browser can reach them.
+`assets/` is copied into the **out** folder as it is, so the browser can reach its files while the page is running. Images, fonts, icons, downloadable files, and **JSON** your **JavaScript** wants to fetch.
 
-`data/` is read while the site builds and then left behind. Its files never reach the output, so nothing in there is ever downloadable.
+`data/` is read while the site **builds** and then left behind. Its **JSON** files feed your [components](#what-is-a-component) and [Markdown](#what-is-markdown), and never reach the **out** folder, so nothing in there is downloadable or reachable by JavaScript.
 
-## Asset management {id="asset-management"}
+## Assets management {id="assets-management"}
 
-Everything the browser has to load goes in `src/frontend/assets/`: images, fonts, icons, downloadable files.
+Everything the browser has to load goes in `src/frontend/assets/`, in whatever structure you like. The folder is copied keeping that structure, so the path you write is the path it has.
 
 {% raw %}
 ```njk
 src/frontend/assets/
 ├── brand/
 │   ├── favicon.svg
-│   ├── favicon-32.png
-│   └── apple-touch-icon.png
+│   ├── logo.svg
+│   └── ...
 ├── images/
-└── fonts/
+└── ...
 ```
 {% endraw %}
 
-`brand/` holds the favicon and the logo, which the [layout](#what-base-gives-you) already points at. The rest is yours to organize.
-
-The folder is copied into the output keeping its structure, so the path you write is the path it has:
-
-{% raw %}
-```njk
-<img src="{{ '/assets/images/photo.jpg' | url }}" alt="A photo">
-```
-{% endraw %}
-
-> The **url** filter is what makes the path work when the site is published in a subfolder rather than at the root of a domain. Use it for every internal path
+> You can create your own custom folders
 
 ### JSON the browser can read {id="assets-json"}
 
-Because `assets/` ends up in the output, a **JSON** file in there can be fetched by your **JavaScript** while the page is running:
+A **JSON** file in `assets/` can be fetched by your **JavaScript** while the page is running:
 
 `assets/data/products.json`
 ```json
@@ -46,6 +36,7 @@ Because `assets/` ends up in the output, a **JSON** file in there can be fetched
 ]
 ```
 
+`js/modules/plans.js`
 ```javascript
 const response = await fetch("/assets/data/products.json");
 const products = await response.json();
@@ -71,6 +62,7 @@ Any other `.json` you add becomes available on its own, with the name of the fil
 ]
 ```
 
+`frontend/components/plans.njk`
 {% raw %}
 ```njk
 <ul>
@@ -85,7 +77,7 @@ No import, no configuration, no restart. The variable is named after the file, s
 
 ### In a Markdown file {id="data-in-markdown"}
 
-A `.md` file can use the same values, but it doesn't see them on its own. Pass them when you [render the file](#include-markdown):
+A `.md` file can use the same values, but it doesn't see them on its own. Pass them when you include the [markdown component](#include-markdown):
 
 {% raw %}
 ```njk
@@ -93,19 +85,6 @@ A `.md` file can use the same values, but it doesn't see them on its own. Pass t
 ```
 {% endraw %}
 
-> This is the difference from a `.njk` component: an [include](#include-a-component) inherits the page's data, `renderFile` gets only what you hand it
-
-### Which folder to use {id="data-or-assets"}
-
-| | `data/` | `assets/` |
-|---|---|---|
-| Read | While the site builds | While the page runs |
-| By | **Nunjucks** and **Markdown** | Your **JavaScript** |
-| Ends up in the output | No | Yes |
-| Good for | Content that's part of the page | Data fetched on demand |
-
 Building the values into the page is faster for the visitor: the content is already there when the page arrives, and search engines can read it. Fetching is what you want when the data changes on its own, or when it's too much to put in every page.
 
 > Keep `data/` where it is. It was moved out of `assets/` in an early version precisely so it wouldn't be published
-
-## Examples {id="content-and-data-examples"}
