@@ -24,14 +24,6 @@ src/frontend/assets/
 
 > You can create your own custom folders
 
-`brand/` holds the **favicon** and the **logo**, which the [layout](#what-base-gives-you) already points at. The rest is yours to organize.
-
-{% raw %}
-```html
-<img src="/assets/images/example-image.jpg">
-```
-{% endraw %}
-
 ### JSON the browser can read {id="assets-json"}
 
 A **JSON** file in `assets/` can be fetched by your **JavaScript** while the page is running:
@@ -44,6 +36,7 @@ A **JSON** file in `assets/` can be fetched by your **JavaScript** while the pag
 ]
 ```
 
+`js/modules/plans.js`
 ```javascript
 const response = await fetch("/assets/data/products.json");
 const products = await response.json();
@@ -69,6 +62,7 @@ Any other `.json` you add becomes available on its own, with the name of the fil
 ]
 ```
 
+`frontend/components/plans.njk`
 {% raw %}
 ```njk
 <ul>
@@ -83,7 +77,7 @@ No import, no configuration, no restart. The variable is named after the file, s
 
 ### In a Markdown file {id="data-in-markdown"}
 
-A `.md` file can use the same values, but it doesn't see them on its own. Pass them when you [render the file](#include-markdown):
+A `.md` file can use the same values, but it doesn't see them on its own. Pass them when you include the [markdown component](#include-markdown):
 
 {% raw %}
 ```njk
@@ -91,19 +85,6 @@ A `.md` file can use the same values, but it doesn't see them on its own. Pass t
 ```
 {% endraw %}
 
-> This is the difference from a `.njk` component: an [include](#include-a-component) inherits the page's data, `renderFile` gets only what you hand it
-
-### Which folder to use {id="data-or-assets"}
-
-| | `data/` | `assets/` |
-|---|---|---|
-| Read | While the site builds | While the page runs |
-| By | **Nunjucks** and **Markdown** | Your **JavaScript** |
-| Ends up in the output | No | Yes |
-| Good for | Content that's part of the page | Data fetched on demand |
-
 Building the values into the page is faster for the visitor: the content is already there when the page arrives, and search engines can read it. Fetching is what you want when the data changes on its own, or when it's too much to put in every page.
 
 > Keep `data/` where it is. It was moved out of `assets/` in an early version precisely so it wouldn't be published
-
-## Examples {id="content-and-data-examples"}
