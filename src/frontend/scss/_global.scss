@@ -46,6 +46,7 @@ body {
 
 main {
   flex: 1;
+  margin-top: root.$header-height;
 }
 
 a {

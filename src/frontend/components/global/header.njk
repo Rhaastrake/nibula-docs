@@ -1,8 +1,18 @@
 <header>
   <nav>
-    <a class="logo" href="{{'/' | url }}">
-      <img src="{{ site.logo }}" alt="{{ site.siteName }}"/>
-    </a>
+    <div class="brand">
+      <a class="logo" href="{{'/' | url }}">
+        <img src="{{ site.logo }}" alt="{{ site.siteName }}"/>
+      </a>
+
+      {% if title == "docs" %}
+        <select id="docsVersionSelect" class="form-select docs-version-select" aria-label="Documentation version">
+          {% for v in versions %}
+            <option value="{{ v.url | url }}" {% if v.id == version %}selected{% endif %}>{{ v.id }}</option>
+          {% endfor %}
+        </select>
+      {% endif %}
+    </div>
 
     <button class="burger-menu" id="burger-btn" aria-label="Open menu">
       <span class="bar"></span>
@@ -11,7 +21,7 @@
     </button>
 
     <div class="links" id="nav-links">
-      <a href="{{ '/docs/' | url }}" class="button link-button">Documentation</a>
+      <a href="{{ '/docs/v3/' | url }}" class="button link-button">Documentation</a>
       <a href="{{ '/team/' | url }}" class="button link-button">Team</a>
       <a href="{{ '/faq/' | url }}" class="button link-button">FAQ</a>
       <a

@@ -58,7 +58,7 @@ Heres some modules that **Nibula** already creates for you:
 
 You can create your custom **SCSS** module under `src/frontend/scss/modules/`, with an underscore in front of the name.
 
-Remember to declare `@use "../root" as root;` to access the values that you named and ant to reuse
+Remember to declare `@use "../root" as root;` to access the values that you named and want to reuse
 
 `modules/_exampleModule.scss`
 ```scss
@@ -73,7 +73,7 @@ Remember to declare `@use "../root" as root;` to access the values that you name
 
 > Subfolders work too. One level deeper the path changes: `@use "../../root" as root`
 >
-> `@import` of global should not be here, but in th pages
+> `@import` of global should not be here, but in the pages
 
 Once you created your module, just `@import` in **global** or in the page file where you need that module to be applied
 
@@ -81,7 +81,7 @@ Once you created your module, just `@import` in **global** or in the page file w
 
 ## CSS frameworks {id="css-frameworks"}
 
-**CSS frameworks** is a library of pre-existing styles already built for you. You **choosed** one betweeen **Bootstrap, **Bulma**, **Foundation** and **UIKit** that **Nibula** already pre-installed for you right when you created your project!
+**CSS frameworks** is a library of pre-existing styles already built for you. You **chose** one between **Bootstrap, **Bulma**, **Foundation** and **UIkit** that **Nibula** already pre-installed for you right when you created your project!
 
 > You're free to avoid them if you want to stay simple, but here's the linked documentation for each one
 > (Nothing to install)
@@ -89,11 +89,11 @@ Once you created your module, just `@import` in **global** or in the page file w
 > [Bootstrap](https://getbootstrap.com/docs/5.3/getting-started/introduction/) | 
 > [Bulma](https://bulma.io/documentation/) | 
 > [Foundation](https://get.foundation/sites/docs/) | 
-> [UIKit](https://getuikit.com/docs/accordion) | 
+> [UIkit](https://getuikit.com/docs/accordion) | 
 
 They're **imported** in `scss/_globlal.scss` between root and and your other modules. Your modules will be imported later to have priority in the style
 
-Sometimes a full **CSS** framework can be unneccessary heavly for your pages, expecially if you use only few things of that. It can be filtered by all the micro **CSS** modules by just commenting their imports in `scss/modules/frameworks/_choosenFramework.scss`.
+Sometimes a full **CSS** framework can be uneccessary heavely for your pages, expecially if you use only few things of that. It can be filtered by all the micro **CSS** modules by just commenting their imports in `scss/modules/frameworks/_FRAMEWORK.scss`.
 
 `scss/modules/frameworks/_bootstrap.scss`
 ```scss
@@ -116,7 +116,7 @@ You can also **switch** between them or just set **none** just by commenting/unc
 . . .
 ```
 
-`frontend/layout/base.njk` (or your [custom layout](#layouts) file)
+`frontend/layouts/base.njk` (or your [custom layout](#layouts) file)
 {% raw %}
 ```njk
 {# Bootstrap JS #}
