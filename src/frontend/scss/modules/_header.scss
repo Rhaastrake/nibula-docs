@@ -28,6 +28,12 @@ header nav {
     color: white;
   }
 
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
   .logo {
     display: flex;
     align-items: center;
@@ -44,6 +50,10 @@ header nav {
       height: 50px;
       width: auto;
     }
+  }
+
+  .docs-version-select {
+    width: auto;
   }
 
   .burger-menu {
