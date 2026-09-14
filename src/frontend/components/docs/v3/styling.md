@@ -74,14 +74,12 @@ Once you created your module, `@import` it in **global** if every page needs it,
 
 ## CSS frameworks {id="css-frameworks"}
 
-A **CSS framework** is a library of pre-existing styles already built for you. You **chose** one between **Bootstrap**, **Bulma**, **Foundation** and **UIkit** when you created your project, and **Nibula** installed it for you.
+A **CSS framework** is a library of pre-existing styles already built for you. You **chose** one between **Bootstrap** and **Bulma** when you created your project, and **Nibula** installed it for you.
 
 > You're free to avoid them if you want to stay simple, but here's the linked documentation for each one
 >
-> [Bootstrap](https://getbootstrap.com/docs/5.3/getting-started/introduction/) |
-> [Bulma](https://bulma.io/documentation/) |
-> [Foundation](https://get.foundation/sites/docs/) |
-> [UIkit](https://getuikit.com/docs/accordion)
+> - [Bootstrap](https://getbootstrap.com/docs/5.3/getting-started/introduction/)
+> - [Bulma](https://bulma.io/documentation/)
 
 They're **imported** in `scss/global.scss` before your own modules, so your rules always win.
 
@@ -104,8 +102,6 @@ You can also **switch** between them, or set **none**, by commenting and uncomme
 . . .
 @import "modules/frameworks/bootstrap";
 // @import "modules/frameworks/bulma";
-// @import "modules/frameworks/foundation";
-// @import "modules/frameworks/uikit";
 . . .
 ```
 
@@ -114,13 +110,6 @@ You can also **switch** between them, or set **none**, by commenting and uncomme
 ```njk
 {# Bootstrap JS #}
 <script src="{{ '/js/bootstrap.bundle.min.js' | url }}" defer></script>
-
-{# Foundation JS #}
-{# <script src="{{ '/js/foundation.min.js' | url }}" defer></script> #}
-
-{# UIkit JS #}
-{# <script src="{{ '/js/uikit.min.js' | url }}" defer></script> #}
-{# <script src="{{ '/js/uikit-icons.min.js' | url }}" defer></script> #}
 
 {# Bulma — no JS needed #}
 ```
@@ -132,13 +121,6 @@ eleventyConfig.addPassthroughCopy({
 // Bootstrap
 "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js": "js/bootstrap.bundle.min.js",
 "node_modules/bootstrap-icons/font/fonts": "css/fonts",
-
-// Foundation
-// "node_modules/foundation-sites/dist/js/foundation.min.js": "js/foundation.min.js",
-
-// UIkit
-// "node_modules/uikit/dist/js/uikit.min.js": "js/uikit.min.js",
-// "node_modules/uikit/dist/js/uikit-icons.min.js": "js/uikit-icons.min.js",
 
 // Bulma — CSS only, no JS passthrough needed
 });
