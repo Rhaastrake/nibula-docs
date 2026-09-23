@@ -62,15 +62,28 @@ Leave a field empty and the value from `site.json` is used instead. An empty **c
 
 ## Sitemap generation {id="sitemap-generation"}
 
-A **sitemap** is a file listing your pages, so a search engine finds them all without having to follow links.
+From those same two files **Nibula** also generates, at every build, three things that help machines read your site:
 
-`sitemap.xml` is built at every build from the same data you already filled in. Pages marked **noindex** and the **404** page are left out.
+| What | Who reads it | What it is |
+|---|---|---|
+| `sitemap.xml` | Search engines | The list of your pages, so they're all found without following links |
+| `llms.txt` | AI crawlers | The same list in plain text, with a short line about the site |
+| **JSON-LD** | Both | A small block inside every page describing what the page is |
 
-You don't edit it: add a page with the CLI and it appears, remove one and it goes.
+The **JSON-LD** lives in `src/frontend/layouts/base.njk` and needs nothing from you. Pages marked **noindex** and the **404** page are left out of the sitemap.
 
-An `llms.txt` is generated the same way, in the plain-text format AI crawlers read.
+You never edit `sitemap.xml` directly: add a page with the CLI and it appears, remove one and it goes. What you *can* change is in `src/frontend/indexing/sitemap.njk`:
 
-> Both are built from `pages.json`, so a page without a record is missing from them
+```
+<changefreq>weekly</changefreq>
+<priority>0.8</priority>
+```
+
+**changefreq** is how often the page changes: `daily` for a news section, `weekly` for a blog, `monthly` or `yearly` for pages you rarely touch. **priority** goes from `0.0` to `1.0` and says which pages matter most to you, with the homepage usually at `1.0`. Both are hints, and search engines are free to ignore them, so don't lose time over it.
+
+In `src/frontend/indexing/llms.njk` you can add a couple of lines about what your site does and which pages matter, right under the title. It's a young format and few crawlers read it yet, but it costs one minute.
+
+> All three are built from `pages.json`, so a page without a record is missing from them
 
 ## Robots & Crawlers {id="robots-and-crawlers"}
 
@@ -85,12 +98,10 @@ User-agent: *
 Disallow:
 ```
 
-That's the right default for a public site. To keep a section out, edit `robots.njk` and add a rule under `User-agent: *`:
+That's the right default for a public site. To keep a section out, edit `robots.njk` and add one line per path under `User-agent: *`:
 
 ```
 Disallow: /private/
 ```
 
-One line per path. Edit the `.njk`, never the generated file in `out`: that one is rewritten at every build.
-
-> `robots.txt` asks crawlers not to visit. It doesn't stop anyone: the page is still reachable by whoever has the address, and a page blocked here can still show up in search results if another site links to it. To keep a page out of the results, use **noindex**
+> `robots.txt` asks crawlers not to visit. It doesn't stop anyone: the page is still reachable by whoever has the address. To keep a page out of search results, use **noindex**

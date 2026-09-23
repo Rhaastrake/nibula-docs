@@ -1,41 +1,5 @@
 # About {id="about"}
 
-## Changelog {id="changelog"}
-.
-
-.
-
-.
-
-.
-
-.
-
-.
-## Roadmap {id="roadmap"}
-.
-
-.
-
-.
-
-.
-
-.
-
-.
-## Dependecies {id="dependecies"}
-.
-
-.
-
-.
-
-.
-
-.
-
-.
 ## ⚙️ About Eleventy (11ty) {id="about-eleventy"}
 
 **Eleventy is the engine underneath.** It takes your templates and your data and
@@ -62,3 +26,16 @@ It's a one-person project, so every bit of feedback counts more than you'd think
 If **Nibula** was useful to you, leaving a ⭐ on the [repository](https://github.com/Rhaastrake/Nibula) is the easiest way to help other people find it.
 
 You can also support the project by buying me a coffee on [PayPal](https://paypal.me/rhaastrake) ☕🫡
+
+## Roadmap {id="roadmap"}
+.
+
+.
+
+.
+
+.
+
+.
+
+.

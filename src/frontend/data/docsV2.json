@@ -100,11 +100,9 @@
     "label": "About",
     "file": "docs/v2/about.md",
     "children": {
-      "changelog": { "label": "Changelog" },
-      "roadmap": { "label": "Roadmap" },
-      "dependencies": { "label": "Dependencies" },
       "about-eleventy": { "label": "About Eleventy" },
-      "support-nibula": { "label": "Support Nibula" }
+      "support-nibula": { "label": "Support Nibula" },
+      "roadmap": { "label": "Roadmap" }
     }
   }
 }
