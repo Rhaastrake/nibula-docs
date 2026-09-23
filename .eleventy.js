@@ -36,6 +36,17 @@ module.exports = function (eleventyConfig) {
     }
   }
 
+  const stripTags = (html) =>
+    html
+      .replace(/<[^>]+>/g, "")
+      .replace(/&amp;/g, "&")
+      .replace(/&lt;/g, "<")
+      .replace(/&gt;/g, ">")
+      .replace(/&quot;/g, '"')
+      .replace(/&#39;/g, "'")
+      .replace(/\s+/g, " ")
+      .trim();
+
   // ---------------------------------------------------------------------------
   // Plugins & markdown
   // ---------------------------------------------------------------------------
@@ -136,6 +147,55 @@ module.exports = function (eleventyConfig) {
   });
 
   // ---------------------------------------------------------------------------
+  // Search index
+  // ---------------------------------------------------------------------------
+
+  eleventyConfig.on("eleventy.after", ({ dir, results }) => {
+    const index = [];
+    const headingRegex = /<h([1-3])([^>]*)>([\s\S]*?)<\/h\1>/gi;
+
+    for (const page of results) {
+      const versionMatch = page.url?.match(/^\/docs\/(v\d+)\/$/);
+      if (!versionMatch) continue;
+
+      const version = versionMatch[1];
+      const html = page.content || "";
+
+      const start = html.search(/<[^>]+class="[^"]*\bdocs-content\b[^"]*"[^>]*>/i);
+      if (start === -1) continue;
+
+      const rest = html.slice(start);
+      const endMatch = rest.search(/<[^>]+class="[^"]*\bdocs-aside\b[^"]*"[^>]*>|<\/main>/i);
+      const content = endMatch === -1 ? rest : rest.slice(0, endMatch);
+
+      let section = "";
+
+      for (const match of content.matchAll(headingRegex)) {
+        const attrs = match[2];
+        if (/data-search="false"/i.test(attrs)) continue;
+
+        const idMatch = attrs.match(/id="([^"]+)"/);
+        const inner = match[3].replace(/<a[^>]*class="[^"]*header-anchor[^"]*"[^>]*>[\s\S]*?<\/a>/gi, "");
+        const text = stripTags(inner);
+        if (!text) continue;
+
+        const level = Number(match[1]);
+        if (level === 1) section = text;
+
+        index.push({
+          text,
+          level,
+          section: level === 1 ? "" : section,
+          version,
+          url: idMatch ? `${page.url}#${idMatch[1]}` : page.url,
+        });
+      }
+    }
+
+    fs.writeFileSync(path.join(dir.output, "search.json"), JSON.stringify(index));
+  });
+
+  // ---------------------------------------------------------------------------
   // Watch targets & dev server
   // ---------------------------------------------------------------------------
 
@@ -155,7 +215,7 @@ module.exports = function (eleventyConfig) {
   return {
     markdownTemplateEngine: "njk",
     htmlTemplateEngine: TEMPLATE_ENGINE,
-    
+
     pathPrefix: "/nibula/",
 
     dir: {

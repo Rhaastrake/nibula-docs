@@ -1,16 +1,34 @@
 <header>
   <nav>
     <div class="brand">
-      <a class="logo" href="{{'/' | url }}">
+      <a class="logo" href="{{ '/' | url }}">
         <img src="{{ site.logo }}" alt="{{ site.siteName }}"/>
       </a>
 
       {% if title == "docs" %}
-        <select id="docsVersionSelect" class="form-select docs-version-select" aria-label="Documentation version">
-          {% for v in versions %}
-            <option value="{{ v.url | url }}" {% if v.id == version %}selected{% endif %}>{{ v.id }}</option>
-          {% endfor %}
-        </select>
+        <div class="brand-extras">
+          <select id="docsVersionSelect" class="form-select docs-version-select" aria-label="Documentation version">
+            {% for v in versions %}
+              <option value="{{ v.url | url }}" {% if v.id == version %}selected{% endif %}>{{ v.id }}</option>
+            {% endfor %}
+          </select>
+
+          <div
+            class="site-search"
+            data-index="{{ '/search.json' | url }}"
+            data-base="{{ '/' | url }}"
+            data-version="{{ version }}"
+          >
+            <input
+              type="search"
+              class="form-control site-search-input"
+              placeholder="Search..."
+              aria-label="Search"
+              autocomplete="off"
+            >
+            <ul class="site-search-results" role="listbox" hidden></ul>
+          </div>
+        </div>
       {% endif %}
     </div>
 
@@ -24,15 +42,7 @@
       <a href="{{ '/docs/v3/' | url }}" class="button link-button">Documentation</a>
       <a href="{{ '/team/' | url }}" class="button link-button">Team</a>
       <a href="{{ '/faq/' | url }}" class="button link-button">FAQ</a>
-      <a
-        href="https://github.com/rhaastrake/nibula"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="button link-button"
-        aria-label="GitHub repository"
-      >
-        <i class="bi bi-github" style="font-size: 1.5rem"></i>
-      </a>
+      <a href="https://github.com/rhaastrake/nibula" target="_blank" rel="noopener noreferrer" class="button link-button" aria-label="GitHub repository"><i class="bi bi-github" style="font-size: 1.5rem"></i></a>
     </div>
   </nav>
 </header>
