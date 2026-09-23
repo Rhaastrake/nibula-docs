@@ -29,9 +29,20 @@ header nav {
   }
 
   .brand {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+
+  .brand-extras {
+    position: absolute;
+    top: 50%;
+    left: 100%;
+    transform: translateY(-50%);
     display: flex;
     align-items: center;
     gap: 8px;
+    margin-left: 8px;
   }
 
   .logo {
@@ -54,6 +65,10 @@ header nav {
 
   .docs-version-select {
     width: auto;
+  }
+
+  .site-search {
+    width: 16rem;
   }
 
   .burger-menu {
@@ -83,6 +98,12 @@ header nav {
     display: flex;
     align-items: center;
     gap: 48px;
+  }
+}
+
+@media (max-width: 1200px) {
+  header nav .site-search {
+    width: 12rem;
   }
 }
 
@@ -129,5 +150,11 @@ header nav {
         transform: translateY(0);
       }
     }
+  }
+}
+
+@media (max-width: 430px) {
+  header nav .site-search {
+    display: none;
   }
 }

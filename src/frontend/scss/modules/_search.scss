@@ -1,0 +1,64 @@
+@use "../root" as root;
+
+.site-search {
+  position: relative;
+  width: min(24rem, 100%);
+}
+
+.site-search-results {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  left: 0;
+  right: 0;
+  z-index: calc(#{root.$header-z-index} + 30);
+
+  max-height: 60svh;
+  overflow-y: auto;
+  margin: 0;
+  padding: 0.5rem;
+  list-style: none;
+
+  background-color: root.$background;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+
+  a {
+    display: flex;
+    flex-direction: column;
+    padding: 0.5rem 0.75rem;
+    border-radius: 8px;
+    color: inherit;
+    text-decoration: none;
+
+    &:hover,
+    &.active {
+      background-color: root.$buttons-backgroud;
+    }
+  }
+
+  mark {
+    padding: 0;
+    background: none;
+    color: root.$link-button;
+    font-weight: 600;
+  }
+}
+
+.site-search-level-2 {
+  padding-left: 1.25rem !important;
+}
+
+.site-search-level-3 {
+  padding-left: 1.75rem !important;
+  font-size: 0.9rem;
+}
+
+.site-search-section {
+  font-size: 0.75rem;
+  opacity: 0.6;
+}
+
+.site-search-empty {
+  padding: 0.5rem 0.75rem;
+  opacity: 0.6;
+}
