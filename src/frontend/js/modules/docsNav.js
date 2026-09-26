@@ -8,7 +8,7 @@ const TOGGLE_SELECTOR = ".subnav-toggle";
 const NAV_ROW_SELECTOR = ".docs-nav-row";
 const NAV_ITEM_SELECTOR = "li";
 const HEADER_SELECTOR = "header";
-const SCROLL_BOX_SELECTOR = ".offcanvas-body";
+const BURGER_SCROLL_BOX_SELECTOR = "#nav-links";
 const EXPANDED_ATTRIBUTE = "aria-expanded";
 const EXPANDED = "true";
 const COLLAPSED = "false";
@@ -18,12 +18,6 @@ const SCROLL_LOCK_DURATION = 2000;
 const SUBNAV_TRANSITION_DURATION = 350;
 const NAV_SCROLL_MARGIN = 16;
 const SCROLLABLE_THRESHOLD = 1;
-const OPEN_BUTTON_SELECTOR = "#docsNavOpen";
-const CLOSE_BUTTON_SELECTOR = "#docsNavClose";
-const SHOW_CLASS = "show";
-const BACKDROP_CLASS = "offcanvas-backdrop";
-const DESKTOP_QUERY = "(min-width: 992px)";
-const ESCAPE_KEY = "Escape";
 
 function toggleFor(subnav) {
   return subnav
@@ -51,13 +45,19 @@ function activationLine() {
   return (header?.offsetHeight ?? 0) + ACTIVATION_OFFSET;
 }
 
+// The index lives in the sidebar on desktop and in the burger menu on mobile,
+// so the scroll box is whichever of the two currently overflows.
 function scrollBoxFor(nav) {
-  const candidates = [nav.querySelector(SCROLL_BOX_SELECTOR), nav];
+  const candidates = [
+    nav,
+    document.querySelector(BURGER_SCROLL_BOX_SELECTOR),
+  ];
 
   return (
     candidates.find(
       (element) =>
         element &&
+        element.offsetParent !== null &&
         element.scrollHeight - element.clientHeight > SCROLLABLE_THRESHOLD,
     ) ?? null
   );
@@ -94,55 +94,10 @@ function revealInNav(nav, element) {
   box.scrollTo({ top: box.scrollTop + delta, behavior: scrollBehavior() });
 }
 
-function initOffcanvas(nav) {
-  const openButton = document.querySelector(OPEN_BUTTON_SELECTOR);
-  if (!openButton) return () => {};
-
-  const closeButton = document.querySelector(CLOSE_BUTTON_SELECTOR);
-  const desktop = window.matchMedia(DESKTOP_QUERY);
-  let backdrop = null;
-
-  const close = () => {
-    nav.classList.remove(SHOW_CLASS);
-    openButton.setAttribute(EXPANDED_ATTRIBUTE, COLLAPSED);
-    backdrop?.remove();
-    backdrop = null;
-  };
-
-  const open = () => {
-    if (desktop.matches) return;
-
-    backdrop = document.createElement("div");
-    backdrop.className = `${BACKDROP_CLASS} ${SHOW_CLASS}`;
-    backdrop.addEventListener("click", close);
-    document.body.appendChild(backdrop);
-    nav.classList.add(SHOW_CLASS);
-    openButton.setAttribute(EXPANDED_ATTRIBUTE, EXPANDED);
-  };
-
-  openButton.addEventListener("click", () => {
-    if (openButton.getAttribute(EXPANDED_ATTRIBUTE) === EXPANDED) close();
-    else open();
-  });
-
-  closeButton?.addEventListener("click", close);
-
-  document.addEventListener("keydown", (event) => {
-    if (event.key === ESCAPE_KEY) close();
-  });
-
-  desktop.addEventListener("change", (event) => {
-    if (event.matches) close();
-  });
-
-  return close;
-}
-
 export function initDocsNav() {
   const nav = document.querySelector(NAV_SELECTOR);
   if (!nav) return;
 
-  const closeOffcanvas = initOffcanvas(nav);
   const toggles = [...nav.querySelectorAll(TOGGLE_SELECTOR)];
   const links = [...nav.querySelectorAll(LINK_SELECTOR)];
   const entries = [];
@@ -252,7 +207,6 @@ export function initDocsNav() {
       manualToggle = null;
       activeLink = link;
       applyState(link);
-      closeOffcanvas();
     });
   }
 

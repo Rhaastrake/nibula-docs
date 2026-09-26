@@ -8,11 +8,11 @@ export function initBurgerMenu() {
             burgerBtn.classList.toggle('active');
         });
 
-        navLinks.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
+        navLinks.addEventListener('click', (e) => {
+            if (e.target.closest('a')) {
                 navLinks.classList.remove('open');
                 burgerBtn.classList.remove('active');
-            });
+            }
         });
     }
 }

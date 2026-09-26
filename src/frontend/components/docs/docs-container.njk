@@ -20,25 +20,9 @@
   </ul>
 {% endmacro %}
 <section id="docs-section" class="container">
-  <button
-    class="button edge-button docs-nav-tab d-lg-none"
-    type="button"
-    id="docsNavOpen"
-    aria-controls="docsNav"
-    aria-expanded="false"
-    aria-label="Open documentation navigation"
-  >
-    <i class="bi bi-chevron-right" aria-hidden="true"></i>
-  </button>
   <div class="row">
-    <nav class="col-12 col-lg-auto offcanvas-lg offcanvas-start docs-nav" tabindex="-1" id="docsNav" aria-labelledby="docsNavLabel">
-      <div class="offcanvas-header d-lg-none">
-        <h5 class="offcanvas-title" id="docsNavLabel">Docs navigation</h5>
-        <button class="button docs-nav-close" type="button" id="docsNavClose" aria-label="Close navigation menu">
-          <i class="bi bi-x-lg" aria-hidden="true"></i>
-        </button>
-      </div>
-      <div class="offcanvas-body">
+    <nav class="col-12 col-lg-auto docs-nav" id="docsNav" aria-label="Documentation index">
+      <div class="docs-index">
         {{ navItems(docsData, "") }}
       </div>
     </nav>
