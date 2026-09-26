@@ -153,8 +153,18 @@ header nav {
   }
 }
 
+.nav-search-slot {
+  display: none;
+}
+
 @media (max-width: 430px) {
-  header nav .site-search {
-    display: none;
+  header nav .nav-search-slot {
+    display: block;
+    width: 100%;
+    padding: 0 1.5rem;
+
+    .site-search {
+      width: 100%;
+    }
   }
 }

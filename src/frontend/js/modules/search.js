@@ -149,3 +149,20 @@ export function initSearch() {
     }
   });
 }
+
+export function initSearchPlacement() {
+  const search = document.querySelector(".site-search");
+  const slot = document.getElementById("nav-search-slot");
+  const home = document.querySelector(".brand-extras");
+  if (!search || !slot || !home) return;
+
+  const mq = window.matchMedia("(max-width: 430px)");
+
+  const place = () => {
+    if (mq.matches) slot.appendChild(search);
+    else home.appendChild(search);
+  };
+
+  place();
+  mq.addEventListener("change", place);
+}

@@ -39,6 +39,9 @@
     </button>
 
     <div class="links" id="nav-links">
+      {% if title == "docs" %}
+      <div class="nav-search-slot" id="nav-search-slot"></div>
+      {% endif %}
       <a href="{{ '/docs/v3/' | url }}" class="button link-button">Documentation</a>
       <a href="{{ '/team/' | url }}" class="button link-button">Team</a>
       <a href="{{ '/faq/' | url }}" class="button link-button">FAQ</a>
