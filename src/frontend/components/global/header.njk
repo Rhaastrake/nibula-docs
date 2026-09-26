@@ -39,13 +39,16 @@
     </button>
 
     <div class="links" id="nav-links">
-      {% if title == "docs" %}
-      <div class="nav-search-slot" id="nav-search-slot"></div>
-      {% endif %}
       <a href="{{ '/docs/v3/' | url }}" class="button link-button">Documentation</a>
       <a href="{{ '/team/' | url }}" class="button link-button">Team</a>
       <a href="{{ '/faq/' | url }}" class="button link-button">FAQ</a>
-      <a href="https://github.com/rhaastrake/nibula" target="_blank" rel="noopener noreferrer" class="button link-button" aria-label="GitHub repository"><i class="bi bi-github" style="font-size: 1.5rem"></i></a>
+
+      {% if title == "docs" %}
+        <div class="nav-slot nav-search-slot" id="nav-search-slot"></div>
+        <div class="nav-slot nav-index-slot" id="nav-index-slot"></div>
+      {% endif %}
+
+      <a href="https://github.com/rhaastrake/nibula" target="_blank" rel="noopener noreferrer" class="button link-button nav-social" aria-label="GitHub repository"><i class="bi bi-github" style="font-size: 1.5rem"></i></a>
     </div>
   </nav>
 </header>
