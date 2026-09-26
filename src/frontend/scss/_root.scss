@@ -15,7 +15,8 @@ $header-z-index: 1030;
 $nav-item-spacing: 0.75rem;
 $subnav-transition-duration: 0.3s ease;
 
-$top-offset: calc($header-height * 1.5); 
+$top-offset: calc($header-height * 1.5);
+$sticky-top: calc(#{$header-height} + #{$top-offset});
 
 $background: #11474b;
 $buttons-backgroud: #1e917a;

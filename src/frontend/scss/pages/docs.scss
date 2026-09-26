@@ -30,8 +30,8 @@
 
 .docs-aside {
   max-width: 20rem;
-
   position: sticky;
+  align-self: start;
   top: root.$top-offset;
   max-height: calc(100svh - #{root.$top-offset});
   overflow-y: auto;
@@ -124,6 +124,10 @@
 
 .docs-nav-row:has(.subnav-toggle[aria-expanded="true"]) + .docs-subnav-wrapper {
   grid-template-rows: 1fr;
+}
+
+section:has(.docs-nav) {
+  padding-top: calc(#{root.$top-offset} - #{root.$header-height});
 }
 
 .docs-subnav {
