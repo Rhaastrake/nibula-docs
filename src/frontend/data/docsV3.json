@@ -104,5 +104,9 @@
       "support-nibula": { "label": "Support Nibula" },
       "roadmap": { "label": "Roadmap" }
     }
+  },
+  "migration": {
+    "label": "Migration",
+    "file": "docs/v3/migration.md"
   }
 }
