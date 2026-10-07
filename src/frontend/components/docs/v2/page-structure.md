@@ -198,7 +198,7 @@ layout: straight-content.njk
 
 The assistant writes the three files and the `pages.json` record for you, keeping the names in sync. Run it from anywhere inside a project:
 
-``` {class="clickable button link-button"}
+``` {class="clickable button link-button copy"}
 nib cli
 ```
 
