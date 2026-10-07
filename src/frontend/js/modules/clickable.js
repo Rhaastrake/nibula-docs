@@ -80,5 +80,7 @@ function setup(host) {
 }
 
 export function initClickable(root = document) {
-  root.querySelectorAll(".markdown-body pre > code").forEach(setup);
+  root
+    .querySelectorAll('.markdown-body pre > code[class*="copy"]')
+    .forEach(setup);
 }

@@ -4,7 +4,7 @@
 
 Start from the project root by updating **Nibula** itself:
 
-``` {class="clickable button link-button"}
+``` {class="clickable button link-button copy"}
 npm update nibula
 ```
 
@@ -51,7 +51,7 @@ A **TypeScript** project uses `src/frontend/ts/pages/*.ts` instead.
 
 Then remove the dependency that only existed to expand that pattern:
 
-``` {class="clickable button link-button"}
+``` {class="clickable button link-button copy"}
 npm uninstall glob
 ```
 
@@ -72,7 +72,7 @@ The second one holds your route files, while `/api` stays the public URL prefix:
 
 **3.** Make sure `config.js` (or `config.php`) exists next to the example file. The backend used to fall back to `example.config.js` when it was missing, which ships a publicly known API key and allows every origin. Now it refuses to start:
 
-``` {class="clickable button link-button"}
+``` {class="clickable button link-button copy"}
 cd src/backend
 copy example.config.js config.js
 ```
@@ -83,7 +83,7 @@ copy example.config.js config.js
 
 ## Checking it worked {id="migration-check"}
 
-``` {class="clickable button link-button"}
+``` {class="clickable button link-button copy"}
 nib build
 ```
 
@@ -91,7 +91,7 @@ A clean build writes `out/css/global.css` next to the page stylesheets. Open a p
 
 With a backend, call an endpoint to see it answer:
 
-``` {class="clickable button link-button"}
+``` {class="clickable button link-button copy"}
 curl http://localhost:8080/api/example-public
 ```
 

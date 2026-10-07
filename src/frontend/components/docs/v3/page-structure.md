@@ -200,7 +200,7 @@ layout: straight-content.njk
 
 The assistant writes the three files and the `pages.json` record for you, keeping the names in sync. Run it from anywhere inside a project:
 
-``` {class="clickable button link-button"}
+``` {class="clickable button link-button copy"}
 nib cli
 ```
 
@@ -223,11 +223,11 @@ By default the build goes to `out/`. Change it when the folder you build into is
 
 Any absolute or relative path works:
 
-``` {class="clickable button link-button"}
+``` {class="clickable button link-button copy"}
 C:/laragon/www
 ```
 
-``` {class="clickable button link-button"}
+``` {class="clickable button link-button copy"}
 ../any-folder
 ```
 
