@@ -16,7 +16,7 @@ If you picked a backend when you created the project, you already have a small A
 
 If you're unsure, pick **PHP**: it runs everywhere. What each one needs on the server is in [Deploy](#deploy).
 
-> Picked **None**? You have no `backend` folder and the site is pure static. You can still call somebody else's API from JavaScript
+> Examples below are in **Node**, whose syntax is the shorter one to read. The logic is the same in PHP: same names, same folders, same order of things.
 
 ## Structure {id="backend-structure"}
 

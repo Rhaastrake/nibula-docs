@@ -2,7 +2,7 @@
 
 ## Node.js or PHP {id="node-or-php"}
 
-If you picked a backend when you created the project, you already have a small API working under `/api`. It's the same API written twice, once in **Node.js** and once in **PHP**: same folders, same way of writing an endpoint. Only the language changes.
+If you picked a backend when you created the project, you already have a small API working under `/api`. It's the same API written twice, once in **Node.js** and once in **PHP**: same folders, same routing, same way of writing an endpoint. Only the language changes.
 
 **PHP** runs once per request and then exits, so it works on any cheap hosting.
 
@@ -16,7 +16,7 @@ If you picked a backend when you created the project, you already have a small A
 
 If you're unsure, pick **PHP**: it runs everywhere. What each one needs on the server is in [Deploy](#deploy).
 
-> Picked **None**? You have no `backend` folder and the site is pure static. You can still call somebody else's API from JavaScript
+> Examples below are in **Node**, whose syntax is the shorter one to read. The logic is the same in PHP: same names, same folders, same order of things.
 
 ## Structure {id="backend-structure"}
 
@@ -113,28 +113,6 @@ module.exports = {
 };
 ```
 
-In PHP you return the same thing as an array of functions:
-
-```php
-<?php
-require_once CORE_PATH . '/modules/Response.php';
-require_once CORE_PATH . '/modules/Validate.php';
-
-return [
-    'get' => function (array $request) {
-        Response::success(['message' => 'It works', 'query' => $request['query']]);
-    },
-
-    'post' => function (array $request) {
-        $body  = $request['body'];
-        $name  = Validate::required($body['name'] ?? null, 'name');
-        $email = Validate::email($body['email'] ?? null, 'email');
-
-        Response::success(['name' => $name, 'email' => $email], 201);
-    },
-];
-```
-
 The request arrives already unpacked:
 
 | Name | What it holds |
@@ -171,13 +149,6 @@ const Database = require('../../database/Database');
 
 const db = Database.getInstance();
 const [rows] = await db.execute('SELECT * FROM users WHERE id = ?', [id]);
-```
-
-```php
-$db = Database::getInstance();
-$stmt = $db->prepare('SELECT * FROM users WHERE id = ?');
-$stmt->execute([$id]);
-$rows = $stmt->fetchAll();
 ```
 
 Note the `?` with the value passed separately. That's what keeps somebody from typing SQL into your form and having it run. Never build a query by gluing strings together.
