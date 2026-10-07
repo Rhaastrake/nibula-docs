@@ -38,14 +38,15 @@ jobs:
           touch target/docs/.nojekyll
 
       - name: Commit and push
-        working-directory: target
         env:
           SOURCE_SHA: ${{ github.sha }}
           SOURCE_REPO: ${{ github.repository }}
-          SOURCE_MESSAGE: ${{ github.event.head_commit.message }}
           ACTOR: ${{ github.actor }}
           ACTOR_ID: ${{ github.actor_id }}
         run: |
+          SOURCE_TITLE="$(git log -1 --pretty=%s)"
+
+          cd target
           git config user.name "${ACTOR}"
           git config user.email "${ACTOR_ID}+${ACTOR}@users.noreply.github.com"
           git add docs
@@ -55,5 +56,5 @@ jobs:
             exit 0
           fi
 
-          git commit -m "docs: new docs-site build from ${SOURCE_REPO}@${SOURCE_SHA::7}"
+          git commit -m "docs: new site build from ${SOURCE_REPO}@${SOURCE_SHA::7} (${SOURCE_TITLE})"
           git push
