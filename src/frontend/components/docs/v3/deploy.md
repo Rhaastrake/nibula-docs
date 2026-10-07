@@ -70,14 +70,14 @@ Upload the contents of `out` to `/var/www/SITE_FOLDER`, then work through the st
 
 ### Install what's missing {id="nginx-install"}
 
-```
+``` {class="clickable button link-button"}
 sudo apt update
 sudo apt install -y nginx certbot python3-certbot-nginx
 ```
 
 With the PHP backend, also:
 
-```
+``` {class="clickable button link-button"}
 sudo apt install -y php-fpm
 ```
 
@@ -85,11 +85,11 @@ sudo apt install -y php-fpm
 
 This is what makes your site load over `https://`. Certificates are free and last 90 days; the second command renews them automatically.
 
-```
+``` {class="clickable button link-button"}
 sudo certbot certonly --nginx --cert-name SITE_NAME -d YOUR_DOMAIN
 ```
 
-```
+``` {class="clickable button link-button"}
 sudo systemctl enable --now certbot.timer
 ```
 
@@ -97,14 +97,14 @@ sudo systemctl enable --now certbot.timer
 
 Go to the folder where Nginx keeps site files, create the file, and paste in the contents of your edited `nginx.conf`:
 
-```
+``` {class="clickable button link-button"}
 cd /etc/nginx/sites-available
 sudo nano SITE_NAME
 ```
 
 Save with `CTRL + O`, `ENTER`, `CTRL + X`. Then switch the site on and apply it:
 
-```
+``` {class="clickable button link-button"}
 sudo cp SITE_NAME ../sites-enabled/
 sudo nginx -t && sudo systemctl reload nginx
 ```
@@ -128,7 +128,7 @@ sudo nginx -t && sudo systemctl reload nginx
 
 Only for the Node backend. After uploading `out`, install its dependencies:
 
-```
+``` {class="clickable button link-button"}
 cd /var/www/SITE_FOLDER/backend
 npm install
 ```
@@ -137,22 +137,22 @@ Make sure `config.js` exists in `out/backend/`. If it doesn't, copy `example.con
 
 **Try it out first.** `screen` lets you start a program, walk away, and come back to it later:
 
-```
+``` {class="clickable button link-button"}
 screen -S node-backend
 sudo node /var/www/SITE_FOLDER/backend/core/index.js
 ```
 
-```
+``` {class="clickable button link-button"}
 curl http://127.0.0.1:3000/api/example-public
 ```
 
-If `curl` prints a JSON response, the backend is alive. Press `CTRL + A` then `D` to leave the screen without stopping the program; `screen -r node-backend` brings you back.
+If `curl` prints a **JSON** response, the backend is alive. Press `CTRL + A` then `D` to leave the screen without stopping the program; `screen -r node-backend` brings you back.
 
 **Then set it up for real.** `screen` is for testing: the program dies if the server reboots. For a live site use **systemd**, the part of Linux that manages background programs. It starts your backend at boot and restarts it if it crashes.
 
 Create `/etc/systemd/system/backend-node.service`:
 
-```ini
+```ini {class="clickable button link-button"}
 [Unit]
 Description=Nibula Node backend
 After=network.target
@@ -171,7 +171,7 @@ WantedBy=multi-user.target
 
 Adjust `WorkingDirectory`, and check the path to `node` with `which node`. Then:
 
-```
+``` {class="clickable button link-button"}
 sudo systemctl daemon-reload
 sudo systemctl enable --now backend-node
 sudo systemctl status backend-node

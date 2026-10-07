@@ -16,7 +16,7 @@
 
 Install Nibula once, globally:
 
-``` {class="button link-button copy"}
+``` {class="clickable button link-button"}
 npm install -g nibula
 ```
 
@@ -43,7 +43,7 @@ See [Nibula CLI](#nibula-cli) for what the assistant can do.
 
 From the folder where you keep your websites, run:
 
-``` {class="button link-button copy"}
+``` {class="clickable button link-button"}
 nib new your-project
 ```
 
@@ -66,11 +66,11 @@ skipped entirely, so you don't need Composer on your machine at all.
 
 Then move into the project and start the dev server:
 
-``` {class="button link-button copy"}
+``` {class="clickable button link-button"}
 cd your-project
 ```
 
-``` {class="button link-button copy"}
+``` {class="clickable button link-button"}
 nib run
 ```
 
