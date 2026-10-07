@@ -3,12 +3,14 @@ import '../global.js';
 import { initDocsNav } from "../modules/docsNav.js";
 import { initDocsVersion } from "../modules/docsVersion.js";
 import { initSearch } from "../modules/search.js";
+import { initClickable } from "../modules/clickable.js";
 import { moveOnBreakpoint } from "../modules/responsiveMove.js";
 
 document.addEventListener("DOMContentLoaded", () => {
     initDocsNav();
     initDocsVersion();
     initSearch();
+    initClickable();
 
     moveOnBreakpoint(
         document.querySelector(".site-search"),
