@@ -5,31 +5,31 @@
         <img src="{{ site.logo }}" alt="{{ site.siteName }}"/>
       </a>
 
-      {% if title == "docs" %}
-        <div class="brand-extras">
+      <div class="brand-extras">
+        {% if title == "docs" %}
           <select id="docsVersionSelect" class="form-select docs-version-select" aria-label="Documentation version">
             {% for v in versions %}
               <option value="{{ v.url | url }}" {% if v.id == version %}selected{% endif %}>{{ v.id }}</option>
             {% endfor %}
           </select>
+        {% endif %}
 
-          <div
-            class="site-search"
-            data-index="{{ '/search.json' | url }}"
-            data-base="{{ '/' | url }}"
-            data-version="{{ version }}"
+        <div
+          class="site-search"
+          data-index="{{ '/search.json' | url }}"
+          data-base="{{ '/' | url }}"
+          data-version="{{ version or (docsVersions | last).id }}"
+        >
+          <input
+            type="search"
+            class="form-control site-search-input"
+            placeholder="Search docs..."
+            aria-label="Search"
+            autocomplete="off"
           >
-            <input
-              type="search"
-              class="form-control site-search-input"
-              placeholder="Search..."
-              aria-label="Search"
-              autocomplete="off"
-            >
-            <ul class="site-search-results" role="listbox" hidden></ul>
-          </div>
+          <ul class="site-search-results" role="listbox" hidden></ul>
         </div>
-      {% endif %}
+      </div>
     </div>
 
     <button class="burger-menu" id="burger-btn" aria-label="Open menu">
@@ -43,8 +43,8 @@
       <a href="{{ '/team/' | url }}" class="button link-button">Team</a>
       <a href="{{ '/faq/' | url }}" class="button link-button">FAQ</a>
 
+      <div class="nav-slot nav-search-slot" id="nav-search-slot"></div>
       {% if title == "docs" %}
-        <div class="nav-slot nav-search-slot" id="nav-search-slot"></div>
         <div class="nav-slot nav-index-slot" id="nav-index-slot"></div>
       {% endif %}
 
