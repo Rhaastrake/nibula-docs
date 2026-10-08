@@ -57,8 +57,6 @@ npm uninstall glob
 
 ## Backend {id="migration-backend"}
 
-Skip this section if you picked **None**.
-
 **1.** Rename the two folders:
 
 | Old | New |
@@ -70,14 +68,7 @@ The second one holds your route files, while `/api` stays the public URL prefix:
 
 **2.** Update the path in the server files you edited yourself. The bundled `nginx.conf`, `.htaccess` and `web.config` already point at `backend/core`, but any rule you added by hand still names `_core`.
 
-**3.** Make sure `config.js` (or `config.php`) exists next to the example file. The backend used to fall back to `example.config.js` when it was missing, which ships a publicly known API key and allows every origin. Now it refuses to start:
-
-``` {class="clickable button link-button copy"}
-cd src/backend
-copy example.config.js config.js
-```
-
-**4.** A request to a protected endpoint without its key now answers **401** instead of **403**. If something on your side handles that answer, update it.
+**3.** A request to a protected endpoint without its key now answers **401** instead of **403**. If something on your side handles that answer, update it.
 
 > While `APP_ENV` is not `production`, every response carries a `Debug-Mode` header. A quick way to tell whether a live site was left in debug mode
 

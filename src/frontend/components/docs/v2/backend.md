@@ -22,7 +22,7 @@ If you're unsure, pick **PHP**: it runs everywhere. What each one needs on the s
 
 Everything lives in `src/backend`:
 
-```
+``` njk
 src/backend/
 ├── _core/           the engine, you don't touch this
 ├── api/
@@ -41,11 +41,6 @@ You work in **api**. A file's path is its URL: `api/public/contact.js` answers a
 ### The config file {id="backend-config"}
 
 `example.config.js` (or `.php`) is a template with no real values in it. Copy it to `config.js` and fill that one in:
-
-```
-cd src/backend
-copy example.config.js config.js
-```
 
 `config.js` is ignored by git, so your passwords stay on your machine and never end up online. The example file stays where it is, as the list of what a new copy needs.
 
@@ -167,26 +162,6 @@ Note the `?` with the value passed separately. That's what keeps somebody from t
 In `database/migrations` you keep the `.sql` files that create your tables: you run them on the server once, and they stay as the written history of your database.
 
 > With **Node** the database needs one extra package, see below. With **PHP** it works out of the box
-
-## Additional packages {id="additional-packages"}
-
-The backend has its own dependencies, separate from the site's.
-
-**Node** reads `src/backend/package.json`:
-
-```
-cd src/backend
-npm install mysql2
-```
-
-**PHP** uses Composer, from `src/backend/_core`:
-
-```
-cd src/backend/_core
-composer require vlucas/phpdotenv
-```
-
-Both are copied into `out` at build time, dependencies included.
 
 ## Node service {id="node-service"}
 
