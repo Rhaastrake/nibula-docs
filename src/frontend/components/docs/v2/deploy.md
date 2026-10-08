@@ -152,7 +152,7 @@ If `curl` prints a **JSON** response, the backend is alive. Press `CTRL + A` the
 
 Create `/etc/systemd/system/backend-node.service`:
 
-```ini {class="clickable button link-button copy"}
+```ini
 [Unit]
 Description=Nibula Node backend
 After=network.target

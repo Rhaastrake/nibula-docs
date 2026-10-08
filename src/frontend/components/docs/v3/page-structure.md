@@ -209,29 +209,9 @@ nib cli
 | **Create page** | Writes the three files and the record, asking which [layout](#layouts) to use if you have more than one |
 | **Remove page** | Deletes them all, after asking for confirmation |
 | **Rename page** | Renames the files, updates the front matter, and moves the record |
-| **Configure output path** | Changes where the site is built, across every file that references it |
 
 > **homepage** `(index.njk)` and **404** are protected — the assistant won't touch them
 
 Renaming leaves the contents of the record alone: your SEO title, description and CDN links stay as you wrote them, and so do the components you included.
 
 A new page arrives empty apart from its settings and two commented examples — one for a [component](#include-a-component), one for a [markdown file](#what-is-markdown).
-
-### Where the site is built {id="cli-output-path"}
-
-By default the build goes to `out/`. Change it when the folder you build into isn't the folder you work in — a local server's document root, a shared drive, a path your host expects. The dev server follows, rebuilding there as you save, with nothing to copy by hand.
-
-Any absolute or relative path works:
-
-``` {class="clickable button link-button copy"}
-C:/laragon/www
-```
-
-``` {class="clickable button link-button copy"}
-../any-folder
-```
-
-If you want to reset the output path to the project root, just type `.` as path
-
-> If you don't have a reason to change it, leave `out/` — it's already ignored by
-> git and cleaned by **nib clean**
