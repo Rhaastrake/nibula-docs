@@ -4,12 +4,36 @@ permalink: "/"
 layout: base.njk
 ---
 
+{% set features = [
+    { title: "Centralized SEO", text: "Meta tags, sitemap and Open Graph from a single config file." },
+    { title: "Deploy ready", text: "Production build and CI workflow out of the box." },
+    { title: "API included", text: "Built-in data layer to fetch and render remote content." }
+] %}
+
 <section id="hero">
-    <div class="title">
-        <h1>Welcome to Nibula</h1>
-        <p>The boilerplate you need, simplified</p>
-        <div class="hero-buttons">
-            <a href="{{ '/docs/v3/' | url }}" class="button generic-button">Get started</a>
+    <div class="row">
+        <div class="col-12 col-lg-6">
+            <div class="title">
+                <h1>Welcome to Nibula</h1>
+                <p>The boilerplate you need, simplified</p>
+                <article class="markdown-body">
+                    {% renderFile "installation-command.md" | componentsPath, "njk,md" %}
+                </article>
+                <br>
+                <div class="hero-buttons">
+                    <a href="{{ '/docs/v3/#quick-start' | url }}" class="button generic-button">Quick start</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-lg-6">
+            <div class="feature-cards">
+                {% for feature in features %}
+                <div class="card">
+                    <h3>{{ feature.title }}</h3>
+                    <p>{{ feature.text }}</p>
+                </div>
+                {% endfor %}
+            </div>
         </div>
     </div>
 </section>

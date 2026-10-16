@@ -1,0 +1,52 @@
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+  background: #1b1f27;
+  border-radius: 6px;
+  overflow: hidden;
+  font-family: system-ui, sans-serif;
+}
+
+.tabs input { display: none; }
+
+.tabs label {
+  padding: .7em 1em;
+  font-size: .85rem;
+  color: #9198a1;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+}
+
+.tabs label:hover { color: #f0f6fc; }
+
+.tabs .panel {
+  display: none;
+  width: 100%;
+  order: 1;              /* spinge i pannelli sotto le label */
+  border-top: 1px solid #3d444d;
+}
+
+.tabs pre {
+  margin: 0;
+  padding: 1rem;
+  color: #f0f6fc;
+  font-size: .85rem;
+  overflow-x: auto;
+}
+
+/* tab attivo */
+.tabs input:nth-of-type(1):checked ~ label:nth-of-type(1),
+.tabs input:nth-of-type(2):checked ~ label:nth-of-type(2),
+.tabs input:nth-of-type(3):checked ~ label:nth-of-type(3),
+.tabs input:nth-of-type(4):checked ~ label:nth-of-type(4) {
+  color: #f0f6fc;
+  border-bottom-color: #22c97d;
+}
+
+/* pannello attivo */
+.tabs input:nth-of-type(1):checked ~ .panel:nth-of-type(1),
+.tabs input:nth-of-type(2):checked ~ .panel:nth-of-type(2),
+.tabs input:nth-of-type(3):checked ~ .panel:nth-of-type(3),
+.tabs input:nth-of-type(4):checked ~ .panel:nth-of-type(4) {
+  display: block;
+}

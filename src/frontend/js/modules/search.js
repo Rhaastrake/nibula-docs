@@ -143,9 +143,13 @@ export function initSearch() {
   });
 
   document.addEventListener("keydown", (e) => {
-    if (e.key === "/" && !["INPUT", "TEXTAREA", "SELECT"].includes(document.activeElement.tagName)) {
+    const isShortcut = (e.ctrlKey || e.metaKey) && e.key.toLowerCase() === "k";
+    const isSlash = e.key === "/" && !["INPUT", "TEXTAREA", "SELECT"].includes(document.activeElement.tagName);
+
+    if (isShortcut || isSlash) {
       e.preventDefault();
       input.focus();
+      input.select();
     }
   });
 }
