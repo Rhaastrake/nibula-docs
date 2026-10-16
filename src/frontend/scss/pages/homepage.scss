@@ -1,34 +1,74 @@
-//==========================
-// CSS MODULES IMPORTS
-//==========================
-
-// Use @use with a namespace to avoid framework variable conflicts:
-// Example: root.$primary
 @use "../root" as root;
 
-// This global module contains the import framework, necessary modules for each page and any other common styles
 @import "../global";
-
-// Import any other module you need by import down here
-// @import "../modules/moduleName";
-
-//==========================
-// PAGE CUSTOM CSS RULES
-//==========================
-
-// Add any custom rule specific to this page below
-// These rules override the framework and module styles
+@import "../modules/markdown";
+@import "../modules/clickable";
+@import "../modules/cards";
 
 #hero {
-  height: 50vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+  overflow-x: hidden;
+
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    row-gap: 32px;
+  }
+
+  .row > * {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    min-width: 0;
+  }
+
+  .title {
+    align-self: center;
+    max-width: 100%;
+
+    .markdown-body {
+      overflow-x: auto;
+
+      pre {
+        max-width: 100%;
+        overflow-x: auto;
+        white-space: pre;
+      }
+    }
+  }
+
+  .feature-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+    min-width: 0;
+
+    .card {
+      width: 100%;
+      max-width: 100%;
+      text-align: left;
+      padding: 16px 20px;
+      box-sizing: border-box;
+      overflow-wrap: anywhere;
+
+      h3 {
+        margin: 0 0 4px;
+        font-size: 1rem;
+      }
+
+      p {
+        margin: 0;
+        font-size: 0.9rem;
+        opacity: 0.8;
+      }
+    }
+  }
 
   .hero-buttons {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     gap: 15px;
@@ -36,6 +76,18 @@
 
   h1 {
     color: root.$link-button;
+  }
+
+  @media (min-width: 992px) {
+    .feature-cards {
+      padding-right: 24px;
+    }
+  }
+
+  @media (max-width: 991px) {
+    .feature-cards .card {
+      text-align: center;
+    }
   }
 }
 
