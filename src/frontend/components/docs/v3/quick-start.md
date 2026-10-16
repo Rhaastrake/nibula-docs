@@ -16,9 +16,7 @@
 
 Install Nibula once, globally:
 
-``` {class="clickable button link-button copy"}
-npm install -g nibula
-```
+{% renderFile "installation-command.md" | componentsPath, "njk,md" %}
 
 This gives you the **nib** command, with **nbl** and **nibula** as aliases.
 
