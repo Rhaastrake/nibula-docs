@@ -1,0 +1,51 @@
+<div class="card team-card">
+  <div class="team-card__aside">
+    <img class="team-card__avatar"
+         src="{{ member.imageUrl }}"
+         alt="{{ member.fullName }}"
+         width="128" height="128" loading="lazy" />
+
+    <div class="team-card__socials">
+      {% if member.githubUrl %}
+        <a class="button link-button" href="{{ member.githubUrl }}"
+           target="_blank" rel="noopener noreferrer"
+           aria-label="{{ member.fullName }} su GitHub">
+          <i class="bi bi-github" aria-hidden="true"></i>
+        </a>
+      {% endif %}
+      {% if member.linkedInUrl %}
+        <a class="button link-button" href="{{ member.linkedInUrl }}"
+           target="_blank" rel="noopener noreferrer"
+           aria-label="{{ member.fullName }} su LinkedIn">
+          <i class="bi bi-linkedin" aria-hidden="true"></i>
+        </a>
+      {% endif %}
+    </div>
+  </div>
+
+  <div class="team-card__body">
+    <h3 class="team-card__name">{{ member.fullName }}</h3>
+    <p class="team-card__role">{{ member.role }}</p>
+
+    {% if member.contribution %}
+      <p class="team-card__contribution">{{ member.contribution }}</p>
+    {% endif %}
+
+    {% if member.languages %}
+      <p class="team-card__languages">{{ member.languages }}</p>
+    {% endif %}
+
+    <div class="team-card__links">
+      {% if member.discordNickname %}
+        <span class="team-card__discord">
+          <i class="bi bi-discord" aria-hidden="true"></i>
+          {{ member.discordNickname }}
+        </span>
+      {% endif %}
+      {% if member.websiteUrl %}
+        <a class="button link-button-active" href="{{ member.websiteUrl }}"
+           target="_blank" rel="noopener noreferrer">Sito</a>
+      {% endif %}
+    </div>
+  </div>
+</div>

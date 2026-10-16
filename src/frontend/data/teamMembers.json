@@ -3,22 +3,22 @@
         "imageUrl": "../assets/images/elio.jpg",
         "fullName": "Full name",
         "role": "Creator of Nibula",
-        "region": "Region",
+        "contribution": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nobis quam consectetur reiciendis a facilis ut consequatur maiores dolore nisi? Ut!",
         "languages": "Italian, English",
         "discordNickname": "Rhaastrake",
         "websiteUrl": "example.com",
-        "githubUrl": "github.com/rhaastrake",
-        "linkedInUrl": "linkedin.com"
+        "githubUrl": "https://github.com/rhaastrake",
+        "linkedInUrl": "https://linkedin.com"
     },
     {
         "imageUrl": "../assets/images/elio1.jpg",
         "fullName": "FullName test",
         "role": "Nibula tester",
-        "region": "Region",
+        "contribution": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nobis quam consectetur reiciendis a facilis ut consequatur maiores dolore nisi? Ut!",
         "languages": "Italian, English",
         "discordNickname": "discord nickname",
         "websiteUrl": "example.com",
-        "githubUrl": "github.com/rhaastrake",
-        "linkedInUrl": "linkedin.com"
+        "githubUrl": "https://github.com/rhaastrake",
+        "linkedInUrl": "https://linkedin.com"
     }
 ]
