@@ -14,9 +14,9 @@
   },
   "homepage": {
     "seo": {
-      "title": "Nibula · A gentler way into static site generators",
+      "title": "Nibula · Static site scaffolder built on Eleventy",
       "description": "Scaffold a complete Eleventy project — structure, SEO, server configs and an optional backend — while staying close to plain HTML, CSS and JavaScript.",
-      "keywords": "nibula, eleventy scaffolding, static site generator, cli scaffolding tool, project generator, 11ty starter",
+      "keywords": "nibula, eleventy scaffolding, eleventy starter, static site boilerplate, cli scaffolding tool, 11ty starter",
       "noindex": false,
       "canonical": ""
     },
@@ -41,9 +41,9 @@
   "faq": {
     "seo": {
       "title": "FAQ · Nibula",
-      "description": "Answers to common questions about Nibula: supported Node versions, how it compares to other generators, backend options and troubleshooting.",
+      "description": "Answers to common questions about Nibula: supported Node versions, how it compares to other Eleventy starters, backend options and troubleshooting.",
       "keywords": "nibula faq, nibula troubleshooting, nibula requirements, nibula vs eleventy starter",
-      "noindex": false,
+      "noindex": true,
       "canonical": ""
     },
     "cdn": {
@@ -56,7 +56,7 @@
       "title": "About the project · Nibula",
       "description": "Who maintains Nibula, and how to contribute, report a bug or suggest a feature.",
       "keywords": "nibula team, nibula contributors, contribute to nibula, open source maintainers",
-      "noindex": false,
+      "noindex": true,
       "canonical": ""
     },
     "cdn": {
