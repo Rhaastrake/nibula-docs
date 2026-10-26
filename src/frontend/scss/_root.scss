@@ -17,6 +17,8 @@ $subnav-transition-duration: 0.3s ease;
 
 $top-offset: calc($header-height * 1.5);
 $sticky-top: calc(#{$header-height} + #{$top-offset});
+$section-spacing: calc($header-height * 0.5);
+$docs-section-offset: calc(#{$top-offset} - #{$header-height});
 
 $background: #11474b;
 $buttons-backgroud: #1e917a;

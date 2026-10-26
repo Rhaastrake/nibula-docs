@@ -4,6 +4,11 @@
 @import "../modules/cards";
 @import "../modules/clickable";
 
+section {
+  padding-top: root.$top-offset;
+  margin-bottom: root.$header-height;
+}
+
 .docs-nav {
   @media (min-width: 992px) {
     position: sticky;
@@ -83,7 +88,7 @@
 }
 
 #docs-section {
-  padding-top: calc(#{root.$top-offset} - #{root.$header-height});
+  padding-top: root.$docs-section-offset;
 }
 
 .docs-content {
