@@ -55,6 +55,6 @@ a {
 }
 
 section {
-  padding-top: root.$top-offset;
-  margin-bottom: root.$header-height;
+  padding-top: root.$section-spacing;
+  margin-bottom: root.$section-spacing;
 }

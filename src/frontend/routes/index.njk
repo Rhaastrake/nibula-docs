@@ -5,9 +5,18 @@ layout: base.njk
 ---
 
 {% set features = [
-    { title: "Centralized SEO", text: "Set your SEO once per page in a data file. Every tag, the sitemap and llms.txt rebuild themselves at every build" },
+    { title: "Centralized SEO", text: "Set your SEO once per page in a data file. Every tag, the sitemap and llms.txt regenerate on every build" },
     { title: "Deploy ready", text: "The build folder is ready to upload as it is. The config your host expects is already inside, for Apache, IIS or nginx" },
-    { title: "Backend included", text: "Need a contact form or an API? There’s a small backend ready to use, in Node or PHP" }
+    { title: "Backend included", text: "Need a contact form or an API? There's a small backend ready to use, in Node or PHP" }
+] %}
+
+{% set goodFor = [
+    { title: "Portfolios and showcase sites", text: "A handful of pages, stable content, built to be found" },
+    { title: "Small business sites", text: "Cheap shared hosting and a contact form — exactly what the PHP backend covers" },
+    { title: "Landing pages", text: "One page, fast, with the meta tags already in place" },
+    { title: "Project documentation", text: "Like the page you are reading" },
+    { title: "The project you build to learn", text: "The one after the tutorials, when you want something real without picking up React first" },
+    { title: "A small blog", text: "Up to a point: pages are created one at a time, fine for twenty posts and wrong for two hundred" }
 ] %}
 
 <section id="hero">
@@ -21,19 +30,51 @@ layout: base.njk
                 </article>
                 <br>
                 <div class="hero-buttons">
-                    <a href="{{ '/docs/v3/#quick-start' | url }}" class="button generic-button">Quick start</a>
+                    <a href="{{ '/docs/#quick-start' | url }}" class="button generic-button">Quick start</a>
                 </div>
             </div>
         </div>
         <div class="col-12 col-lg-6">
-            <div class="feature-cards">
-                {% for feature in features %}
-                <div class="card">
-                    <h3>{{ feature.title }}</h3>
-                    <p>{{ feature.text }}</p>
+            <div class="structure">
+                <p class="structure-caption">A structure you can hold in your head</p>
+                <pre class="structure-tree"><span class="root">src/frontend/</span>
+├── routes/      <span class="note">your pages</span>
+├── components/  <span class="note">reusable pieces</span>
+├── layouts/     <span class="note">the page shell</span>
+├── data/        <span class="note">site + SEO</span>
+├── scss/        <span class="note">styles</span>
+├── js/          <span class="note">scripts</span>
+├── indexing/    <span class="note">sitemap + robots</span>
+└── hosting/     <span class="note">server config</span></pre>
+                <div class="structure-notes">
+                    <p><strong>Nothing is hidden.</strong> Every file lives in the folder you would expect, in the form you would have written by hand</p>
+                    <p><strong>No config layer.</strong> When you need to change something, you open it and change it</p>
                 </div>
-                {% endfor %}
+                <a href="{{ '/docs/v3/#page-structure' | url }}" class="structure-link">Page structure in the docs →</a>
             </div>
         </div>
     </div>
+</section>
+
+<section id="features">
+    <div class="feature-cards">
+        {% for feature in features %}
+        <div class="card">
+            <h3>{{ feature.title }}</h3>
+            <p>{{ feature.text }}</p>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+<section id="good-fit">
+    <h2>A good fit for</h2>
+    <ul class="fit-list">
+        {% for item in goodFor %}
+        <li>
+            <strong>{{ item.title }}</strong>
+            <span>{{ item.text }}</span>
+        </li>
+        {% endfor %}
+    </ul>
 </section>

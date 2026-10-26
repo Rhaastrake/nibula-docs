@@ -5,6 +5,8 @@
 @import "../modules/clickable";
 @import "../modules/cards";
 
+$page-gutter: clamp(1rem, 4vw, 4rem);
+
 #hero {
   overflow-x: hidden;
 
@@ -13,6 +15,7 @@
     flex-wrap: wrap;
     align-items: center;
     row-gap: 32px;
+    padding-inline: $page-gutter;
   }
 
   .row > * {
@@ -38,32 +41,61 @@
     }
   }
 
-  .feature-cards {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
+  .structure {
     width: 100%;
     min-width: 0;
+    text-align: left;
+  }
 
-    .card {
-      width: 100%;
-      max-width: 100%;
-      text-align: left;
-      padding: 16px 20px;
-      box-sizing: border-box;
-      overflow-wrap: anywhere;
+  .structure-caption {
+    margin-bottom: 0.75rem;
+    font-size: 0.95rem;
+    color: root.$docs-h3;
+  }
 
-      h3 {
-        margin: 0 0 4px;
-        font-size: 1rem;
-      }
+  .structure-tree {
+    margin: 0 0 1.25rem;
+    padding: 1.1rem 1.25rem;
+    border: 1px solid color-mix(in srgb, currentColor 12%, transparent);
+    border-radius: 12px;
+    background: color-mix(in srgb, #000 14%, transparent);
+    font-size: 0.78rem;
+    line-height: 1.85;
+    white-space: pre;
+    overflow-x: auto;
 
-      p {
-        margin: 0;
-        font-size: 0.9rem;
-        opacity: 0.8;
-      }
+    .root {
+      color: root.$link-button;
     }
+
+    .note {
+      opacity: 0.55;
+    }
+  }
+
+  .structure-notes {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    margin-bottom: 0.9rem;
+
+    p {
+      margin: 0;
+      font-size: 0.85rem;
+      line-height: 1.6;
+      opacity: 0.75;
+    }
+
+    strong {
+      opacity: 1;
+      color: root.$docs-h3;
+    }
+  }
+
+  .structure-link {
+    font-size: 0.85rem;
+    color: root.$docs-reference;
+    text-decoration: none;
   }
 
   .hero-buttons {
@@ -78,15 +110,101 @@
     color: root.$link-button;
   }
 
-  @media (min-width: 992px) {
-    .feature-cards {
-      padding-right: 24px;
+  @media (max-width: 991px) {
+    .structure {
+      text-align: center;
+    }
+
+    .structure-tree {
+      text-align: left;
+    }
+  }
+}
+
+#features {
+  .feature-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+    padding-inline: $page-gutter;
+
+    .card {
+      margin-bottom: 0;
+      min-width: 0;
+      overflow-wrap: anywhere;
+
+      h3 {
+        margin: 0 0 6px;
+        font-size: 1rem;
+        color: root.$docs-h3;
+      }
+
+      p {
+        margin: 0;
+        font-size: 0.9rem;
+        line-height: 1.55;
+        opacity: 0.8;
+      }
     }
   }
 
   @media (max-width: 991px) {
-    .feature-cards .card {
-      text-align: center;
+    .feature-cards {
+      grid-template-columns: 1fr;
+    }
+  }
+}
+
+#good-fit {
+  padding-inline: $page-gutter;
+
+  h2 {
+    text-align: center;
+    margin-bottom: 2.5rem;
+    color: root.$docs-h2;
+  }
+
+  .fit-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.75rem 3rem;
+    list-style: none;
+
+    li {
+      position: relative;
+      padding-left: 1.5rem;
+      min-width: 0;
+    }
+
+    li::before {
+      content: "";
+      position: absolute;
+      top: 0.55em;
+      left: 0;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: root.$link-button;
+    }
+
+    strong {
+      display: block;
+      margin-bottom: 0.25rem;
+      font-size: 0.975rem;
+    }
+
+    span {
+      display: block;
+      font-size: 0.9rem;
+      line-height: 1.55;
+      opacity: 0.75;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .fit-list {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
     }
   }
 }
