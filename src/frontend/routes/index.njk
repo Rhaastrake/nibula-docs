@@ -5,17 +5,17 @@ layout: base.njk
 ---
 
 {% set features = [
-    { title: "Centralized SEO", text: "Meta tags, sitemap and Open Graph from a single config file." },
-    { title: "Deploy ready", text: "Production build and CI workflow out of the box." },
-    { title: "API included", text: "Built-in data layer to fetch and render remote content." }
+    { title: "Centralized SEO", text: "Set your SEO once per page in a data file. Every tag, the sitemap and llms.txt rebuild themselves at every build" },
+    { title: "Deploy ready", text: "The build folder is ready to upload as it is. The config your host expects is already inside, for Apache, IIS or nginx" },
+    { title: "Backend included", text: "Need a contact form or an API? There’s a small backend ready to use, in Node or PHP" }
 ] %}
 
 <section id="hero">
     <div class="row">
         <div class="col-12 col-lg-6">
             <div class="title">
-                <h1>Welcome to Nibula</h1>
-                <p>The boilerplate you need, simplified</p>
+                <h1>Nibula</h1>
+                <p>A static site scaffolder, simplified for beginners</p>
                 <article class="markdown-body">
                     {% renderFile "installation-command.md" | componentsPath, "njk,md" %}
                 </article>
