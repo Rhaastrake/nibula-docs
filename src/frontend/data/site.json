@@ -1,8 +1,8 @@
 {
   "siteName": "Nibula",
-  "title": "Nibula · Static site generator built on Eleventy",
-  "description": "Nibula is an open-source static site generator built on Eleventy, made for people moving from hand-written HTML to a real project setup.",
-  "keywords": "nibula, eleventy, 11ty, static site generator, cli scaffolding, project generator, boilerplate",
+  "title": "Nibula · Static site scaffolder built on Eleventy",
+  "description": "Nibula is an open-source static site scaffolder built on Eleventy, made for people moving from hand-written HTML to a real project setup.",
+  "keywords": "nibula, eleventy, 11ty, static site scaffolder, eleventy starter, eleventy template, cli scaffolding, project generator, boilerplate",
   "domain": "nibula.dev",
   "url": "https://nibula.dev",
   "lang": "en",
