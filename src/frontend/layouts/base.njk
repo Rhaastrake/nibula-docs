@@ -52,20 +52,20 @@
         {
             "@context": "https://schema.org",
             "@type": "WebPage",
-            "name": {{ (pageData.seo.title or title or site.title) | dump }},
-            "description": {{ (pageData.seo.description or site.description) | dump }},
-            "url": {{ (site.url + page.url) | dump }},
+            "name": {{ (pageData.seo.title or title or site.title) | dump | safe }},
+            "description": {{ (pageData.seo.description or site.description) | dump | safe }},
+            "url": {{ (site.url + page.url) | dump | safe }},
             "author": {
                 "@type": "Person",
-                "name": {{ site.author.fullName | dump }},
-                "url": {{ site.author.website | dump }}
+                "name": {{ site.author.fullName | dump | safe }},
+                "url": {{ site.author.website | dump | safe }}
             },
             "publisher": {
                 "@type": "Organization",
-                "name": {{ site.siteName | dump }},
+                "name": {{ site.siteName | dump | safe }},
                 "logo": {
                     "@type": "ImageObject",
-                    "url": {{ (site.url + site.logo) | dump }}
+                    "url": {{ (site.url + site.logo) | dump | safe }}
                 }
             }
         }
