@@ -102,7 +102,7 @@ module.exports = function (eleventyConfig) {
 
   // Project assets
   eleventyConfig.addPassthroughCopy("src/frontend/assets");
-  eleventyConfig.addPassthroughCopy("src/frontend/robots.txt");
+  eleventyConfig.addPassthroughCopy("src/frontend/CNAME");
 
   // node_modules dependencies
   eleventyConfig.addPassthroughCopy({
@@ -215,8 +215,6 @@ module.exports = function (eleventyConfig) {
   return {
     markdownTemplateEngine: "njk",
     htmlTemplateEngine: TEMPLATE_ENGINE,
-
-    pathPrefix: "/nibula/",
 
     dir: {
       input: "src/frontend",
