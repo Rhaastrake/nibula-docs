@@ -4,7 +4,6 @@
     "file": "docs/v2/introduction.md",
     "children": {
       "what-is-nibula": { "label": "What is Nibula" },
-      "why-choose-nibula": { "label": "Why choose Nibula" },
       "when-not-to-use-it": { "label": "When not to use it" }
     }
   },
