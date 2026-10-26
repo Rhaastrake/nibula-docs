@@ -5,12 +5,24 @@ on:
     branches: [main]
   workflow_dispatch:
 
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
 
     steps:
-      - name: Checkout docs source
+      - name: Checkout
         uses: actions/checkout@v4
 
       - name: Setup Node
@@ -23,38 +35,14 @@ jobs:
           npm ci
           npm run build
 
-      - name: Checkout target repository
-        uses: actions/checkout@v4
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
         with:
-          repository: Rhaastrake/nibula
-          token: ${{ secrets.DOCS_DEPLOY_TOKEN }}
-          path: target
+          path: out
 
-      - name: Replace docs folder
-        run: |
-          rm -rf target/docs
-          mkdir -p target/docs
-          cp -r out/* target/docs/
-          touch target/docs/.nojekyll
-
-      - name: Commit and push
-        env:
-          SOURCE_SHA: ${{ github.sha }}
-          SOURCE_REPO: ${{ github.repository }}
-          ACTOR: ${{ github.actor }}
-          ACTOR_ID: ${{ github.actor_id }}
-        run: |
-          SOURCE_TITLE="$(git log -1 --pretty=%s)"
-
-          cd target
-          git config user.name "${ACTOR}"
-          git config user.email "${ACTOR_ID}+${ACTOR}@users.noreply.github.com"
-          git add docs
-
-          if git diff --staged --quiet; then
-            echo "No changes to publish."
-            exit 0
-          fi
-
-          git commit -m "docs: new site build from ${SOURCE_REPO}@${SOURCE_SHA::7} (${SOURCE_TITLE})"
-          git push
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
