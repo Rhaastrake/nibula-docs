@@ -1,4 +1,4 @@
-# Content & Data {id="content-and-data"}
+# <i class="bi bi-database"></i> Content & Data {id="content-and-data"}
 
 Two folders hold the things your site needs but that aren't markup: `assets/` and `data/`. The difference is **when** they're used.
 

@@ -9,8 +9,9 @@ footer {
   display: flex;
   flex-direction: column;
   width: 100%;
-  padding: root.$header-padding-y root.$header-padding-x;
-  background-color: root.$background;
+  padding: root.$footer-padding-y 0;
+  background-color: root.$page-background;
+  border-top: 1px solid root.$divider;
 
   h3 {
     font-size: 1rem;
@@ -46,12 +47,12 @@ footer {
     width: 100%;
     margin: 1.25rem 0 1rem;
     border: 0;
-    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    border-top: 1px solid root.$separator;
   }
 }
 
 .footer-columns {
-  justify-content: space-around;
+  justify-content: space-between;
   row-gap: 1.5rem;
 }
 

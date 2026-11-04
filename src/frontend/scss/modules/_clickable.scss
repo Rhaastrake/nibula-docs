@@ -4,7 +4,7 @@
   display: inline-block;
   cursor: pointer;
   padding-right: 2.5rem;
-  transition: color 0.3s;
+  transition: color root.$transition-base;
 
   &:hover {
     color: root.$link-button;
@@ -22,7 +22,7 @@
   height: 1.9rem;
   background: none;
   border: none;
-  border-radius: 6px;
+  border-radius: root.$radius-sm;
   padding: 0;
   color: #8b949e;
   cursor: pointer;
@@ -30,8 +30,8 @@
   font-size: 1rem;
   z-index: 2;
   transition:
-    color 0.2s,
-    background-color 0.2s;
+    color root.$transition-fast,
+    background-color root.$transition-fast;
 
   &:hover {
     color: #c9d1d9;
@@ -47,11 +47,11 @@
   color: #ffffff;
   font-size: 0.9rem;
   padding: 0.25rem 0.5rem;
-  border-radius: 6px;
+  border-radius: root.$radius-sm;
   white-space: nowrap;
   pointer-events: none;
   opacity: 0;
-  transition: opacity 0.2s;
+  transition: opacity root.$transition-fast;
   z-index: 1080;
 
   &.is-visible {

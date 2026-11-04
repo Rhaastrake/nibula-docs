@@ -1,6 +1,6 @@
-# Quick start {id="quick-start"}
+# <i class="bi bi-rocket-takeoff"></i> Quick start {id="quick-start"}
 
-## 📋 Prerequisites {id="prerequisites"}
+## Prerequisites {id="prerequisites"}
 
 ### Required {id="required"}
 
@@ -12,7 +12,7 @@
 
 - **Material Icon Theme** — VS Code extension by Philipp Kief
 
-## 📦 Installation {id="installation"}
+## Installation {id="installation"}
 
 Install Nibula once, globally:
 
@@ -37,7 +37,7 @@ Once installed, these are the commands you'll use:
 
 See [Nibula CLI](#nibula-cli) for what the assistant can do.
 
-## 🚀 Project creation {id="project-creation"}
+## Project creation {id="project-creation"}
 
 From the folder where you keep your websites, run:
 

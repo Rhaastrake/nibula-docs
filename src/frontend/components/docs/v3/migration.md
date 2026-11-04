@@ -1,4 +1,4 @@
-# Migration {id="migration"}
+# <i class="bi bi-arrow-left-right"></i> Migration {id="migration"}
 
 ## What you need to change {id="migration-overview"}
 
