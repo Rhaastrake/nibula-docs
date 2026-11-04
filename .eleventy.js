@@ -7,6 +7,7 @@ const fs = require("fs");
 const path = require("path");
 
 const OUTPUT_DIR = "out";
+const latestDocsVersion = require("./src/frontend/data/docsVersions.json").at(-1).id;
 const TEMPLATE_ENGINE = "njk";
 const ANCHOR_LEVELS = [2, 3, 4];
 const ANCHOR_PERMALINK_SYMBOL = "#";
@@ -159,6 +160,7 @@ module.exports = function (eleventyConfig) {
       if (!versionMatch) continue;
 
       const version = versionMatch[1];
+      const pageUrl = version === latestDocsVersion ? "/docs/" : page.url;
       const html = page.content || "";
 
       const start = html.search(/<[^>]+class="[^"]*\bdocs-content\b[^"]*"[^>]*>/i);
@@ -187,7 +189,7 @@ module.exports = function (eleventyConfig) {
           level,
           section: level === 1 ? "" : section,
           version,
-          url: idMatch ? `${page.url}#${idMatch[1]}` : page.url,
+          url: idMatch ? `${pageUrl}#${idMatch[1]}` : pageUrl,
         });
       }
     }

@@ -12,7 +12,7 @@ Nibula is a command-line tool that generates ready-to-build Eleventy projects: i
 
 {%- for page in collections.all | sort(attribute='url') %}
 {%- set pageMeta = pages[page.data.title] %}
-{%- if pageMeta and not pageMeta.seo.noindex and not page.data.draft %}
+{%- if pageMeta and not pageMeta.seo.noindex and not page.data.draft and not page.data.noindex and not page.data.canonical %}
 - [{{ pageMeta.seo.title or page.data.title }}]({{ site.url }}{{ page.url }}): {{ pageMeta.seo.description or site.description }}
 {%- endif %}
 {%- endfor %}
