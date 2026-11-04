@@ -9,7 +9,7 @@
 //==========================
 $header-height: 8vh;
 $header-padding-y: 15px;
-$header-padding-x: 15px;
+$header-padding-x: 0;
 $header-z-index: 1030;
 
 $nav-item-spacing: 0.75rem;
@@ -19,8 +19,14 @@ $top-offset: calc($header-height * 1.5);
 $sticky-top: calc(#{$header-height} + #{$top-offset});
 $section-spacing: calc($header-height * 0.5);
 $docs-section-offset: calc(#{$top-offset} - #{$header-height});
+$docs-sidebar-width: 17.125rem;
+$container-xxl-width: 1600px;
+$container-padding-x: 3rem;
 
 $background: #11474b;
+$header-background: var(--bs-body-bg);
+$header-border: rgba(255, 255, 255, 0.08);
+$header-border-scrolled: rgba(255, 255, 255, 0.16);
 $buttons-backgroud: #1e917a;
 $docs-h1: #42B883;
 $docs-h2: #ffffff;
@@ -28,3 +34,9 @@ $docs-h3: #9FC4B8;
 $link-button: #22c97d;
 $evidenced-word: #adbf28;
 $docs-reference: #4493f8;
+
+$footer-background: $header-background;
+$footer-border: $header-border;
+$search-background: $header-background;
+$search-border: $header-border-scrolled;
+$search-hover: color-mix(in srgb, $link-button 16%, transparent);

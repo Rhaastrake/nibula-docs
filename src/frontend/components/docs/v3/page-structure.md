@@ -1,6 +1,6 @@
-# Page structure {id="page-structure"}
+# <i class="bi bi-diagram-3"></i> Page structure {id="page-structure"}
 
-## 🧩 Composition {id="composition"}
+## Composition {id="composition"}
 
 ### The page settings {id="the-page-settings"}
 
@@ -64,7 +64,7 @@ You can write that content directly in the page, or split it into
 [components](#what-is-a-component) — separate files you write once and pull into
 any page with a single line.
 
-## 🧱 Layouts {id="layouts"}
+## Layouts {id="layouts"}
 
 A layout is the shell a page is rendered into. Your page provides the content; the layout provides everything around it — the **head**, the **header**, the **footer**, the stylesheets and the scripts.
 
@@ -194,7 +194,7 @@ layout: straight-content.njk
 ```
 {% endraw %}
 
-## 🖱️ Nibula CLI {id="nibula-cli"}
+## Nibula CLI {id="nibula-cli"}
 
 ### Options {id="nibula-cli-options"}
 

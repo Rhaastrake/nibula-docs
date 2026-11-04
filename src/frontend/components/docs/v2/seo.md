@@ -1,4 +1,4 @@
-# SEO {id="seo"}
+# <i class="bi bi-search"></i> SEO {id="seo"}
 
 ## What is SEO {id="what-is-seo"}
 **SEO** is everything that helps search engines understand what every page of your site is about, so they can show it to the right people.

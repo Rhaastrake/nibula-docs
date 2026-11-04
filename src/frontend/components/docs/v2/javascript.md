@@ -1,4 +1,4 @@
-# Javascript {id="javascript"}
+# <i class="bi bi-braces"></i> Javascript {id="javascript"}
 
 > Examples use **JavaScript**. Everything applies to **TypeScript** too, except that imports leave the extension out and the project has an extra `tsconfig.json`
 

@@ -1,3 +1,10 @@
+@use "../../root" as root;
+
+$container-max-widths: (
+  xxl: root.$container-xxl-width
+);
+$container-padding-x: root.$container-padding-x;
+
 // ╔══════════════════════════════════════════════════════╗
 // ║                   BOOTSTRAP MODULES                  ║
 // ║  Comment out any module you don't need to improve    ║

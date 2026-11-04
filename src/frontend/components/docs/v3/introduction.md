@@ -1,6 +1,6 @@
-# Introduction {id="introduction"}
+# <i class="bi bi-info-circle"></i> Introduction {id="introduction"}
 
-## ✏️ What is Nibula {id="what-is-nibula"}
+## What is Nibula {id="what-is-nibula"}
 
 **Nibula** is an open source static site scaffolder built on top of
 [Eleventy (11ty)](https://www.11ty.dev/)
@@ -13,7 +13,7 @@ You stay close to the **HTML**, **CSS** and **JavaScript** you already know.
 [data files](#data-files) are there when you want them, and a page written in
 plain **HTML** works just as well on day one.
 
-## 🤔 When not to use it {id="when-not-to-use-it"}
+## When not to use it {id="when-not-to-use-it"}
 
 **Nibula builds static pages.** If your site needs users to log in, save
 something, or see different content depending on who they are, you want a

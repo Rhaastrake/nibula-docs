@@ -30,6 +30,11 @@ a {
 
   h1 {
     color: root.$docs-h1;
+
+    .bi {
+      margin-right: 0.5rem;
+      font-size: 0.8em;
+    }
   }
 
   h2 {
