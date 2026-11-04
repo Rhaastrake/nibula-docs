@@ -1,4 +1,4 @@
-# Backend {id="backend"}
+# <i class="bi bi-hdd-stack"></i> Backend {id="backend"}
 
 ## Node.js or PHP {id="node-or-php"}
 
@@ -10,7 +10,7 @@ If you picked a backend when you created the project, you already have a small A
 
 | | PHP | Node |
 |---|---|---|
-| Runs on shared hosting | ✅ | ❌ |
+| Runs on shared hosting | Yes | No |
 | Needs something always running | No | Yes |
 | Extra packages | Composer | npm |
 

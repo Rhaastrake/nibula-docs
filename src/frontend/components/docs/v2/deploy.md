@@ -1,4 +1,4 @@
-# Deploy {id="deploy"}
+# <i class="bi bi-cloud-arrow-up"></i> Deploy {id="deploy"}
 
 ## How to deploy {id="how-to-deploy"}
 
@@ -24,10 +24,10 @@ That's why shared hosting can't run the Node backend. On plans like Aruba or cPa
 
 | Target | Frontend | PHP backend | Node backend |
 |---|---|---|---|
-| Shared hosting (Apache) | ✅ | ✅ | ❌ nothing can stay running |
-| Windows hosting (IIS) | ✅ | ✅ | ⚠️ only with the ARR module |
-| Your own VPS (Nginx) | ✅ | ✅ | ✅ |
-| Static hosting (Netlify, Vercel, GitHub Pages) | ✅ | ❌ | ❌ |
+| Shared hosting (Apache) | Yes | Yes | No, nothing can stay running |
+| Windows hosting (IIS) | Yes | Yes | Only with the ARR module |
+| Your own VPS (Nginx) | Yes | Yes | Yes |
+| Static hosting (Netlify, Vercel, GitHub Pages) | Yes | No | No |
 
 Static hosting serves files and nothing else. Perfect if your site has no `/api` endpoints, unusable if it does.
 

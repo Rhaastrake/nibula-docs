@@ -1,44 +1,46 @@
 <footer>
-  <div class="footer-columns row">
-    <div class="col-12 col-md-4">
-      <h3>{{ site.title }}</h3>
-      <p>{{ site.description }}</p>
+  <div class="container">
+    <div class="footer-columns row">
+      <div class="col-12 col-md-4">
+        <h3>{{ site.title }}</h3>
+        <p>{{ site.description }}</p>
+      </div>
+      <div class="col-6 col-md-auto">
+        <h3>Sitemap</h3>
+        <ul>
+          <li><a class="button link-button" href="{{ '/' | url }}">Homepage</a></li>
+          <li><a class="button link-button" href="{{ '/docs/v3/' | url }}">Documentation</a></li>
+          <li><a class="button link-button" href="{{ '/team/' | url }}">Team</a></li>
+          <li><a class="button link-button" href="{{ '/faq/' | url }}">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="col-6 col-md-auto">
+        <h3>Social</h3>
+        <ul>
+          <li>
+            <a class="button link-button" href="https://github.com/rhaastrake/nibula"
+               target="_blank" rel="noopener noreferrer">
+              <i class="bi bi-github" aria-hidden="true"></i> GitHub
+            </a>
+          </li>
+          <li>
+            <a class="button link-button"
+               target="_blank" rel="noopener noreferrer" href="https://www.npmjs.com/package/nibula">
+              <i class="bi bi-box" aria-hidden="true"></i> Npmjs
+            </a>
+          </li>
+        </ul>
+      </div>
     </div>
-    <div class="col-6 col-md-auto">
-      <h3>Sitemap</h3>
-      <ul>
-        <li><a class="button link-button" href="{{ '/' | url }}">Homepage</a></li>
-        <li><a class="button link-button" href="{{ '/docs/v3/' | url }}">Documentation</a></li>
-        <li><a class="button link-button" href="{{ '/team/' | url }}">Team</a></li>
-        <li><a class="button link-button" href="{{ '/faq/' | url }}">FAQ</a></li>
-      </ul>
-    </div>
-    <div class="col-6 col-md-auto">
-      <h3>Social</h3>
-      <ul>
-        <li>
-          <a class="button link-button" href="https://github.com/rhaastrake/nibula"
-             target="_blank" rel="noopener noreferrer">
-            <i class="bi bi-github" aria-hidden="true"></i> GitHub
-          </a>
-        </li>
-        <li>
-          <a class="button link-button"
-             target="_blank" rel="noopener noreferrer" href="https://www.npmjs.com/package/nibula">
-            <i class="bi bi-box" aria-hidden="true"></i> Npmjs
-          </a>
-        </li>
-      </ul>
-    </div>
-  </div>
 
-  <hr />
+    <hr />
 
-  <div class="footer-copyright">
-    <p>
-      &copy; {{ site.legal.copyright.year }}
-      {{ site.siteName }}
-    </p>
-    <p>{{ site.legal.copyright.text }}</p>
+    <div class="footer-copyright">
+      <p>
+        &copy; {{ site.legal.copyright.year }}
+        {{ site.siteName }}
+      </p>
+      <p>{{ site.legal.copyright.text }}</p>
+    </div>
   </div>
 </footer>

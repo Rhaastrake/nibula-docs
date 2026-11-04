@@ -1,6 +1,6 @@
-# Styling {id="styling"}
+# <i class="bi bi-palette"></i> Styling {id="styling"}
 
-## 🎨 What is SCSS {id="what-is-scss"}
+## What is SCSS {id="what-is-scss"}
 
 **SCSS** is basically the **CSS** you already know, with variables and nesting added. If you write it the way you're used to, it still works as you'd expect.
 

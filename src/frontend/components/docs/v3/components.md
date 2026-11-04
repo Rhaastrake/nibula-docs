@@ -1,4 +1,4 @@
-# Components {id="components"}
+# <i class="bi bi-puzzle"></i> Components {id="components"}
 
 ## What is a component {id="what-is-a-component"}
 

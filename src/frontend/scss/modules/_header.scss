@@ -15,12 +15,23 @@ header {
   justify-content: center;
   align-items: center;
   padding: root.$header-padding-y root.$header-padding-x;
-  background-color: root.$background;
+  background-color: root.$page-background;
+  border-bottom: 1px solid root.$divider;
+  animation: header-scrolled linear both;
+  animation-timeline: scroll();
+  animation-range: 0 120px;
+}
+
+@keyframes header-scrolled {
+  to {
+    border-bottom-color: root.$divider-strong;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+  }
 }
 
 header nav {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   width: 100%;
 
@@ -89,8 +100,8 @@ header nav {
       background-color: currentColor;
       border-radius: 2px;
       transition:
-        transform 0.3s ease,
-        opacity 0.3s ease;
+        transform root.$transition-base ease,
+        opacity root.$transition-base ease;
     }
   }
 
@@ -105,13 +116,31 @@ header nav {
   }
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 1300px) {
+  header nav {
+    .brand {
+      gap: 8px;
+    }
+
+    .brand-extras {
+      position: static;
+      transform: none;
+      margin-left: 0;
+    }
+
+    .links {
+      gap: 32px;
+    }
+  }
+}
+
+@media (max-width: root.$breakpoint-xl) {
   header nav .site-search {
     width: 12rem;
   }
 }
 
-@media (max-width: 991.98px) {
+@media (max-width: root.$breakpoint-lg-max) {
   header nav {
     justify-content: space-between;
 
@@ -139,7 +168,8 @@ header nav {
       max-height: calc(100svh - #{root.$header-height});
       overflow-y: auto;
       scrollbar-width: none;
-      background-color: root.$background;
+      background-color: root.$page-background;
+      border-bottom: 1px solid root.$divider;
       flex-direction: column;
       padding: 30px 0;
       gap: 12px;
@@ -148,8 +178,8 @@ header nav {
       transform: translateY(-20px);
       box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
       transition:
-        opacity 0.3s ease,
-        transform 0.3s ease;
+        opacity root.$transition-base ease,
+        transform root.$transition-base ease;
 
       &::-webkit-scrollbar {
         display: none;
@@ -166,8 +196,8 @@ header nav {
       display: block;
       width: 100%;
       padding: 1rem 1.5rem;
-      border-top: 1px solid rgba(255, 255, 255, 0.15);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+      border-top: 1px solid root.$separator;
+      border-bottom: 1px solid root.$separator;
 
       ul {
         list-style: none;
@@ -187,7 +217,7 @@ header nav {
       display: block;
       width: 100%;
       padding: 1rem 1.5rem 0;
-      border-top: 1px solid rgba(255, 255, 255, 0.15);
+      border-top: 1px solid root.$separator;
 
       .site-search {
         width: 100%;

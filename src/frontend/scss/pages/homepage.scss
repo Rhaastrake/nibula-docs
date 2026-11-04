@@ -1,4 +1,3 @@
-@use "sass:color";
 @use "../root" as root;
 
 @import "../global";
@@ -6,13 +5,10 @@
 @import "../modules/clickable";
 @import "../modules/cards";
 
-$page-gutter: clamp(1rem, 4vw, 4rem);
-$content-width: 72rem;
-
 main > section {
-  max-width: $content-width;
+  max-width: root.$home-content-width;
   margin: 0 auto;
-  padding: clamp(3.5rem, 10vh, 6rem) $page-gutter;
+  padding: clamp(3.5rem, 10vh, 6rem) root.$home-gutter;
 }
 
 main h2 {
@@ -54,11 +50,11 @@ main h2 {
 
   .generic-button {
     background-color: root.$link-button;
-    color: var(--bs-body-bg);
+    color: root.$page-background;
     font-weight: 600;
 
     &:hover {
-      background-color: color.scale(root.$link-button, $lightness: -15%);
+      background-color: root.$link-button-hover;
     }
   }
 }
@@ -74,7 +70,7 @@ main h2 {
     margin-bottom: 0;
     min-width: 0;
     overflow-wrap: anywhere;
-    background: color-mix(in srgb, #fff 3%, transparent);
+    background: root.$surface-raised;
     transition: border-color 0.25s, transform 0.25s;
 
     &:hover {
@@ -98,7 +94,7 @@ main h2 {
     h2 {
       margin: 0 0 0.6rem;
       font-size: 1.1rem;
-      color: var(--bs-emphasis-color);
+      color: root.$text-emphasis;
     }
 
     p {
@@ -109,14 +105,14 @@ main h2 {
     }
   }
 
-  @media (max-width: 991px) {
+  @media (max-width: root.$breakpoint-lg-max) {
     grid-template-columns: 1fr;
   }
 }
 
 #structure {
-  background: color-mix(in srgb, #fff 3%, transparent);
-  box-shadow: 0 0 0 100vmax color-mix(in srgb, #fff 3%, transparent);
+  background: root.$surface-raised;
+  box-shadow: 0 0 0 100vmax root.$surface-raised;
   clip-path: inset(0 -100vmax);
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -132,7 +128,7 @@ main h2 {
 
     h2 {
       margin: 0 0 0.25rem;
-      font-size: clamp(1.4rem, 3vw, 1.75rem);
+      font-size: root.$home-section-title-size;
     }
 
     p {
@@ -143,17 +139,17 @@ main h2 {
     }
 
     strong {
-      color: var(--bs-emphasis-color);
+      color: root.$text-emphasis;
     }
   }
 
   .structure-link {
     font-size: 0.9rem;
     color: root.$link-button;
-    transition: color 0.3s;
+    transition: color root.$transition-base;
 
     &:hover {
-      color: color.scale(root.$link-button, $lightness: -15%);
+      color: root.$link-button-hover;
     }
   }
 
@@ -162,7 +158,7 @@ main h2 {
     margin: 0;
     padding: 2.6rem 1.25rem 1.1rem;
     border: 1px solid color-mix(in srgb, currentColor 12%, transparent);
-    border-radius: 12px;
+    border-radius: root.$radius;
     background:
       radial-gradient(circle at 1.25rem 1.1rem, #ff5f57 4px, transparent 5px),
       radial-gradient(circle at 2.15rem 1.1rem, #febc2e 4px, transparent 5px),
@@ -183,7 +179,7 @@ main h2 {
     }
   }
 
-  @media (max-width: 991px) {
+  @media (max-width: root.$breakpoint-lg-max) {
     grid-template-columns: minmax(0, 1fr);
   }
 }
@@ -191,7 +187,7 @@ main h2 {
 #good-fit {
   h2 {
     margin-bottom: 2rem;
-    font-size: clamp(1.4rem, 3vw, 1.75rem);
+    font-size: root.$home-section-title-size;
     text-align: center;
   }
 
@@ -223,7 +219,7 @@ main h2 {
       display: block;
       margin-bottom: 0.25rem;
       font-size: 0.975rem;
-      color: var(--bs-emphasis-color);
+      color: root.$text-emphasis;
     }
 
     span {
@@ -234,7 +230,7 @@ main h2 {
     }
   }
 
-  @media (max-width: 991px) {
+  @media (max-width: root.$breakpoint-lg-max) {
     .fit-list {
       grid-template-columns: repeat(2, 1fr);
     }

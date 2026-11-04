@@ -6,8 +6,8 @@
 .button {
   cursor: pointer;
   transition:
-  background-color 0.3s,
-  color 0.3s;
+  background-color root.$transition-base,
+  color root.$transition-base;
   border-radius: 4px;
   padding: 8px;
 }
@@ -27,6 +27,6 @@
 }
 
 .link-button-active, .link-button:hover {
-  color: color.scale(root.$link-button, $lightness: -15%) !important;
+  color: root.$link-button-hover !important;
   font-weight: normal !important;
 }
