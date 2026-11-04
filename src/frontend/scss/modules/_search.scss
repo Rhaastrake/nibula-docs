@@ -18,9 +18,9 @@
   padding: 0.5rem;
   list-style: none;
 
-  background-color: root.$search-background;
-  border: 1px solid root.$search-border;
-  border-radius: 12px;
+  background-color: root.$page-background;
+  border: 1px solid root.$divider-strong;
+  border-radius: root.$radius;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
 
   a {
@@ -33,7 +33,7 @@
 
     &:hover,
     &.active {
-      background-color: root.$search-hover;
+      background-color: root.$link-button-tint;
     }
   }
 

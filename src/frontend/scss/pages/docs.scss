@@ -10,7 +10,7 @@ section {
 }
 
 .docs-nav {
-  @media (min-width: 992px) {
+  @media (min-width: root.$breakpoint-lg) {
     position: sticky;
     align-self: start;
     top: root.$top-offset;
@@ -23,7 +23,7 @@ section {
     }
   }
 
-  @media (max-width: 991.98px) {
+  @media (max-width: root.$breakpoint-lg-max) {
     display: none;
   }
 
@@ -39,7 +39,7 @@ section {
 
 .docs-nav,
 .docs-aside {
-  @media (min-width: 1200px) {
+  @media (min-width: root.$breakpoint-xl) {
     flex: 0 0 root.$docs-sidebar-width;
     width: root.$docs-sidebar-width;
   }
@@ -137,7 +137,7 @@ section {
     height: auto;
   }
 
-  @media (max-width: 991.98px) {
+  @media (max-width: root.$breakpoint-lg-max) {
     max-width: 100%;
   }
 }
@@ -151,7 +151,7 @@ section {
   margin-bottom: 3rem;
   border: 1px solid color-mix(in srgb, currentColor 10%, transparent);
   border-radius: 30px;
-  background: color-mix(in srgb, #fff 3%, transparent);
+  background: root.$surface-raised;
 
   > h1:first-child {
     margin-top: 0;

@@ -3,6 +3,8 @@
 // overwritten by other imported files with the same variable names.
 // Use @use 'root' as root; to avoid namespace collisions.
 
+@use "sass:color";
+
 
 //==========================
 // STRUCTURE
@@ -22,11 +24,24 @@ $docs-section-offset: calc(#{$top-offset} - #{$header-height});
 $docs-sidebar-width: 17.125rem;
 $container-xxl-width: 1600px;
 $container-padding-x: 3rem;
+$footer-padding-y: 2rem;
 
-$background: #11474b;
-$header-background: var(--bs-body-bg);
-$header-border: rgba(255, 255, 255, 0.08);
-$header-border-scrolled: rgba(255, 255, 255, 0.16);
+$home-content-width: 72rem;
+$home-gutter: clamp(1rem, 4vw, 4rem);
+$home-section-title-size: clamp(1.4rem, 3vw, 1.75rem);
+
+
+//==========================
+// BREAKPOINTS
+//==========================
+$breakpoint-lg: 992px;
+$breakpoint-lg-max: 991.98px;
+$breakpoint-xl: 1200px;
+
+
+//==========================
+// COLORS
+//==========================
 $buttons-backgroud: #1e917a;
 $docs-h1: #42B883;
 $docs-h2: #ffffff;
@@ -35,8 +50,24 @@ $link-button: #22c97d;
 $evidenced-word: #adbf28;
 $docs-reference: #4493f8;
 
-$footer-background: $header-background;
-$footer-border: $header-border;
-$search-background: $header-background;
-$search-border: $header-border-scrolled;
-$search-hover: color-mix(in srgb, $link-button 16%, transparent);
+$link-button-hover: color.scale($link-button, $lightness: -15%);
+$link-button-tint: color-mix(in srgb, $link-button 16%, transparent);
+
+$page-background: var(--bs-body-bg);
+$text-emphasis: var(--bs-emphasis-color);
+$text-bright: #f0f6fc;
+$surface-raised: color-mix(in srgb, #fff 3%, transparent);
+
+$divider: rgba(255, 255, 255, 0.08);
+$divider-strong: rgba(255, 255, 255, 0.16);
+$separator: rgba(255, 255, 255, 0.15);
+
+
+//==========================
+// SHAPES AND MOTION
+//==========================
+$radius-sm: 6px;
+$radius: 12px;
+
+$transition-fast: 0.2s;
+$transition-base: 0.3s;

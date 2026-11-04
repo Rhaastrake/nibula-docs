@@ -9,9 +9,9 @@ footer {
   display: flex;
   flex-direction: column;
   width: 100%;
-  padding: 2rem 0;
-  background-color: root.$footer-background;
-  border-top: 1px solid root.$footer-border;
+  padding: root.$footer-padding-y 0;
+  background-color: root.$page-background;
+  border-top: 1px solid root.$divider;
 
   h3 {
     font-size: 1rem;
@@ -47,7 +47,7 @@ footer {
     width: 100%;
     margin: 1.25rem 0 1rem;
     border: 0;
-    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    border-top: 1px solid root.$separator;
   }
 }
 
