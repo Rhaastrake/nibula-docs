@@ -5,9 +5,9 @@ layout: base.njk
 ---
 
 {% set features = [
-    { title: "Centralized SEO", text: "Set your SEO once per page in a data file. Every tag, the sitemap and llms.txt regenerate on every build" },
-    { title: "Deploy ready", text: "The build folder is ready to upload as it is. The config your host expects is already inside, for Apache, IIS or nginx" },
-    { title: "Backend included", text: "Need a contact form or an API? There's a small backend ready to use, in Node or PHP" }
+    { icon: "search", title: "Centralized SEO", text: "Set your SEO once per page in a data file. Every tag, the sitemap and llms.txt regenerate on every build" },
+    { icon: "rocket-takeoff", title: "Deploy ready", text: "The build folder is ready to upload as it is. The config your host expects is already inside, for Apache, IIS or nginx" },
+    { icon: "hdd-stack", title: "Backend included", text: "Need a contact form or an API? There's a small backend ready to use, in Node or PHP" }
 ] %}
 
 {% set goodFor = [
@@ -20,24 +20,32 @@ layout: base.njk
 ] %}
 
 <section id="hero">
-    <div class="row">
-        <div class="col-12 col-lg-6">
-            <div class="title">
-                <h1>Nibula</h1>
-                <p>A static site scaffolder, simplified for beginners</p>
-                <article class="markdown-body">
-                    {% renderFile "installation-command.md" | componentsPath, "njk,md" %}
-                </article>
-                <br>
-                <div class="hero-buttons">
-                    <a href="{{ '/docs/#quick-start' | url }}" class="button generic-button">Quick start</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-12 col-lg-6">
-            <div class="structure">
-                <p class="structure-caption">A structure you can hold in your head</p>
-                <pre class="structure-tree"><span class="root">src/frontend/</span>
+    <h1>Nibula</h1>
+    <p class="hero-tagline">A static site scaffolder, simplified for beginners</p>
+    <article class="markdown-body">
+        {% renderFile "installation-command.md" | componentsPath, "njk,md" %}
+    </article>
+    <a href="{{ '/docs/#quick-start' | url }}" class="button generic-button">Quick start</a>
+</section>
+
+<section id="features">
+    {% for feature in features %}
+    <div class="card">
+        <span class="card-icon"><i class="bi bi-{{ feature.icon }}" aria-hidden="true"></i></span>
+        <h2>{{ feature.title }}</h2>
+        <p>{{ feature.text }}</p>
+    </div>
+    {% endfor %}
+</section>
+
+<section id="structure">
+    <div class="structure-copy">
+        <h2>A structure you can hold in your head</h2>
+        <p><strong>Nothing is hidden.</strong> Every file lives in the folder you would expect, in the form you would have written by hand</p>
+        <p><strong>No config layer.</strong> When you need to change something, you open it and change it</p>
+        <a href="{{ '/docs/v3/#page-structure' | url }}" class="structure-link">Page structure in the docs →</a>
+    </div>
+    <pre class="structure-tree"><span class="root">src/frontend/</span>
 ├── routes/      <span class="note">your pages</span>
 ├── components/  <span class="note">reusable pieces</span>
 ├── layouts/     <span class="note">the page shell</span>
@@ -46,25 +54,6 @@ layout: base.njk
 ├── js/          <span class="note">scripts</span>
 ├── indexing/    <span class="note">sitemap + robots</span>
 └── hosting/     <span class="note">server config</span></pre>
-                <div class="structure-notes">
-                    <p><strong>Nothing is hidden.</strong> Every file lives in the folder you would expect, in the form you would have written by hand</p>
-                    <p><strong>No config layer.</strong> When you need to change something, you open it and change it</p>
-                </div>
-                <a href="{{ '/docs/v3/#page-structure' | url }}" class="structure-link">Page structure in the docs →</a>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section id="features">
-    <div class="feature-cards">
-        {% for feature in features %}
-        <div class="card">
-            <h3>{{ feature.title }}</h3>
-            <p>{{ feature.text }}</p>
-        </div>
-        {% endfor %}
-    </div>
 </section>
 
 <section id="good-fit">
