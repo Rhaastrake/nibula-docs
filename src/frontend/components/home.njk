@@ -1,0 +1,49 @@
+<section id="hero">
+    <h1>Nibula</h1>
+    <p class="hero-tagline">{{ ui.home.tagline }}</p>
+    <article class="markdown-body">
+        {% renderFile "installation-command.md" | componentsPath, "njk,md" %}
+    </article>
+    <a href="{{ (langPrefix + '/docs/#quick-start') | url }}" class="button generic-button">{{ ui.home.quickStart }}</a>
+</section>
+
+<section id="features">
+    {% for feature in ui.home.features %}
+    <div class="card">
+        <span class="card-icon"><i class="bi bi-{{ feature.icon }}" aria-hidden="true"></i></span>
+        <h2>{{ feature.title }}</h2>
+        <p>{{ feature.text }}</p>
+    </div>
+    {% endfor %}
+</section>
+
+{% set structure = ui.home.structure %}
+<section id="structure">
+    <div class="structure-copy">
+        <h2>{{ structure.title }}</h2>
+        <p><strong>{{ structure.hiddenTitle }}</strong> {{ structure.hiddenText }}</p>
+        <p><strong>{{ structure.configTitle }}</strong> {{ structure.configText }}</p>
+        <a href="{{ (langPrefix + '/docs/#page-structure') | url }}" class="structure-link">{{ structure.link }}</a>
+    </div>
+    <pre class="structure-tree"><span class="root">src/frontend/</span>
+├── routes/      <span class="note">{{ structure.tree.routes }}</span>
+├── components/  <span class="note">{{ structure.tree.components }}</span>
+├── layouts/     <span class="note">{{ structure.tree.layouts }}</span>
+├── data/        <span class="note">{{ structure.tree.data }}</span>
+├── scss/        <span class="note">{{ structure.tree.scss }}</span>
+├── js/          <span class="note">{{ structure.tree.js }}</span>
+├── indexing/    <span class="note">{{ structure.tree.indexing }}</span>
+└── hosting/     <span class="note">{{ structure.tree.hosting }}</span></pre>
+</section>
+
+<section id="good-fit">
+    <h2>{{ ui.home.goodFor.title }}</h2>
+    <ul class="fit-list">
+        {% for item in ui.home.goodFor.items %}
+        <li>
+            <strong>{{ item.title }}</strong>
+            <span>{{ item.text }}</span>
+        </li>
+        {% endfor %}
+    </ul>
+</section>

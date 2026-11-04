@@ -21,7 +21,7 @@ $top-offset: calc($header-height * 1.5);
 $sticky-top: calc(#{$header-height} + #{$top-offset});
 $section-spacing: calc($header-height * 0.5);
 $docs-section-offset: calc(#{$top-offset} - #{$header-height});
-$docs-sidebar-width: 17.125rem;
+$docs-sidebar-width: 21.625rem;
 $container-xxl-width: 1600px;
 $container-padding-x: 3rem;
 $footer-padding-y: 2rem;
@@ -37,6 +37,7 @@ $home-section-title-size: clamp(1.4rem, 3vw, 1.75rem);
 $breakpoint-lg: 992px;
 $breakpoint-lg-max: 991.98px;
 $breakpoint-xl: 1200px;
+$breakpoint-xxl: 1400px;
 
 
 //==========================

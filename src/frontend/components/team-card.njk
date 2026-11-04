@@ -9,14 +9,14 @@
       {% if member.githubUrl %}
         <a class="button link-button" href="{{ member.githubUrl }}"
            target="_blank" rel="noopener noreferrer"
-           aria-label="{{ member.fullName }} su GitHub">
+           aria-label="{{ member.fullName }} {{ ui.team.on }} GitHub">
           <i class="bi bi-github" aria-hidden="true"></i>
         </a>
       {% endif %}
       {% if member.linkedInUrl %}
         <a class="button link-button" href="{{ member.linkedInUrl }}"
            target="_blank" rel="noopener noreferrer"
-           aria-label="{{ member.fullName }} su LinkedIn">
+           aria-label="{{ member.fullName }} {{ ui.team.on }} LinkedIn">
           <i class="bi bi-linkedin" aria-hidden="true"></i>
         </a>
       {% endif %}
@@ -44,7 +44,7 @@
       {% endif %}
       {% if member.websiteUrl %}
         <a class="button link-button-active" href="{{ member.websiteUrl }}"
-           target="_blank" rel="noopener noreferrer">Sito</a>
+           target="_blank" rel="noopener noreferrer">{{ ui.team.website }}</a>
       {% endif %}
     </div>
   </div>

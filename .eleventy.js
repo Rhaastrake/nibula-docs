@@ -8,6 +8,7 @@ const path = require("path");
 
 const OUTPUT_DIR = "out";
 const latestDocsVersion = require("./src/frontend/data/docsVersions.json").at(-1).id;
+const languages = require("./src/frontend/data/site.json").languages;
 const TEMPLATE_ENGINE = "njk";
 const ANCHOR_LEVELS = [2, 3, 4];
 const ANCHOR_PERMALINK_SYMBOL = "#";
@@ -156,11 +157,15 @@ module.exports = function (eleventyConfig) {
     const headingRegex = /<h([1-3])([^>]*)>([\s\S]*?)<\/h\1>/gi;
 
     for (const page of results) {
-      const versionMatch = page.url?.match(/^\/docs\/(v\d+)\/$/);
-      if (!versionMatch) continue;
+      const docsMatch = page.url?.match(/^(\/[a-z]{2})?\/docs\/(v\d+)\/$/);
+      if (!docsMatch) continue;
 
-      const version = versionMatch[1];
-      const pageUrl = version === latestDocsVersion ? "/docs/" : page.url;
+      const prefix = docsMatch[1] || "";
+      const version = docsMatch[2];
+      const language = languages.find((item) => item.prefix === prefix);
+      if (!language) continue;
+
+      const pageUrl = version === latestDocsVersion ? `${prefix}/docs/` : page.url;
       const html = page.content || "";
 
       const start = html.search(/<[^>]+class="[^"]*\bdocs-content\b[^"]*"[^>]*>/i);
@@ -189,6 +194,7 @@ module.exports = function (eleventyConfig) {
           level,
           section: level === 1 ? "" : section,
           version,
+          lang: language.code,
           url: idMatch ? `${pageUrl}#${idMatch[1]}` : pageUrl,
         });
       }

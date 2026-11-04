@@ -40,7 +40,7 @@ section {
 
 .docs-nav,
 .docs-aside {
-  @media (min-width: root.$breakpoint-xl) {
+  @media (min-width: root.$breakpoint-xxl) {
     flex: 0 0 root.$docs-sidebar-width;
     width: root.$docs-sidebar-width;
   }

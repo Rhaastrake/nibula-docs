@@ -1,11 +1,18 @@
 {
   "404": {
+    "noindex": true,
+    "canonical": "",
     "seo": {
-      "title": "Page not found · Nibula",
-      "description": "This page doesn't exist or has been moved. Head back to the Nibula documentation to find what you're looking for.",
-      "keywords": "",
-      "noindex": true,
-      "canonical": ""
+      "en": {
+        "title": "Page not found · Nibula",
+        "description": "This page doesn't exist or has been moved. Head back to the Nibula documentation to find what you're looking for.",
+        "keywords": ""
+      },
+      "it": {
+        "title": "Pagina non trovata · Nibula",
+        "description": "Questa pagina non esiste o è stata spostata. Torna alla documentazione di Nibula per trovare quello che cerchi.",
+        "keywords": ""
+      }
     },
     "cdn": {
       "css": [],
@@ -13,12 +20,19 @@
     }
   },
   "homepage": {
+    "noindex": false,
+    "canonical": "",
     "seo": {
-      "title": "Nibula · Static site scaffolder built on Eleventy",
-      "description": "Scaffold a complete Eleventy project — structure, SEO, server configs and an optional backend — while staying close to plain HTML, CSS and JavaScript.",
-      "keywords": "nibula, eleventy scaffolding, eleventy starter, static site boilerplate, cli scaffolding tool, 11ty starter",
-      "noindex": false,
-      "canonical": ""
+      "en": {
+        "title": "Nibula · Static site scaffolder built on Eleventy",
+        "description": "Scaffold a complete Eleventy project — structure, SEO, server configs and an optional backend — while staying close to plain HTML, CSS and JavaScript.",
+        "keywords": "nibula, eleventy scaffolding, eleventy starter, static site boilerplate, cli scaffolding tool, 11ty starter"
+      },
+      "it": {
+        "title": "Nibula · Scaffolder per siti statici basato su Eleventy",
+        "description": "Crea un progetto Eleventy completo, con struttura, SEO, configurazioni del server e un backend opzionale, restando vicino a HTML, CSS e JavaScript.",
+        "keywords": "nibula, eleventy, scaffolding eleventy, starter eleventy, boilerplate sito statico, generatore di siti statici, 11ty"
+      }
     },
     "cdn": {
       "css": [],
@@ -26,12 +40,19 @@
     }
   },
   "docs": {
+    "noindex": false,
+    "canonical": "",
     "seo": {
-      "title": "Documentation · Nibula",
-      "description": "Install Nibula, create your first project and learn the folder structure, components, styling, backend and deployment — with copy-paste examples throughout.",
-      "keywords": "nibula documentation, nibula cli, install nibula, eleventy scaffolding guide, nibula configuration",
-      "noindex": false,
-      "canonical": ""
+      "en": {
+        "title": "Documentation · Nibula",
+        "description": "Install Nibula, create your first project and learn the folder structure, components, styling, backend and deployment — with copy-paste examples throughout.",
+        "keywords": "nibula documentation, nibula cli, install nibula, eleventy scaffolding guide, nibula configuration"
+      },
+      "it": {
+        "title": "Documentazione · Nibula",
+        "description": "Installa Nibula, crea il tuo primo progetto e scopri struttura delle cartelle, componenti, stili, backend e deploy, con esempi pronti da copiare.",
+        "keywords": "documentazione nibula, nibula cli, installare nibula, guida eleventy, configurazione nibula"
+      }
     },
     "cdn": {
       "css": [],
@@ -39,12 +60,19 @@
     }
   },
   "faq": {
+    "noindex": true,
+    "canonical": "",
     "seo": {
-      "title": "FAQ · Nibula",
-      "description": "Answers to common questions about Nibula: supported Node versions, how it compares to other Eleventy starters, backend options and troubleshooting.",
-      "keywords": "nibula faq, nibula troubleshooting, nibula requirements, nibula vs eleventy starter",
-      "noindex": true,
-      "canonical": ""
+      "en": {
+        "title": "FAQ · Nibula",
+        "description": "Answers to common questions about Nibula: supported Node versions, how it compares to other Eleventy starters, backend options and troubleshooting.",
+        "keywords": "nibula faq, nibula troubleshooting, nibula requirements, nibula vs eleventy starter"
+      },
+      "it": {
+        "title": "FAQ · Nibula",
+        "description": "Risposte alle domande frequenti su Nibula: versioni di Node supportate, confronto con altri starter Eleventy, opzioni di backend e risoluzione dei problemi.",
+        "keywords": "faq nibula, problemi nibula, requisiti nibula, nibula vs starter eleventy"
+      }
     },
     "cdn": {
       "css": [],
@@ -52,12 +80,19 @@
     }
   },
   "team": {
+    "noindex": true,
+    "canonical": "",
     "seo": {
-      "title": "About the project · Nibula",
-      "description": "Who maintains Nibula, and how to contribute, report a bug or suggest a feature.",
-      "keywords": "nibula team, nibula contributors, contribute to nibula, open source maintainers",
-      "noindex": true,
-      "canonical": ""
+      "en": {
+        "title": "About the project · Nibula",
+        "description": "Who maintains Nibula, and how to contribute, report a bug or suggest a feature.",
+        "keywords": "nibula team, nibula contributors, contribute to nibula, open source maintainers"
+      },
+      "it": {
+        "title": "Il progetto · Nibula",
+        "description": "Chi mantiene Nibula e come contribuire, segnalare un bug o proporre una funzionalità.",
+        "keywords": "team nibula, contributori nibula, contribuire a nibula, manutentori open source"
+      }
     },
     "cdn": {
       "css": [],

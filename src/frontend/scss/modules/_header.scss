@@ -114,6 +114,39 @@ header nav {
   .nav-slot {
     display: none;
   }
+
+  .language-switcher {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    padding: 3px;
+    border: 1px solid root.$divider-strong;
+    border-radius: 999px;
+    font-size: 0.8rem;
+    line-height: 1;
+
+    a,
+    .language-current {
+      padding: 0.35rem 0.7rem;
+      border-radius: 999px;
+    }
+
+    a {
+      opacity: 0.7;
+      transition: opacity root.$transition-fast, background-color root.$transition-fast;
+
+      &:hover {
+        opacity: 1;
+        background-color: root.$divider;
+      }
+    }
+  }
+
+  .language-current {
+    background-color: root.$link-button-tint;
+    color: root.$link-button;
+    font-weight: 600;
+  }
 }
 
 @media (max-width: 1300px) {
@@ -143,6 +176,10 @@ header nav {
 @media (max-width: root.$breakpoint-lg-max) {
   header nav {
     justify-content: space-between;
+
+    .language-switcher {
+      order: -1;
+    }
 
     .burger-menu {
       display: flex;

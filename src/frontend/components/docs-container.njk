@@ -4,8 +4,8 @@
       <li>
         {% if chapter.children %}
           <div class="docs-nav-row">
-            <a class="button link-button" href="#{{ id }}">{% if chapter.icon %}<i class="bi bi-{{ chapter.icon }}" aria-hidden="true"></i>{% endif %}{{ chapter.label }}</a>
-            <button class="button subnav-toggle" type="button" aria-expanded="false" aria-controls="{{ id }}-subnav" aria-label="Open navigation menu">
+            <a class="button link-button" href="#{{ id }}">{% if chapter.icon %}<i class="bi bi-{{ chapter.icon }}" aria-hidden="true"></i>{% endif %}{{ chapter.label[lang] }}</a>
+            <button class="button subnav-toggle" type="button" aria-expanded="false" aria-controls="{{ id }}-subnav" aria-label="{{ ui.docs.openSubnav }}">
               <i class="bi bi-chevron-right" aria-hidden="true"></i>
             </button>
           </div>
@@ -13,7 +13,7 @@
             {{ navItems(chapter.children, "docs-subnav") }}
           </div>
         {% else %}
-          <a class="button link-button" href="#{{ id }}">{% if chapter.icon %}<i class="bi bi-{{ chapter.icon }}" aria-hidden="true"></i>{% endif %}{{ chapter.label }}</a>
+          <a class="button link-button" href="#{{ id }}">{% if chapter.icon %}<i class="bi bi-{{ chapter.icon }}" aria-hidden="true"></i>{% endif %}{{ chapter.label[lang] }}</a>
         {% endif %}
       </li>
     {% endfor %}
@@ -22,7 +22,7 @@
 <section id="docs-section">
   <div class="container">
     <div class="row">
-      <nav class="col-12 col-lg-auto docs-nav" id="docsNav" aria-label="Documentation index">
+      <nav class="col-12 col-lg-auto docs-nav" id="docsNav" aria-label="{{ ui.docs.index }}">
         <div class="docs-index">
           {{ navItems(docsData, "") }}
         </div>
@@ -32,25 +32,27 @@
           {% for id, chapter in docsData %}
             {% if chapter.file %}
               <div class="col-section">
-                {% renderFile chapter.file | componentsPath, "njk,md" %}
+                {% set markdownFile = "docs/" + version + "/" + lang + "/" + chapter.file %}
+                {% renderFile markdownFile | componentsPath, "njk,md" %}
               </div>
             {% endif %}
             {% if chapter.children %}
               {% for childId, child in chapter.children %}
                 {% if child.file %}
-                  {% renderFile child.file | componentsPath, "njk,md" %}
+                  {% set markdownFile = "docs/" + version + "/" + lang + "/" + child.file %}
+                {% renderFile markdownFile | componentsPath, "njk,md" %}
                 {% endif %}
               {% endfor %}
             {% endif %}
           {% endfor %}
         </article>
       </main>
-      <aside class="col-auto d-none d-xl-block docs-aside" tabindex="-1" id="docsAside">
-        <p>Based on <a class="link-button-active" href="https://www.11ty.dev/" target="_blank">Eleventy 3.1.6</a></p>
+      <aside class="col-auto d-none d-xxl-block docs-aside" tabindex="-1" id="docsAside">
+        <p>{{ ui.docs.basedOn }} <a class="link-button-active" href="https://www.11ty.dev/" target="_blank">Eleventy 3.1.6</a></p>
         <hr>
-        <p>This documentation may be incomplete.</p>
+        <p>{{ ui.docs.incomplete }}</p>
         <hr>
-        <p>If you notice something missing, please let us know by <a class="link-button-active" href="https://github.com/rhaastrake/nibula/issues" target="_blank">opening an issue</a></p>
+        <p>{{ ui.docs.missing }} <a class="link-button-active" href="https://github.com/rhaastrake/nibula/issues" target="_blank">{{ ui.docs.openIssue }}</a></p>
       </aside>
     </div>
   </div>

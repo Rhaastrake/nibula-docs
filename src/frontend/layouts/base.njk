@@ -1,7 +1,7 @@
 {# This is the base of every page that you will create #}
 
 <!DOCTYPE html>
-<html lang="{{ site.lang or 'en' }}" data-theme="{{ site.theme or 'light' }}" data-bs-theme="{{ site.theme or 'light' }}">
+<html lang="{{ lang }}" data-theme="{{ site.theme or 'light' }}" data-bs-theme="{{ site.theme or 'light' }}">
 
     <head>
         <meta charset="UTF-8">
@@ -14,26 +14,36 @@
 
         {% set pageKey = title %}
         {% set pageData = pages[pageKey] %}
-        {% set canonicalUrl = (site.url + canonical) if canonical else (pageData.seo.canonical or (site.url + page.url)) %}
+        {% set seo = pageData.seo[lang] %}
+        {% set canonicalUrl = (site.url + canonical) if canonical else (pageData.canonical or (site.url + page.url)) %}
+        {% set isIndexable = not (pageData.noindex or noindex or canonical) %}
 
       {#╔══════════════════╗
         ║       SEO        ║
         ╚══════════════════╝#}
 
         <link rel="canonical" href="{{ canonicalUrl }}"/>
-        <title>{{ pageData.seo.title or title or site.title }}</title>
-        <meta name="description" content="{{ pageData.seo.description or site.description }}">
-        <meta name="keywords" content="{{ pageData.seo.keywords or site.keywords }}">
+
+        {% if isIndexable %}
+        {% for alternate in site.languages %}
+        <link rel="alternate" hreflang="{{ alternate.code }}" href="{{ site.url }}{{ alternate.prefix }}{{ pagePath }}">
+        {% endfor %}
+        <link rel="alternate" hreflang="x-default" href="{{ site.url }}{{ pagePath }}">
+        {% endif %}
+
+        <title>{{ seo.title or title or ui.site.title }}</title>
+        <meta name="description" content="{{ seo.description or ui.site.description }}">
+        <meta name="keywords" content="{{ seo.keywords or site.keywords }}">
         <meta name="author" content="{{ site.author.fullName }}">
         <meta name="theme-color" content="{{ site.themeColor }}">
 
-        {% if pageData.seo.noindex or noindex %}
+        {% if pageData.noindex or noindex %}
         <meta name="robots" content="noindex, follow">
         {% endif %}
 
         {# Open Graph #}
-        <meta property="og:title" content="{{ pageData.seo.title or title or site.title }}">
-        <meta property="og:description" content="{{ pageData.seo.description or site.description }}">
+        <meta property="og:title" content="{{ seo.title or title or ui.site.title }}">
+        <meta property="og:description" content="{{ seo.description or ui.site.description }}">
         <meta property="og:type" content="website">
         <meta property="og:url" content="{{ canonicalUrl }}">
         <meta property="og:image" content="{{ site.url }}{{ site.socialImage }}">
@@ -41,11 +51,17 @@
         <meta property="og:image:height" content="630">
         <meta property="og:image:alt" content="{{ site.siteName }} logo">
         <meta property="og:site_name" content="{{ site.siteName }}">
+        <meta property="og:locale" content="{{ language.locale }}">
+        {% for alternate in site.languages %}
+        {% if alternate.code != lang %}
+        <meta property="og:locale:alternate" content="{{ alternate.locale }}">
+        {% endif %}
+        {% endfor %}
 
         {# Twitter Card #}
         <meta name="twitter:card" content="summary_large_image">
-        <meta name="twitter:title" content="{{ pageData.seo.title or title or site.title }}">
-        <meta name="twitter:description" content="{{ pageData.seo.description or site.description }}">
+        <meta name="twitter:title" content="{{ seo.title or title or ui.site.title }}">
+        <meta name="twitter:description" content="{{ seo.description or ui.site.description }}">
         <meta name="twitter:image" content="{{ site.url }}{{ site.socialImage }}">
         <meta name="twitter:image:alt" content="{{ site.siteName }} logo">
 
@@ -57,8 +73,8 @@
         {
             "@context": "https://schema.org",
             "@type": "WebPage",
-            "name": {{ (pageData.seo.title or title or site.title) | dump | safe }},
-            "description": {{ (pageData.seo.description or site.description) | dump | safe }},
+            "name": {{ (seo.title or title or ui.site.title) | dump | safe }},
+            "description": {{ (seo.description or ui.site.description) | dump | safe }},
             "url": {{ canonicalUrl | dump | safe }},
             "author": {
                 "@type": "Person",
@@ -82,7 +98,7 @@
             "@context": "https://schema.org",
             "@type": "SoftwareApplication",
             "name": {{ site.siteName | dump | safe }},
-            "description": {{ site.description | dump | safe }},
+            "description": {{ ui.site.description | dump | safe }},
             "url": {{ site.url | dump | safe }},
             "applicationCategory": "DeveloperApplication",
             "operatingSystem": "Windows, macOS, Linux",
@@ -106,10 +122,10 @@
         {
             "@context": "https://schema.org",
             "@type": "TechArticle",
-            "headline": {{ (pageData.seo.title or site.title) | dump | safe }},
-            "description": {{ (pageData.seo.description or site.description) | dump | safe }},
+            "headline": {{ (seo.title or ui.site.title) | dump | safe }},
+            "description": {{ (seo.description or ui.site.description) | dump | safe }},
             "url": {{ canonicalUrl | dump | safe }},
-            "inLanguage": {{ site.lang | dump | safe }},
+            "inLanguage": {{ lang | dump | safe }},
             "version": {{ version | dump | safe }},
             "dateModified": {{ page.date.toISOString() | dump | safe }},
             "author": {
@@ -187,6 +203,8 @@
                 <script src="{{ script }}" defer></script>
             {% endfor %}
         {% endif %}
+
+        <script id="i18n-strings" type="application/json">{{ ui.js | dump | safe }}</script>
 
         {# Page JS #}
         <script src="{{ ('/js/pages/' + title + '.js') | url }}"></script>

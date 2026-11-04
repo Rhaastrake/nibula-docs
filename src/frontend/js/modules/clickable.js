@@ -1,3 +1,5 @@
+import { t } from "./i18n.js";
+
 const BADGE_DURATION = 1600;
 
 let badge;
@@ -7,7 +9,7 @@ function showBadge(x, y) {
     badge = document.createElement("span");
     badge.className = "clickable-badge";
     badge.setAttribute("role", "status");
-    badge.textContent = "Copied";
+    badge.textContent = t("copied");
     document.body.appendChild(badge);
   }
   badge.style.left = `${x + window.scrollX}px`;
@@ -49,7 +51,7 @@ function setup(host) {
 
   if (!host.hasAttribute("tabindex")) host.setAttribute("tabindex", "0");
   host.setAttribute("role", "button");
-  host.setAttribute("aria-label", "Copy to clipboard");
+  host.setAttribute("aria-label", t("copyToClipboard"));
 
   const anchor = host.closest("pre") || host.parentElement || host;
   anchor.style.position = "relative";
@@ -57,7 +59,7 @@ function setup(host) {
   const button = document.createElement("button");
   button.type = "button";
   button.className = "clickable-copy";
-  button.setAttribute("aria-label", "Copy to clipboard");
+  button.setAttribute("aria-label", t("copyToClipboard"));
   button.innerHTML = '<i class="bi bi-clipboard" aria-hidden="true"></i>';
   anchor.appendChild(button);
 

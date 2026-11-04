@@ -5,7 +5,11 @@
   "keywords": "nibula, eleventy, 11ty, static site scaffolder, eleventy starter, eleventy template, cli scaffolding, project generator, boilerplate",
   "domain": "nibula.dev",
   "url": "https://nibula.dev",
-  "lang": "en",
+  "defaultLang": "en",
+  "languages": [
+    { "code": "en", "label": "English", "short": "EN", "locale": "en_US", "prefix": "" },
+    { "code": "it", "label": "Italiano", "short": "IT", "locale": "it_IT", "prefix": "/it" }
+  ],
   "repository": "https://github.com/Rhaastrake/Nibula",
   "npm": "https://www.npmjs.com/package/nibula",
   "license": "https://www.apache.org/licenses/LICENSE-2.0",

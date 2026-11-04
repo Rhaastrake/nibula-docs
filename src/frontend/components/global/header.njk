@@ -1,15 +1,15 @@
 <header>
   <nav class="container">
     <div class="brand">
-      <a class="logo" href="{{ '/' | url }}">
+      <a class="logo" href="{{ (langPrefix + '/') | url }}">
         <img src="{{ site.logo }}" alt="{{ site.siteName }}"/>
       </a>
 
       <div class="brand-extras">
         {% if title == "docs" %}
-          <select id="docsVersionSelect" class="form-select docs-version-select" aria-label="Documentation version">
+          <select id="docsVersionSelect" class="form-select docs-version-select" aria-label="{{ ui.nav.docsVersion }}">
             {% for v in docsVersions %}
-              <option value="{{ v.url | url }}" {% if v.id == version %}selected{% endif %}>{{ v.id }}</option>
+              <option value="{{ (langPrefix + v.url) | url }}" {% if v.id == version %}selected{% endif %}>{{ v.id }}</option>
             {% endfor %}
           </select>
         {% endif %}
@@ -19,12 +19,13 @@
           data-index="{{ '/search.json' | url }}"
           data-base="{{ '/' | url }}"
           data-version="{{ version or (docsVersions | last).id }}"
+          data-lang="{{ lang }}"
         >
           <input
             type="search"
             class="form-control site-search-input"
-            placeholder="Search docs..."
-            aria-label="Search"
+            placeholder="{{ ui.search.placeholder }}"
+            aria-label="{{ ui.search.label }}"
             autocomplete="off"
           >
           <ul class="site-search-results" role="listbox" hidden></ul>
@@ -32,23 +33,33 @@
       </div>
     </div>
 
-    <button class="burger-menu" id="burger-btn" aria-label="Open menu">
+    <button class="burger-menu" id="burger-btn" aria-label="{{ ui.nav.openMenu }}">
       <span class="bar"></span>
       <span class="bar"></span>
       <span class="bar"></span>
     </button>
 
     <div class="links" id="nav-links">
-      <a href="{{ '/docs/' | url }}" class="button link-button">Documentation</a>
-      <a href="{{ '/team/' | url }}" class="button link-button">Team</a>
-      <a href="{{ '/faq/' | url }}" class="button link-button">FAQ</a>
+      <a href="{{ (langPrefix + '/docs/') | url }}" class="button link-button">{{ ui.nav.docs }}</a>
+      <a href="{{ (langPrefix + '/team/') | url }}" class="button link-button">{{ ui.nav.team }}</a>
+      <a href="{{ (langPrefix + '/faq/') | url }}" class="button link-button">{{ ui.nav.faq }}</a>
 
       <div class="nav-slot nav-search-slot" id="nav-search-slot"></div>
       {% if title == "docs" %}
         <div class="nav-slot nav-index-slot" id="nav-index-slot"></div>
       {% endif %}
 
-      <a href="https://github.com/rhaastrake/nibula" target="_blank" rel="noopener noreferrer" class="button link-button nav-social" aria-label="GitHub repository"><i class="bi bi-github" style="font-size: 1.5rem"></i></a>
+      <div class="language-switcher" role="group" aria-label="{{ ui.nav.language }}">
+        {% for alternate in site.languages %}
+          {% if alternate.code == lang %}
+            <span class="language-current" aria-current="true">{{ alternate.short }}</span>
+          {% else %}
+            <a class="button link-button" href="{{ (alternate.prefix + pagePath) | url }}" hreflang="{{ alternate.code }}" lang="{{ alternate.code }}" title="{{ alternate.label }}">{{ alternate.short }}</a>
+          {% endif %}
+        {% endfor %}
+      </div>
+
+      <a href="https://github.com/rhaastrake/nibula" target="_blank" rel="noopener noreferrer" class="button link-button nav-social" aria-label="{{ ui.nav.github }}"><i class="bi bi-github" style="font-size: 1.5rem"></i></a>
     </div>
   </nav>
 </header>

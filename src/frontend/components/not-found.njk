@@ -1,4 +1,8 @@
 <div class="fade-in not-found">
-  <h1>Oops! Page not found</h1>
-  <a href="{{'/' | url }}">Return to homepage</a>
+  {% for alternate in site.languages %}
+    <div lang="{{ alternate.code }}">
+      <h1>{{ i18n[alternate.code].notFound.title }}</h1>
+      <a href="{{ (alternate.prefix + '/') | url }}">{{ i18n[alternate.code].notFound.back }}</a>
+    </div>
+  {% endfor %}
 </div>

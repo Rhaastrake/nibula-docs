@@ -159,9 +159,9 @@ those pages need.
 {% endraw %}
 
 > Those two come from `components/global/` — see
-> [components](id="what-is-a-component")
+> [components](#what-is-a-component)
 
-**A different header.** Point the [include](id="include-a-component") at another
+**A different header.** Point the [include](#include-a-component) at another
 component instead:
 
 {% raw %}

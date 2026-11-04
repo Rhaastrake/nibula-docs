@@ -2,20 +2,20 @@
   <div class="container">
     <div class="footer-columns row">
       <div class="col-12 col-md-4">
-        <h3>{{ site.title }}</h3>
-        <p>{{ site.description }}</p>
+        <h3>{{ ui.site.title }}</h3>
+        <p>{{ ui.site.description }}</p>
       </div>
       <div class="col-6 col-md-auto">
-        <h3>Sitemap</h3>
+        <h3>{{ ui.footer.sitemap }}</h3>
         <ul>
-          <li><a class="button link-button" href="{{ '/' | url }}">Homepage</a></li>
-          <li><a class="button link-button" href="{{ '/docs/' | url }}">Documentation</a></li>
-          <li><a class="button link-button" href="{{ '/team/' | url }}">Team</a></li>
-          <li><a class="button link-button" href="{{ '/faq/' | url }}">FAQ</a></li>
+          <li><a class="button link-button" href="{{ (langPrefix + '/') | url }}">{{ ui.nav.home }}</a></li>
+          <li><a class="button link-button" href="{{ (langPrefix + '/docs/') | url }}">{{ ui.nav.docs }}</a></li>
+          <li><a class="button link-button" href="{{ (langPrefix + '/team/') | url }}">{{ ui.nav.team }}</a></li>
+          <li><a class="button link-button" href="{{ (langPrefix + '/faq/') | url }}">{{ ui.nav.faq }}</a></li>
         </ul>
       </div>
       <div class="col-6 col-md-auto">
-        <h3>Social</h3>
+        <h3>{{ ui.footer.social }}</h3>
         <ul>
           <li>
             <a class="button link-button" href="https://github.com/rhaastrake/nibula"

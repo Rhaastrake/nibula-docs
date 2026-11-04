@@ -1,0 +1,170 @@
+{
+  "en": {
+    "site": {
+      "title": "Nibula · Static site scaffolder built on Eleventy",
+      "description": "Nibula is an open-source static site scaffolder built on Eleventy, made for people moving from hand-written HTML to a real project setup."
+    },
+    "nav": {
+      "home": "Homepage",
+      "docs": "Documentation",
+      "team": "Team",
+      "faq": "FAQ",
+      "openMenu": "Open menu",
+      "github": "GitHub repository",
+      "language": "Language",
+      "docsVersion": "Documentation version"
+    },
+    "search": {
+      "placeholder": "Search docs...",
+      "label": "Search"
+    },
+    "footer": {
+      "sitemap": "Sitemap",
+      "social": "Social"
+    },
+    "home": {
+      "tagline": "A static site scaffolder, simplified for beginners",
+      "quickStart": "Quick start",
+      "features": [
+        { "icon": "search", "title": "Centralized SEO", "text": "Set your SEO once per page in a data file. Every tag, the sitemap and llms.txt regenerate on every build" },
+        { "icon": "rocket-takeoff", "title": "Deploy ready", "text": "The build folder is ready to upload as it is. The config your host expects is already inside, for Apache, IIS or nginx" },
+        { "icon": "hdd-stack", "title": "Backend included", "text": "Need a contact form or an API? There's a small backend ready to use, in Node or PHP" }
+      ],
+      "structure": {
+        "title": "A structure you can hold in your head",
+        "hiddenTitle": "Nothing is hidden.",
+        "hiddenText": "Every file lives in the folder you would expect, in the form you would have written by hand",
+        "configTitle": "No config layer.",
+        "configText": "When you need to change something, you open it and change it",
+        "link": "Page structure in the docs →",
+        "tree": {
+          "routes": "your pages",
+          "components": "reusable pieces",
+          "layouts": "the page shell",
+          "data": "site + SEO",
+          "scss": "styles",
+          "js": "scripts",
+          "indexing": "sitemap + robots",
+          "hosting": "server config"
+        }
+      },
+      "goodFor": {
+        "title": "A good fit for",
+        "items": [
+          { "title": "Portfolios and showcase sites", "text": "A handful of pages, stable content, built to be found" },
+          { "title": "Small business sites", "text": "Cheap shared hosting and a contact form — exactly what the PHP backend covers" },
+          { "title": "Landing pages", "text": "One page, fast, with the meta tags already in place" },
+          { "title": "Project documentation", "text": "Like the page you are reading" },
+          { "title": "The project you build to learn", "text": "The one after the tutorials, when you want something real without picking up React first" },
+          { "title": "A small blog", "text": "Up to a point: pages are created one at a time, fine for twenty posts and wrong for two hundred" }
+        ]
+      }
+    },
+    "docs": {
+      "index": "Documentation index",
+      "openSubnav": "Open navigation menu",
+      "basedOn": "Based on",
+      "incomplete": "This documentation may be incomplete.",
+      "missing": "If you notice something missing, please let us know by",
+      "openIssue": "opening an issue"
+    },
+    "wip": "Work in progress",
+    "notFound": {
+      "title": "Oops! Page not found",
+      "back": "Return to homepage"
+    },
+    "team": {
+      "on": "on",
+      "website": "Website"
+    },
+    "js": {
+      "copied": "Copied",
+      "copyToClipboard": "Copy to clipboard",
+      "noResults": "No results"
+    }
+  },
+  "it": {
+    "site": {
+      "title": "Nibula · Scaffolder per siti statici basato su Eleventy",
+      "description": "Nibula è uno scaffolder open source per siti statici basato su Eleventy, pensato per chi passa dall'HTML scritto a mano a un vero progetto."
+    },
+    "nav": {
+      "home": "Homepage",
+      "docs": "Documentazione",
+      "team": "Team",
+      "faq": "FAQ",
+      "openMenu": "Apri il menu",
+      "github": "Repository GitHub",
+      "language": "Lingua",
+      "docsVersion": "Versione della documentazione"
+    },
+    "search": {
+      "placeholder": "Cerca nelle docs...",
+      "label": "Cerca"
+    },
+    "footer": {
+      "sitemap": "Mappa del sito",
+      "social": "Social"
+    },
+    "home": {
+      "tagline": "Uno scaffolder per siti statici, semplificato per chi inizia",
+      "quickStart": "Avvio rapido",
+      "features": [
+        { "icon": "search", "title": "SEO centralizzata", "text": "Imposti la SEO una volta per pagina in un file di dati. Ogni tag, la sitemap e llms.txt si rigenerano a ogni build" },
+        { "icon": "rocket-takeoff", "title": "Pronto per il deploy", "text": "La cartella di build è pronta da caricare così com'è. Dentro c'è già la configurazione che il tuo hosting si aspetta, per Apache, IIS o nginx" },
+        { "icon": "hdd-stack", "title": "Backend incluso", "text": "Ti serve un modulo di contatto o un'API? C'è un piccolo backend pronto all'uso, in Node o PHP" }
+      ],
+      "structure": {
+        "title": "Una struttura che puoi tenere a mente",
+        "hiddenTitle": "Niente è nascosto.",
+        "hiddenText": "Ogni file sta nella cartella in cui te lo aspetti, nella forma in cui lo avresti scritto a mano",
+        "configTitle": "Nessun livello di configurazione.",
+        "configText": "Quando devi cambiare qualcosa, apri il file e lo cambi",
+        "link": "Struttura delle pagine nella documentazione →",
+        "tree": {
+          "routes": "le tue pagine",
+          "components": "pezzi riutilizzabili",
+          "layouts": "la struttura della pagina",
+          "data": "sito + SEO",
+          "scss": "stili",
+          "js": "script",
+          "indexing": "sitemap + robots",
+          "hosting": "config del server"
+        }
+      },
+      "goodFor": {
+        "title": "Ideale per",
+        "items": [
+          { "title": "Portfolio e siti vetrina", "text": "Poche pagine, contenuti stabili, fatti per essere trovati" },
+          { "title": "Siti per piccole attività", "text": "Hosting condiviso economico e un modulo di contatto: esattamente quello che copre il backend PHP" },
+          { "title": "Landing page", "text": "Una pagina, veloce, con i meta tag già al loro posto" },
+          { "title": "Documentazione di progetto", "text": "Come la pagina che stai leggendo" },
+          { "title": "Il progetto con cui impari", "text": "Quello dopo i tutorial, quando vuoi qualcosa di vero senza dover prima imparare React" },
+          { "title": "Un piccolo blog", "text": "Fino a un certo punto: le pagine si creano una alla volta, va bene per venti articoli e non per duecento" }
+        ]
+      }
+    },
+    "docs": {
+      "index": "Indice della documentazione",
+      "openSubnav": "Apri il menu di navigazione",
+      "basedOn": "Basato su",
+      "incomplete": "Questa documentazione potrebbe essere incompleta.",
+      "missing": "Se noti che manca qualcosa, faccelo sapere",
+      "openIssue": "aprendo una issue"
+    },
+    "wip": "Lavori in corso",
+    "notFound": {
+      "title": "Oops! Pagina non trovata",
+      "back": "Torna alla homepage"
+    },
+    "team": {
+      "on": "su",
+      "website": "Sito"
+    },
+    "js": {
+      "copied": "Copiato",
+      "copyToClipboard": "Copia negli appunti",
+      "noResults": "Nessun risultato"
+    }
+  }
+}

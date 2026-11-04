@@ -1,118 +1,118 @@
 {
   "introduction": {
-    "label": "Introduction",
+    "label": { "en": "Introduction", "it": "Introduzione" },
     "icon": "info-circle",
-    "file": "docs/v2/introduction.md",
+    "file": "introduction.md",
     "children": {
-      "what-is-nibula": { "label": "What is Nibula" },
-      "when-not-to-use-it": { "label": "When not to use it" }
+      "what-is-nibula": { "label": { "en": "What is Nibula", "it": "Cos'è Nibula" } },
+      "when-not-to-use-it": { "label": { "en": "When not to use it", "it": "Quando non usarlo" } }
     }
   },
   "quick-start": {
-    "label": "Quick start",
+    "label": { "en": "Quick start", "it": "Avvio rapido" },
     "icon": "rocket-takeoff",
-    "file": "docs/v2/quick-start.md",
+    "file": "quick-start.md",
     "children": {
-      "prerequisites": { "label": "Prerequisites" },
-      "installation": { "label": "Installation" },
-      "project-creation": { "label": "Project creation" }
+      "prerequisites": { "label": { "en": "Prerequisites", "it": "Prerequisiti" } },
+      "installation": { "label": { "en": "Installation", "it": "Installazione" } },
+      "project-creation": { "label": { "en": "Project creation", "it": "Creazione del progetto" } }
     }
   },
   "page-structure": {
-    "label": "Page structure",
+    "label": { "en": "Page structure", "it": "Struttura della pagina" },
     "icon": "diagram-3",
-    "file": "docs/v2/page-structure.md",
+    "file": "page-structure.md",
     "children": {
-      "composition": { "label": "Composition" },
-      "layouts": { "label": "Layouts" },
-      "nibula-cli": { "label": "Nibula CLI" }
+      "composition": { "label": { "en": "Composition", "it": "Composizione" } },
+      "layouts": { "label": { "en": "Layouts", "it": "Layout" } },
+      "nibula-cli": { "label": { "en": "Nibula CLI", "it": "Nibula CLI" } }
     }
   },
   "components": {
-    "label": "Components",
+    "label": { "en": "Components", "it": "Componenti" },
     "icon": "puzzle",
-    "file": "docs/v2/components.md",
+    "file": "components.md",
     "children": {
-      "what-is-a-component": { "label": "What is a component" },
-      "what-is-nunjucks": { "label": "What is Nunjucks" },
-      "what-is-markdown": { "label": "What is Markdown" },
-      "include-a-component": { "label": "Include a component" }
+      "what-is-a-component": { "label": { "en": "What is a component", "it": "Cos'è un componente" } },
+      "what-is-nunjucks": { "label": { "en": "What is Nunjucks", "it": "Cos'è Nunjucks" } },
+      "what-is-markdown": { "label": { "en": "What is Markdown", "it": "Cos'è Markdown" } },
+      "include-a-component": { "label": { "en": "Include a component", "it": "Includere un componente" } }
     }
   },
   "styling": {
-    "label": "Styling",
+    "label": { "en": "Styling", "it": "Stile" },
     "icon": "palette",
-    "file": "docs/v2/styling.md",
+    "file": "styling.md",
     "children": {
-      "what-is-scss": { "label": "What is SCSS" },
-      "styling-structure": { "label": "Structure" },
-      "styling-modules": { "label": "Modules" },
-      "css-frameworks": { "label": "CSS frameworks" }
+      "what-is-scss": { "label": { "en": "What is SCSS", "it": "Cos'è SCSS" } },
+      "styling-structure": { "label": { "en": "Structure", "it": "Struttura" } },
+      "styling-modules": { "label": { "en": "Modules", "it": "Moduli" } },
+      "css-frameworks": { "label": { "en": "CSS frameworks", "it": "Framework CSS" } }
     }
   },
   "javascript": {
-    "label": "Javascript",
+    "label": { "en": "Javascript", "it": "Javascript" },
     "icon": "braces",
-    "file": "docs/v2/javascript.md",
+    "file": "javascript.md",
     "children": {
-      "javascript-or-typescript": { "label": "JavaScript or TypeScript" },
-      "javascript-structure": { "label": "Structure" },
-      "javascript-modules": { "label": "Modules" }
+      "javascript-or-typescript": { "label": { "en": "JavaScript or TypeScript", "it": "Javascript o TypeScript" } },
+      "javascript-structure": { "label": { "en": "Structure", "it": "Struttura" } },
+      "javascript-modules": { "label": { "en": "Modules", "it": "Moduli" } }
     }
   },
   "content-and-data": {
-    "label": "Content & Data",
+    "label": { "en": "Content & Data", "it": "Contenuti e dati" },
     "icon": "database",
-    "file": "docs/v2/content-and-data.md",
+    "file": "content-and-data.md",
     "children": {
-      "assets-management": { "label": "Assets management" },
-      "data-files": { "label": "Data files" }
+      "assets-management": { "label": { "en": "Assets management", "it": "Gestione degli asset" } },
+      "data-files": { "label": { "en": "Data files", "it": "File di dati" } }
     }
   },
   "seo": {
-    "label": "SEO",
+    "label": { "en": "SEO", "it": "SEO" },
     "icon": "search",
-    "file": "docs/v2/seo.md",
+    "file": "seo.md",
     "children": {
-      "what-is-seo": { "label": "What is SEO" },
-      "each-page-seo": { "label": "Each page SEO" },
-      "seo-best-practices": { "label": "Best practices" },
-      "sitemap-generation": { "label": "Sitemap generation" },
-      "robots-and-crawlers": { "label": "Robots & Crawlers" }
+      "what-is-seo": { "label": { "en": "What is SEO", "it": "Cos'è la SEO" } },
+      "each-page-seo": { "label": { "en": "Each page SEO", "it": "SEO di ogni pagina" } },
+      "seo-best-practices": { "label": { "en": "Best practices", "it": "Buone pratiche" } },
+      "sitemap-generation": { "label": { "en": "Sitemap generation", "it": "Generazione della sitemap" } },
+      "robots-and-crawlers": { "label": { "en": "Robots & Crawlers", "it": "Robots e crawler" } }
     }
   },
   "backend": {
-    "label": "Backend",
+    "label": { "en": "Backend", "it": "Backend" },
     "icon": "hdd-stack",
-    "file": "docs/v2/backend.md",
+    "file": "backend.md",
     "children": {
-      "node-or-php": { "label": "Node or PHP" },
-      "backend-structure": { "label": "Structure" },
-      "endpoints-logic": { "label": "Endpoints logic" },
-      "database": { "label": "Database" },
-      "additional-packages": { "label": "Additional packages" },
-      "node-service": { "label": "Node service" }
+      "node-or-php": { "label": { "en": "Node or PHP", "it": "Node.js o PHP" } },
+      "backend-structure": { "label": { "en": "Structure", "it": "Struttura" } },
+      "endpoints-logic": { "label": { "en": "Endpoints logic", "it": "Logica degli endpoint" } },
+      "database": { "label": { "en": "Database", "it": "Database" } },
+      "additional-packages": { "label": { "en": "Additional packages", "it": "Pacchetti aggiuntivi" } },
+      "node-service": { "label": { "en": "Node service", "it": "Servizio Node" } }
     }
   },
   "deploy": {
-    "label": "Deploy",
+    "label": { "en": "Deploy", "it": "Deploy" },
     "icon": "cloud-arrow-up",
-    "file": "docs/v2/deploy.md",
+    "file": "deploy.md",
     "children": {
-      "how-to-deploy": { "label": "How to deploy" },
-      "hosting-options": { "label": "Hosting options" },
-      "apache-iis": { "label": "Apache / IIS" },
-      "nginx": { "label": "Nginx" }
+      "how-to-deploy": { "label": { "en": "How to deploy", "it": "Come fare il deploy" } },
+      "hosting-options": { "label": { "en": "Hosting options", "it": "Opzioni di hosting" } },
+      "apache-iis": { "label": { "en": "Apache / IIS", "it": "Apache / IIS" } },
+      "nginx": { "label": { "en": "Nginx", "it": "Nginx" } }
     }
   },
   "about": {
-    "label": "About",
+    "label": { "en": "About", "it": "Informazioni" },
     "icon": "people",
-    "file": "docs/v2/about.md",
+    "file": "about.md",
     "children": {
-      "about-eleventy": { "label": "About Eleventy" },
-      "support-nibula": { "label": "Support Nibula" },
-      "roadmap": { "label": "Roadmap" }
+      "about-eleventy": { "label": { "en": "About Eleventy", "it": "Informazioni su Eleventy (11ty)" } },
+      "support-nibula": { "label": { "en": "Support Nibula", "it": "Supporta Nibula" } },
+      "roadmap": { "label": { "en": "Roadmap", "it": "Roadmap" } }
     }
   }
 }

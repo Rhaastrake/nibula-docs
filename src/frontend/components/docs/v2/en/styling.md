@@ -8,7 +8,7 @@ The browser doesn't read `.scss` directly: your files are compiled into one **CS
 
 ## Structure {id="styling-structure"}
 
-Every page has its own **SCSS** file, named after the page in **camel case**. It's created for you under `src/frontend/scss/pages/` when you add a page with the [Nibula CLI] (#nibula-cli).
+Every page has its own **SCSS** file, named after the page in **camel case**. It's created for you under `src/frontend/scss/pages/` when you add a page with the [Nibula CLI](#nibula-cli).
 
 > For example `my-page.njk` (page file) is automatically linked to `myPage.scss`
 

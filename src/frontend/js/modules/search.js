@@ -1,3 +1,5 @@
+import { t } from "./i18n.js";
+
 export function initSearch() {
   const root = document.querySelector(".site-search");
   if (!root) return;
@@ -6,6 +8,7 @@ export function initSearch() {
   const list = root.querySelector(".site-search-results");
   const base = root.dataset.base.replace(/\/$/, "");
   const currentVersion = root.dataset.version || null;
+  const currentLang = root.dataset.lang || null;
   const maxResults = 10;
 
   let index = null;
@@ -25,7 +28,7 @@ export function initSearch() {
     const data = await res.json();
 
     index = data
-      .filter((e) => e.version === currentVersion)
+      .filter((e) => e.version === currentVersion && e.lang === currentLang)
       .map((e) => {
         const text = cleanText(e.text);
         return { ...e, text, key: normalize(text) };
@@ -62,7 +65,7 @@ export function initSearch() {
     active = -1;
 
     if (!results.length) {
-      list.innerHTML = `<li class="site-search-empty">No results</li>`;
+      list.innerHTML = `<li class="site-search-empty">${escape(t("noResults"))}</li>`;
       list.hidden = false;
       return;
     }
