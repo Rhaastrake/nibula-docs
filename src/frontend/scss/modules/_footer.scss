@@ -9,7 +9,7 @@ footer {
   display: flex;
   flex-direction: column;
   width: 100%;
-  padding: root.$header-padding-y root.$header-padding-x;
+  padding: 2rem clamp(1.5rem, 5vw, 4rem);
   background-color: root.$background;
 
   h3 {

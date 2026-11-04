@@ -51,9 +51,60 @@ a {
     // text-decoration: underline !important;
   }
 
+  details {
+    margin-top: -0.5rem;
+
+    &[open] > summary {
+      margin-bottom: 1rem;
+
+      &::before {
+        transform: rotate(45deg) translateY(-2px);
+      }
+    }
+
+    > blockquote {
+      border-left-color: root.$link-button;
+    }
+  }
+
   summary {
-    color: root.$docs-reference;
-    font-size: 1.25rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.45rem 1.1rem;
+    border: 1px solid color-mix(in srgb, root.$link-button 70%, transparent);
+    border-radius: 999px;
+    background: color-mix(in srgb, root.$link-button 16%, transparent);
+    color: root.$link-button;
+    font-size: 0.95rem;
+    font-weight: 600;
+    list-style: none;
+    user-select: none;
+    transition: background-color 0.2s, border-color 0.2s;
+
+    &::-webkit-details-marker {
+      display: none;
+    }
+
+    &::before {
+      content: "";
+      width: 0.45em;
+      height: 0.45em;
+      border-right: 2px solid currentColor;
+      border-bottom: 2px solid currentColor;
+      transform: rotate(-45deg);
+      transition: transform 0.2s;
+    }
+
+    &:hover {
+      background: color-mix(in srgb, root.$link-button 26%, transparent);
+      border-color: root.$link-button;
+    }
+
+    &:focus-visible {
+      outline: 2px solid root.$link-button;
+      outline-offset: 2px;
+    }
 
     .red-color {
       color: rgba(255, 0, 0, 0.712);
