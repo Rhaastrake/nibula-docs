@@ -14,19 +14,20 @@
 
         {% set pageKey = title %}
         {% set pageData = pages[pageKey] %}
+        {% set canonicalUrl = (site.url + canonical) if canonical else (pageData.seo.canonical or (site.url + page.url)) %}
 
       {#╔══════════════════╗
         ║       SEO        ║
         ╚══════════════════╝#}
 
-        <link rel="canonical" href="{{ pageData.seo.canonical or (site.url + page.url) }}"/>
+        <link rel="canonical" href="{{ canonicalUrl }}"/>
         <title>{{ pageData.seo.title or title or site.title }}</title>
         <meta name="description" content="{{ pageData.seo.description or site.description }}">
         <meta name="keywords" content="{{ pageData.seo.keywords or site.keywords }}">
         <meta name="author" content="{{ site.author.fullName }}">
-        <meta name="theme-color" content="{{ site.theme }}">
+        <meta name="theme-color" content="{{ site.themeColor }}">
 
-        {% if pageData.seo.noindex %}
+        {% if pageData.seo.noindex or noindex %}
         <meta name="robots" content="noindex, follow">
         {% endif %}
 
@@ -34,15 +35,19 @@
         <meta property="og:title" content="{{ pageData.seo.title or title or site.title }}">
         <meta property="og:description" content="{{ pageData.seo.description or site.description }}">
         <meta property="og:type" content="website">
-        <meta property="og:url" content="{{ site.url }}{{ page.url }}">
-        <meta property="og:image" content="{{ site.url }}{{ site.logo }}">
+        <meta property="og:url" content="{{ canonicalUrl }}">
+        <meta property="og:image" content="{{ site.url }}{{ site.socialImage }}">
+        <meta property="og:image:width" content="1200">
+        <meta property="og:image:height" content="630">
+        <meta property="og:image:alt" content="{{ site.siteName }} logo">
         <meta property="og:site_name" content="{{ site.siteName }}">
 
         {# Twitter Card #}
         <meta name="twitter:card" content="summary_large_image">
         <meta name="twitter:title" content="{{ pageData.seo.title or title or site.title }}">
         <meta name="twitter:description" content="{{ pageData.seo.description or site.description }}">
-        <meta name="twitter:image" content="{{ site.url }}{{ site.logo }}">
+        <meta name="twitter:image" content="{{ site.url }}{{ site.socialImage }}">
+        <meta name="twitter:image:alt" content="{{ site.siteName }} logo">
 
       {#╔══════════════════════════════════════════╗
         ║   JSON-LD — Structured data for SEO/AI   ║
@@ -54,7 +59,7 @@
             "@type": "WebPage",
             "name": {{ (pageData.seo.title or title or site.title) | dump | safe }},
             "description": {{ (pageData.seo.description or site.description) | dump | safe }},
-            "url": {{ (site.url + page.url) | dump | safe }},
+            "url": {{ canonicalUrl | dump | safe }},
             "author": {
                 "@type": "Person",
                 "name": {{ site.author.fullName | dump | safe }},
@@ -71,6 +76,56 @@
         }
         </script>
 
+        {% if title == "homepage" %}
+        <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "SoftwareApplication",
+            "name": {{ site.siteName | dump | safe }},
+            "description": {{ site.description | dump | safe }},
+            "url": {{ site.url | dump | safe }},
+            "applicationCategory": "DeveloperApplication",
+            "operatingSystem": "Windows, macOS, Linux",
+            "license": {{ site.license | dump | safe }},
+            "downloadUrl": {{ site.npm | dump | safe }},
+            "sameAs": [{{ site.repository | dump | safe }}, {{ site.npm | dump | safe }}],
+            "author": {
+                "@type": "Person",
+                "name": {{ site.author.fullName | dump | safe }},
+                "url": {{ site.author.website | dump | safe }}
+            },
+            "offers": {
+                "@type": "Offer",
+                "price": "0",
+                "priceCurrency": "EUR"
+            }
+        }
+        </script>
+        {% elif title == "docs" %}
+        <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "TechArticle",
+            "headline": {{ (pageData.seo.title or site.title) | dump | safe }},
+            "description": {{ (pageData.seo.description or site.description) | dump | safe }},
+            "url": {{ canonicalUrl | dump | safe }},
+            "inLanguage": {{ site.lang | dump | safe }},
+            "version": {{ version | dump | safe }},
+            "dateModified": {{ page.date.toISOString() | dump | safe }},
+            "author": {
+                "@type": "Person",
+                "name": {{ site.author.fullName | dump | safe }},
+                "url": {{ site.author.website | dump | safe }}
+            },
+            "about": {
+                "@type": "SoftwareApplication",
+                "name": {{ site.siteName | dump | safe }},
+                "url": {{ site.url | dump | safe }}
+            }
+        }
+        </script>
+        {% endif %}
+
       {#╔══════════════════╗
         ║     FAVICON      ║
         ╚══════════════════╝#}
@@ -82,6 +137,8 @@
       {#╔══════════════════╗
         ║       CSS        ║
         ╚══════════════════╝#}
+
+        <link rel="preload" href="{{ '/assets/fonts/jetbrains-mono-latin.woff2' | url }}" as="font" type="font/woff2" crossorigin>
 
         {# Page CSS #}
         <link rel="stylesheet" href="{{ '/css/prism.css' | url }}">
@@ -113,7 +170,7 @@
 
         {# Framework — uncomment the one you are using #}
         {# Bootstrap JS #}
-        <script src="{{ '/js/bootstrap.bundle.min.js' | url }}" defer></script>
+        {# <script src="{{ '/js/bootstrap.bundle.min.js' | url }}" defer></script> #}
 
         {# Foundation JS #}
         {# <script src="{{ '/js/foundation.min.js' | url }}" defer></script> #}

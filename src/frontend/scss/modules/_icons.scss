@@ -1,0 +1,52 @@
+//==========================
+// CSS RULES FOR BOOTSTRAP ICONS
+//==========================
+
+@font-face {
+  font-display: block;
+  font-family: "bootstrap-icons";
+  src: url("../fonts/bootstrap-icons.woff2") format("woff2"),
+       url("../fonts/bootstrap-icons.woff") format("woff");
+}
+
+.bi::before,
+[class^="bi-"]::before,
+[class*=" bi-"]::before {
+  display: inline-block;
+  font-family: "bootstrap-icons" !important;
+  font-style: normal;
+  font-weight: normal !important;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  vertical-align: -0.125em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+$icons: (
+  "arrow-left-right": "\f12b",
+  "box": "\f1c8",
+  "braces": "\f1c9",
+  "chevron-right": "\f285",
+  "clipboard": "\f290",
+  "cloud-arrow-up": "\f297",
+  "database": "\f8c4",
+  "diagram-3": "\f2ee",
+  "discord": "\f300",
+  "github": "\f3ed",
+  "hdd-stack": "\f411",
+  "info-circle": "\f431",
+  "linkedin": "\f472",
+  "palette": "\f4b1",
+  "people": "\f4d0",
+  "puzzle": "\f503",
+  "rocket-takeoff": "\f845",
+  "search": "\f52a",
+);
+
+@each $name, $code in $icons {
+  .bi-#{$name}::before {
+    content: $code;
+  }
+}
