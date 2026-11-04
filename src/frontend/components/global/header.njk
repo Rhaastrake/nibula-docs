@@ -8,7 +8,7 @@
       <div class="brand-extras">
         {% if title == "docs" %}
           <select id="docsVersionSelect" class="form-select docs-version-select" aria-label="Documentation version">
-            {% for v in versions %}
+            {% for v in docsVersions %}
               <option value="{{ v.url | url }}" {% if v.id == version %}selected{% endif %}>{{ v.id }}</option>
             {% endfor %}
           </select>
@@ -39,7 +39,7 @@
     </button>
 
     <div class="links" id="nav-links">
-      <a href="{{ '/docs/v3/' | url }}" class="button link-button">Documentation</a>
+      <a href="{{ '/docs/' | url }}" class="button link-button">Documentation</a>
       <a href="{{ '/team/' | url }}" class="button link-button">Team</a>
       <a href="{{ '/faq/' | url }}" class="button link-button">FAQ</a>
 

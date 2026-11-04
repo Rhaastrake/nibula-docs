@@ -1,16 +1,8 @@
 ---
+title: "docs"
 permalink: "/docs/"
-eleventyExcludeFromCollections: true
+layout: base.njk
+version: "v3"
 ---
-{% set latest = docsVersions[docsVersions.length - 1] %}
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="refresh" content="0; url={{ latest.url | url }}">
-    <link rel="canonical" href="{{ latest.url | url }}">
-  </head>
-  <body>
-    <p>Redirecting to <a href="{{ latest.url | url }}">the documentation</a>.</p>
-  </body>
-</html>
+{% set docsData = docsV3 %}
+{% include "docs-container.njk" %}
