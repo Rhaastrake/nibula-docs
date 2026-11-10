@@ -56,7 +56,7 @@ Leave a field empty and the value from `site.json` is used instead. An empty **c
 
 **Fill in `site.json` before you publish.** Every page falls back to those values, so a site with *Site description* still in there ships that text everywhere.
 
-**Use `noindex` for the pages that shouldn't be found** — a thank-you page after a form, a staging copy, a page you keep only for a link you sent someone.
+**Use `noindex` for the pages that shouldn't be found**: a thank-you page after a form, a staging copy, a page you keep only for a link you sent someone.
 
 **The `url` in `site.json` has to be the real one.** It builds the canonical link and the addresses in your sitemap. Get it wrong and you're pointing search engines at a site that doesn't exist.
 
