@@ -4,13 +4,13 @@
 
 ### Required {id="required"}
 
-- **Node.js** — v18.0.0 or higher
-- **Composer** — latest version, only if you pick the PHP backend
-- **Better Nunjucks** — VS Code extension by Ed Heltzel, for syntax highlighting in **.njk** files
+- **Node.js**: v18.0.0 or higher
+- **Composer**: latest version, only if you pick the PHP backend
+- **Better Nunjucks**: VS Code extension by Ed Heltzel, for syntax highlighting in **.njk** files
 
 ### Recommended {id="recommended"}
 
-- **Material Icon Theme** — VS Code extension by Philipp Kief
+- **Material Icon Theme**: VS Code extension by Philipp Kief
 
 ## Installation {id="installation"}
 
@@ -20,7 +20,7 @@ Install Nibula once, globally:
 
 This gives you the **nib** command, with **nbl** and **nibula** as aliases.
 
-Global means you install it once on your machine, not once per project — from
+Global means you install it once on your machine, not once per project. From
 then on **nib** is available from any folder.
 
 Once installed, these are the commands you'll use:
@@ -53,11 +53,11 @@ The scaffolder asks you three things:
 | CSS framework | Bootstrap, Bulma, Foundation, UIkit, or none |
 | Backend | [Node.js or PHP](#node-or-php) |
 
-> **TypeScript** adds types to JavaScript — pick it if you already know what that means, otherwise JavaScript is the safer start.
+> **TypeScript** adds types to JavaScript: pick it if you already know what that means, otherwise JavaScript is the safer start.
 >
 > The **CSS framework** can be switched later by commenting a few lines.
 >
-> The **Backend** is the choice worth getting right: Node and PHP offer the same API, but they run in very different places — see [Deploy](#deploy).
+> The **Backend** is the choice worth getting right: Node and PHP offer the same API, but they run in very different places (see [Deploy](#deploy)).
 
 Dependencies are installed for you. If you pick Node, the Composer step is
 skipped entirely, so you don't need Composer on your machine at all.

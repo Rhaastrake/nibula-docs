@@ -2,7 +2,7 @@
 
 ## What is a component {id="what-is-a-component"}
 
-A component is a piece of a page you write once and use wherever you need it — a
+A component is a piece of a page you write once and use wherever you need it: a
 header, a card, a section of text. It's just a file in
 `src/frontend/components/`, and nothing has to be registered anywhere.
 
@@ -193,11 +193,11 @@ Go to [the title](#title-id)
 
 </details>
 
-> Values from a [data file](#data-files) work too, but only if you pass them when you [include the file](#include-markdown) — a `.md` doesn't see your data on its own
+> Values from a [data file](#data-files) work too, but only if you pass them when you [include the file](#include-markdown): a `.md` doesn't see your data on its own
 
 ## Include a component {id="include-a-component"}
 
-A component does nothing until a page asks for it. You write that line in a [page](#page-structure), in a [layout](#layouts), or in another component — a card can pull in a button, a section can pull in three cards.
+A component does nothing until a page asks for it. You write that line in a [page](#page-structure), in a [layout](#layouts), or in another component. A card can pull in a button, a section can pull in three cards.
 
 The two kinds are included differently, because `.njk` is already a template while `.md` has to be turned into HTML first.
 
@@ -211,7 +211,7 @@ The two kinds are included differently, because `.njk` is already a template whi
 
 Paths start from `src/frontend/components/`, so you never write that part.
 
-> If the component is in a subfolder, include the path too — for example `cards/feature-card.njk`
+> If the component is in a subfolder, include the path too, for example `cards/feature-card.njk`
 >
 > **ignore missing** tells the build to skip the include instead of stopping when the file isn't there
 >
@@ -239,8 +239,8 @@ Five parts to that line:
 | **{ site: site }** | Hands the file the data it needs |
 | **"njk,md"** | Tells Eleventy the file is Nunjucks + Markdown |
 
-The curly braces list what the **Markdown** is allowed to see: on the left the name the file will use, on the right the data you're passing. So `{ site: site }` lets you write `{{ site.title }}` inside the file — see [data files](#data-files).
+The curly braces list what the **Markdown** is allowed to see: on the left the name the file will use, on the right the data you're passing. So `{ site: site }` lets you write `{{ site.title }}` inside the file (see [data files](#data-files)).
 
 > Pass as many as the file needs: **{ site: site, pages: pages }**. Without them, a `{{ site.title }}` written inside the Markdown comes out empty
 >
-> **Subfolders** work the same way as `.njk` files — `legal/privacy-policy.md`
+> **Subfolders** work the same way as `.njk` files: `legal/privacy-policy.md`

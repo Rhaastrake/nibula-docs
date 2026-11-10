@@ -111,7 +111,7 @@ You can also **switch** between them, or set **none**, by commenting and uncomme
 {# Bootstrap JS #}
 <script src="{{ '/js/bootstrap.bundle.min.js' | url }}" defer></script>
 
-{# Bulma — no JS needed #}
+{# Bulma: no JS needed #}
 ```
 {% endraw %}
 
@@ -122,6 +122,6 @@ eleventyConfig.addPassthroughCopy({
 "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js": "js/bootstrap.bundle.min.js",
 "node_modules/bootstrap-icons/font/fonts": "css/fonts",
 
-// Bulma — CSS only, no JS passthrough needed
+// Bulma: CSS only, no JS passthrough needed
 });
 ```
