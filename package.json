@@ -22,7 +22,6 @@
     "bootstrap-icons": "^1.13.1",
     "bulma": "^1.0.4",
     "foundation-sites": "^6.9.0",
-    "glob": "^13.0.6",
     "markdown-it-anchor": "^9.2.1",
     "markdown-it-attrs": "^5.0.1",
     "mysql2": "^3.11.0",
@@ -32,7 +31,7 @@
     "@11ty/eleventy-plugin-syntaxhighlight": "^5.0.2",
     "concurrently": "^9.2.1",
     "esbuild": "^0.27.3",
-    "nibula": "^2.4.5",
+    "nibula": "^3.1.0",
     "sass": "^1.77.0"
   }
 }
