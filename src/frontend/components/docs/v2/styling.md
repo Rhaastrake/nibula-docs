@@ -129,7 +129,7 @@ You can also **switch** between them or just set **none** just by commenting/unc
 {# <script src="{{ '/js/uikit.min.js' | url }}" defer></script> #}
 {# <script src="{{ '/js/uikit-icons.min.js' | url }}" defer></script> #}
 
-{# Bulma — no JS needed #}
+{# Bulma: no JS needed #}
 ```
 {% endraw %}
 
@@ -148,6 +148,6 @@ eleventyConfig.addPassthroughCopy({
 // "node_modules/uikit/dist/js/uikit.min.js": "js/uikit.min.js",
 // "node_modules/uikit/dist/js/uikit-icons.min.js": "js/uikit-icons.min.js",
 
-// Bulma — CSS only, no JS passthrough needed
+// Bulma: CSS only, no JS passthrough needed
 });
 ```

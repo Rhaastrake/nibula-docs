@@ -15,7 +15,7 @@
   "homepage": {
     "seo": {
       "title": "Nibula · Static site scaffolder built on Eleventy",
-      "description": "Scaffold a complete Eleventy project — structure, SEO, server configs and an optional backend — while staying close to plain HTML, CSS and JavaScript.",
+      "description": "Scaffold a complete Eleventy project (structure, SEO, server configs and an optional backend) while staying close to plain HTML, CSS and JavaScript.",
       "keywords": "nibula, eleventy scaffolding, eleventy starter, static site boilerplate, cli scaffolding tool, 11ty starter",
       "noindex": false,
       "canonical": ""
@@ -28,7 +28,7 @@
   "docs": {
     "seo": {
       "title": "Documentation · Nibula",
-      "description": "Install Nibula, create your first project and learn the folder structure, components, styling, backend and deployment — with copy-paste examples throughout.",
+      "description": "Install Nibula, create your first project and learn the folder structure, components, styling, backend and deployment, with copy-paste examples throughout.",
       "keywords": "nibula documentation, nibula cli, install nibula, eleventy scaffolding guide, nibula configuration",
       "noindex": false,
       "canonical": ""

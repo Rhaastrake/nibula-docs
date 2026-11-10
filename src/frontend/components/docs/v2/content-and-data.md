@@ -67,7 +67,7 @@ Any other `.json` you add becomes available on its own, with the name of the fil
 ```njk
 <ul>
   {% for plan in plans %}
-    <li>{{ plan.name }} — €{{ plan.price }}</li>
+    <li>{{ plan.name }}: €{{ plan.price }}</li>
   {% endfor %}
 </ul>
 ```
