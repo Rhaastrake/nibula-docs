@@ -31,11 +31,17 @@ Once installed, these are the commands you'll use:
 | **nib run** | Starts the dev server and rebuilds as you save |
 | **nib build** | Builds the site for publishing |
 | **nib clean** | Empties the output folder |
-| **nib cli** | Opens the assistant to add, rename or remove pages |
+| **nib create** | Creates a page *(from 3.1)* |
+| **nib rename** | Renames a page *(from 3.1)* |
+| **nib remove** | Removes a page *(from 3.1)* |
+| **nib path** | Shows or changes where the output folder goes *(from 3.1)* |
+| **nib cli** | Opens the assistant to add, rename or remove pages. It will be removed in Nibula 4 |
 | **nib update** | Updates Nibula itself |
 | **nib ver** | Prints the version in use |
 
-See [Nibula CLI](#nibula-cli) for what the assistant can do.
+> **nib create**, **nib rename**, **nib remove** and **nib path** are available from Nibula 3.1. Run **nib ver** to see which version you have
+
+See [Nibula CLI](#nibula-cli) for what the assistant and these commands can do.
 
 ## Project creation {id="project-creation"}
 

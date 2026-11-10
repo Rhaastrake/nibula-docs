@@ -85,7 +85,7 @@ layout: base.njk
  
 `base.njk` is the default, and it's the one every new page starts with. It writes for you:
 
-> You can pick a different one with the [Nibula CLI](#nibula-cli) when you create the page, if you have more than one
+> You can pick a different one with the [Nibula CLI](#nibula-cli) when you create the page, if you have more than one. From 3.1 you can also name it in the command: `nib create my-page -l straight-content`
  
 | Part | What it does |
 |---|---|
@@ -209,9 +209,33 @@ nib cli
 | **Create page** | Writes the three files and the record, asking which [layout](#layouts) to use if you have more than one |
 | **Remove page** | Deletes them all, after asking for confirmation |
 | **Rename page** | Renames the files, updates the front matter, and moves the record |
+| **Configure output path** | Chooses where the output goes: a `<project>-out` folder is created inside the folder you type, and `.` brings it back to `out` |
 
 > **homepage** `(index.njk)` and **404** are protected: the assistant won't touch them
 
 Renaming leaves the contents of the record alone: your SEO title, description and CDN links stay as you wrote them, and so do the components you included.
 
 A new page arrives empty apart from its settings and two commented examples: one for a [component](#include-a-component), one for a [markdown file](#what-is-markdown).
+
+### Commands {id="nibula-cli-commands"}
+
+From **Nibula 3.1**, every option of the assistant is also a command of its own, so you can run it in one line without opening the menu:
+
+``` {class="clickable button link-button copy"}
+nib create about-us
+```
+
+| Command | What it does |
+|---|---|
+| `nib create <page>` | Same as **Create page**. If you have more than one [layout](#layouts) it asks which one, or you name it with `-l` (or `-layout`): `nib create about-us -l straight-content` |
+| `nib rename <page> <new-name>` | Same as **Rename page** |
+| `nib remove <page>` | Same as **Remove page**, confirmation included. Add `-y` to skip the question |
+| `nib path <folder>` | Same as **Configure output path**. Without a folder, it shows where the output goes now |
+
+> Page names use hyphens instead of spaces: `nib create about-us`, not `nib create about us`. Uppercase letters are turned into lowercase, while accented letters and symbols aren't accepted
+>
+> `api`, `assets`, `backend`, `css`, `js` and `ts` can't be used for new pages: the site already uses those addresses for its own files
+>
+> A project created before 3.1 keeps its own copy of Nibula. To use these commands there, update it with `npm install -D nibula@latest`
+
+> **nib cli** will be removed in **Nibula 4**: these commands replace it
