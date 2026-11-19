@@ -1,6 +1,6 @@
 # <i class="bi bi-arrow-left-right"></i> Migration {id="migration"}
 
-## From 2 to 3 {id="migration-overview"}
+## From 2.x to 3 {id="migration-overview"}
 
 Start from the project root by updating **Nibula** itself:
 
