@@ -56,8 +56,8 @@ The scaffolder asks you three things:
 | Question | Options |
 |---|---|
 | Language | [JavaScript or TypeScript](#javascript-or-typescript) |
-| CSS framework | Bootstrap, Bulma, Foundation, UIkit, or none |
-| Backend | [Node.js or PHP](#node-or-php) |
+| CSS framework | Bootstrap, Bulma, or none |
+| Backend | [Node.js or PHP](#node-or-php), or none for a static site *(from 3.2)* |
 
 > **TypeScript** adds types to JavaScript: pick it if you already know what that means, otherwise JavaScript is the safer start.
 >
@@ -66,7 +66,13 @@ The scaffolder asks you three things:
 > The **Backend** is the choice worth getting right: Node and PHP offer the same API, but they run in very different places (see [Deploy](#deploy)).
 
 Dependencies are installed for you. If you pick Node, the Composer step is
-skipped entirely, so you don't need Composer on your machine at all.
+skipped entirely, so you don't need Composer on your machine at all. With no backend, the project gets no `src/backend` folder.
+
+From 3.2, if **git** is installed, the project also starts as a git repository. If a project with the same name is already there, the scaffolder asks before replacing it: add `--overwrite` to replace it without asking.
+
+``` {class="clickable button link-button copy"}
+nib new your-project --overwrite
+```
 
 Then move into the project and start the dev server:
 

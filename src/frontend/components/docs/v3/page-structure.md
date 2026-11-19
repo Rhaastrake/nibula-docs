@@ -211,7 +211,7 @@ nib cli
 | **Rename page** | Renames the files, updates the front matter, and moves the record |
 | **Configure output path** | Chooses where the output goes: a `<project>-out` folder is created inside the folder you type, and `.` brings it back to `out` |
 
-> **homepage** `(index.njk)` and **404** are protected: the assistant won't touch them
+> **homepage** `(homepage.njk)` and **404** are protected: the assistant won't touch them
 
 Renaming leaves the contents of the record alone: your SEO title, description and CDN links stay as you wrote them, and so do the components you included.
 
