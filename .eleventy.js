@@ -2,7 +2,6 @@ const { RenderPlugin } = require("@11ty/eleventy");
 const markdownItAnchor = require("markdown-it-anchor");
 const markdownItAttrs = require("markdown-it-attrs");
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
-const Image = require("@11ty/eleventy-img");
 const fs = require("fs");
 const path = require("path");
 
@@ -131,21 +130,6 @@ module.exports = function (eleventyConfig) {
     (name) => `${MARKDOWN_BASE_PATH}${name}`,
   );
 
-  eleventyConfig.addShortcode("image", async function (src, alt) {
-    const metadata = await Image(src, {
-      widths: [320, 480, 720, 1280, 1920, 2048, 2560, 3840, 4096, 7680],
-      formats: ["webp", "jpeg"],
-      outputDir: `${OUTPUT_DIR}/assets/images/`,
-      urlPath: "/assets/images/",
-    });
-
-    return Image.generateHTML(metadata, {
-      alt,
-      sizes: "(max-width: 768px) 100vw, 50vw",
-      loading: "lazy",
-      decoding: "async",
-    });
-  });
 
   // ---------------------------------------------------------------------------
   // Search index
@@ -206,8 +190,18 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addWatchTarget("./src/frontend/data");
   eleventyConfig.addWatchTarget("./src/frontend/components");
 
+  // Only the files written by Sass and esbuild. The watcher ignores a glob
+  // whose folder does not exist yet, so the page folders are created first
+  for (const folder of ["css/pages", "js/pages"]) {
+    fs.mkdirSync(`${OUTPUT_DIR}/${folder}`, { recursive: true });
+  }
+
   eleventyConfig.setServerOptions({
-    watch: [`${OUTPUT_DIR}/js/**/*.js`],
+    watch: [
+      `${OUTPUT_DIR}/css/global.css`,
+      `${OUTPUT_DIR}/css/pages/**/*.css`,
+      `${OUTPUT_DIR}/js/pages/**/*.js`,
+    ],
   });
 
   // ---------------------------------------------------------------------------
