@@ -42,7 +42,7 @@ Every page has a record in `data/pages.json`, created for you when you add a pag
 | **noindex** | `true` keeps the page out of search results |
 | **canonical** | The address search engines should treat as the real one, when the same content is reachable from more than one URL |
 
-Leave a field empty and the value from `site.json` is used instead. An empty **canonical** falls back to the page's own address, which is what you want almost always.
+Leave **title** or **description** empty and the value from `site.json` is used instead. An empty **keywords** is simply left out. An empty **canonical** falls back to the page's own address, which is what you want almost always.
 
 > The key is the page's **title** from its front matter, and that's how the layout finds the record. Change one without the other and the page loses its tags
 
@@ -70,7 +70,11 @@ From those same two files **Nibula** also generates, at every build, three thing
 | `llms.txt` | AI crawlers | The same list in plain text, with a short line about the site |
 | **JSON-LD** | Both | A small block inside every page describing what the page is |
 
-The **JSON-LD** lives in `src/frontend/layouts/base.njk` and needs nothing from you. Pages marked **noindex** and the **404** page are left out of the sitemap.
+The **JSON-LD** tells machines, in a format they read without guessing, what the page is, what it's called and who publishes it. It's built from your data files and lives in its own file in `indexing/`, so it needs nothing from you.
+
+> Before 3.2 it's written directly in `base.njk`
+
+Pages marked **noindex** and the **404** page are left out of the sitemap.
 
 You never edit `sitemap.xml` directly: add a page with the CLI and it appears, remove one and it goes. What you *can* change is in `src/frontend/indexing/sitemap.njk`:
 
