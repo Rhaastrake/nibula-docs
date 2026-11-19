@@ -27,7 +27,7 @@ Once installed, these are the commands you'll use:
 
 | Command | What it does |
 |---|---|
-| **nib new** | Creates a new project |
+| **nib new** | Creates a new project (`--overwrite` replaces an existing one *from 3.2*) |
 | **nib run** | Starts the dev server and rebuilds as you save |
 | **nib build** | Builds the site for publishing |
 | **nib clean** | Empties the output folder |
@@ -40,6 +40,8 @@ Once installed, these are the commands you'll use:
 | **nib ver** | Prints the version in use |
 
 > **nib create**, **nib rename**, **nib remove** and **nib path** are available from Nibula 3.1. Run **nib ver** to see which version you have
+
+> The **--overwrite** option of **nib new** is available from Nibula 3.2
 
 See [Nibula CLI](#nibula-cli) for what the assistant and these commands can do.
 
