@@ -87,3 +87,65 @@ curl http://localhost:8080/api/example-public
 ```
 
 > Nothing in `data/`, `routes/`, `components/` or `layouts/` needs touching beyond the one line added to `base.njk`
+## From 3.1 to 3.2 {id="migration-3-2"}
+
+Update the copy of **Nibula** inside your project:
+
+``` {class="clickable button link-button copy"}
+npm install -D nibula@latest
+```
+
+The new options of `nib new` work on their own. One step is required, two are optional.
+
+| Step | Who it concerns |
+|---|---|
+| [Homepage file](#migration-3-2-homepage) | Every project |
+| [llms.txt](#migration-3-2-llms) | Optional |
+| [eleventy-img](#migration-3-2-eleventy-img) | Optional |
+
+### Homepage file {id="migration-3-2-homepage"}
+
+Rename `src/frontend/routes/index.njk` to `homepage.njk`.
+
+From 3.2 the name **index** is no longer protected, so in a project that still has `index.njk`, `nib remove index` would delete the homepage. Its address stays `/` and nothing else changes.
+
+### llms.txt {id="migration-3-2-llms"}
+
+`llms.txt` now lists every indexed page as a link with its description, instead of the homepage only. To get it, replace the content of `src/frontend/indexing/llms.njk` with:
+
+{% raw %}
+```njk
+---
+permalink: /llms.txt
+eleventyExcludeFromCollections: true
+---
+# {{ site.siteName }}
+
+> {{ site.description }}
+
+## Pages
+{% for page in collections.all -%}
+{%- set pageMeta = pages[page.data.title] -%}
+{%- if not page.data.draft and pageMeta and pageMeta.seo.noindex === false %}
+- [{{ pageMeta.seo.title }}]({{ site.url }}{{ page.url | lower }}){% if pageMeta.seo.description %}: {{ pageMeta.seo.description }}{% endif %}
+{%- endif -%}
+{%- endfor %}
+
+## Notes
+
+- Language: {{ site.lang }}
+- All content may be used for AI indexing unless otherwise stated
+```
+{% endraw %}
+
+> Drafts and pages marked **noindex** are left out
+
+### eleventy-img {id="migration-3-2-eleventy-img"}
+
+New projects no longer include `@11ty/eleventy-img`. If you never used the `image` shortcode, remove it:
+
+``` {class="clickable button link-button copy"}
+npm uninstall @11ty/eleventy-img
+```
+
+Then, in `.eleventy.js`, delete the `require("@11ty/eleventy-img")` line and the `eleventyConfig.addShortcode("image", ...)` block.
