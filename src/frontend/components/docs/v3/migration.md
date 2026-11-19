@@ -1,6 +1,6 @@
 # <i class="bi bi-arrow-left-right"></i> Migration {id="migration"}
 
-## What you need to change {id="migration-overview"}
+## From 2.x to 3 {id="migration-overview"}
 
 Start from the project root by updating **Nibula** itself:
 
@@ -95,12 +95,16 @@ Update the copy of **Nibula** inside your project:
 npm install -D nibula@latest
 ```
 
-The new options of `nib new` work on their own. One step is required, two are optional.
+The new options of `nib new` work on their own. The other changes only reach new projects, so an existing one picks them up by hand.
 
 | Step | Who it concerns |
 |---|---|
 | [Homepage file](#migration-3-2-homepage) | Every project |
-| [llms.txt](#migration-3-2-llms) | Optional |
+| [Page scripts](#migration-3-2-scripts) | Every project |
+| [npm warnings](#migration-3-2-npm) | Every project |
+| [llms.txt and copyright](#migration-3-2-llms) | Optional |
+| [Live reload](#migration-3-2-reload) | Optional |
+| [Link previews](#migration-3-2-previews) | Optional |
 | [eleventy-img](#migration-3-2-eleventy-img) | Optional |
 
 ### Homepage file {id="migration-3-2-homepage"}
@@ -109,9 +113,43 @@ Rename `src/frontend/routes/index.njk` to `homepage.njk`.
 
 From 3.2 the name **index** is no longer protected, so in a project that still has `index.njk`, `nib remove index` would delete the homepage. Its address stays `/` and nothing else changes.
 
-### llms.txt {id="migration-3-2-llms"}
+### Page scripts {id="migration-3-2-scripts"}
 
-`llms.txt` now lists every indexed page as a link with its description, instead of the homepage only. To get it, replace the content of `src/frontend/indexing/llms.njk` with:
+The page script ran before Bootstrap and the CDN scripts of `pages.json`, so it could not use them. In `src/frontend/layouts/base.njk`, add `defer` to it:
+
+{% raw %}
+```njk
+<script src="{{ ('/js/pages/' + title + '.js') | url }}" defer></script>
+```
+{% endraw %}
+
+### npm warnings {id="migration-3-2-npm"}
+
+Recent versions of npm warn that the install scripts of esbuild and `@parcel/watcher` are not approved, and a future version will block them. In `package.json`, approve them:
+
+```json
+"allowScripts": {
+  "esbuild": true,
+  "@parcel/watcher": true
+}
+```
+
+### llms.txt and copyright {id="migration-3-2-llms"}
+
+`llms.txt` now lists every indexed page as a link with its description, and shows the same copyright as the footer.
+
+**1.** In `src/frontend/data/site.json`, move `copyright` out of `legal` and delete the rest of `legal`:
+
+```json
+"copyright": {
+  "year": "2026",
+  "text": "All rights reserved."
+}
+```
+
+**2.** In `src/frontend/components/global/footer.njk`, write the three legal links directly (`{% raw %}{{ '/privacy/' | url }}{% endraw %}` and so on) and use `site.copyright.year` and `site.copyright.text`.
+
+**3.** Replace the content of `src/frontend/indexing/llms.njk` with:
 
 {% raw %}
 ```njk
@@ -126,19 +164,54 @@ eleventyExcludeFromCollections: true
 ## Pages
 {% for page in collections.all -%}
 {%- set pageMeta = pages[page.data.title] -%}
-{%- if not page.data.draft and pageMeta and pageMeta.seo.noindex === false %}
-- [{{ pageMeta.seo.title }}]({{ site.url }}{{ page.url | lower }}){% if pageMeta.seo.description %}: {{ pageMeta.seo.description }}{% endif %}
+{%- if not page.data.draft and pageMeta and not pageMeta.seo.noindex %}
+- [{{ pageMeta.seo.title }}]({{ site.url }}{{ page.url }}){% if pageMeta.seo.description %}: {{ pageMeta.seo.description }}{% endif %}
 {%- endif -%}
 {%- endfor %}
 
 ## Notes
 
 - Language: {{ site.lang }}
-- All content may be used for AI indexing unless otherwise stated
+- Copyright: © {{ site.copyright.year }} {{ site.siteName }}. {{ site.copyright.text }}
 ```
 {% endraw %}
 
 > Drafts and pages marked **noindex** are left out
+
+### Live reload {id="migration-3-2-reload"}
+
+During `nib run` every rebuild reloaded the page twice, because the server also watched `prism.css` and `bootstrap.bundle.min.js`. In `.eleventy.js`, replace the `setServerOptions` call with:
+
+```js
+for (const folder of ["css/pages", "js/pages"]) {
+  fs.mkdirSync(`${OUTPUT_DIR}/${folder}`, { recursive: true });
+}
+
+eleventyConfig.setServerOptions({
+  watch: [
+    `${OUTPUT_DIR}/css/global.css`,
+    `${OUTPUT_DIR}/css/pages/**/*.css`,
+    `${OUTPUT_DIR}/js/pages/**/*.js`,
+  ],
+});
+```
+
+> The folders are created first because the server ignores a folder that does not exist yet
+
+### Link previews {id="migration-3-2-previews"}
+
+WhatsApp, Facebook, X and LinkedIn don't show SVG images, so shared links had no picture. Add a 1200×630 PNG as `src/frontend/assets/brand/og-image.png`, then in `base.njk` point `og:image` and `twitter:image` to it:
+
+{% raw %}
+```njk
+<meta property="og:image" content="{{ site.url }}/assets/brand/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="{{ site.siteName }}">
+<meta name="twitter:image" content="{{ site.url }}/assets/brand/og-image.png">
+<meta name="twitter:image:alt" content="{{ site.siteName }}">
+```
+{% endraw %}
 
 ### eleventy-img {id="migration-3-2-eleventy-img"}
 
