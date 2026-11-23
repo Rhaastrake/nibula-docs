@@ -153,7 +153,33 @@ section {
   border-radius: 30px;
   background: root.$surface-raised;
 
-  > h1:first-child {
+  > h2:first-child {
     margin-top: 0;
+  }
+}
+
+// The page has one h1, so sections are h2, chapters h3 and steps h4.
+// They keep the look h1, h2 and h3 had; .reset in the examples still wins.
+.docs-content {
+  h2 {
+    font-size: 2em;
+    color: root.$docs-h1;
+
+    .bi {
+      margin-right: 0.5rem;
+      font-size: 0.8em;
+    }
+  }
+
+  h3 {
+    font-size: 1.5em;
+    color: root.$docs-h2;
+    border-bottom: 1px solid var(--borderColor-muted);
+    padding-bottom: .3em;
+  }
+
+  h4 {
+    font-size: 1.25em;
+    color: root.$docs-h3;
   }
 }

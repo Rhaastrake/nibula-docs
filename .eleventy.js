@@ -8,7 +8,7 @@ const path = require("path");
 const OUTPUT_DIR = "out";
 const latestDocsVersion = require("./src/frontend/data/docsVersions.json").at(-1).id;
 const TEMPLATE_ENGINE = "njk";
-const ANCHOR_LEVELS = [2, 3, 4];
+const ANCHOR_LEVELS = [3, 4, 5];
 const ANCHOR_PERMALINK_SYMBOL = "#";
 const ANCHOR_PERMALINK_PLACEMENT = "after";
 
@@ -137,7 +137,7 @@ module.exports = function (eleventyConfig) {
 
   eleventyConfig.on("eleventy.after", ({ dir, results }) => {
     const index = [];
-    const headingRegex = /<h([1-3])([^>]*)>([\s\S]*?)<\/h\1>/gi;
+    const headingRegex = /<h([2-4])([^>]*)>([\s\S]*?)<\/h\1>/gi;
 
     for (const page of results) {
       const versionMatch = page.url?.match(/^\/docs\/(v\d+)\/$/);
@@ -165,7 +165,7 @@ module.exports = function (eleventyConfig) {
         const text = stripTags(inner);
         if (!text) continue;
 
-        const level = Number(match[1]);
+        const level = Number(match[1]) - 1;
         if (level === 1) section = text;
 
         index.push({

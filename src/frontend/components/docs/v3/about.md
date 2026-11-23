@@ -1,6 +1,6 @@
-# <i class="bi bi-people"></i> About {id="about"}
+## <i class="bi bi-people"></i> About {id="about"}
 
-## About Eleventy (11ty) {id="about-eleventy"}
+### About Eleventy (11ty) {id="about-eleventy"}
 
 **Eleventy is the engine underneath.** It takes your templates and your data and
 turns them into plain HTML files, once, when you build. That's why the result
@@ -17,7 +17,7 @@ wires up (a new filter, a collection, a different output folder), the
 [Eleventy documentation](https://www.11ty.dev/docs/) applies directly, with no
 translation needed.
 
-## Support Nibula {id="support-nibula"}
+### Support Nibula {id="support-nibula"}
 
 Thanks for giving **Nibula** a try.
 
@@ -27,7 +27,7 @@ If **Nibula** was useful to you, leaving a star on the [repository](https://gith
 
 You can also support the project by buying me a coffee on [PayPal](https://paypal.me/rhaastrake)
 
-## Roadmap {id="roadmap"}
+### Roadmap {id="roadmap"}
 .
 
 .

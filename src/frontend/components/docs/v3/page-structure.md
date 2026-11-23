@@ -1,8 +1,8 @@
-# <i class="bi bi-diagram-3"></i> Page structure {id="page-structure"}
+## <i class="bi bi-diagram-3"></i> Page structure {id="page-structure"}
 
-## Composition {id="composition"}
+### Composition {id="composition"}
 
-### The page settings {id="the-page-settings"}
+#### The page settings {id="the-page-settings"}
 
 Each page lives in `routes/` as a **.njk** file.
 
@@ -24,7 +24,7 @@ layout: base.njk
 
 > The **permalink** needs a slash at both ends: **/my-page/**, not **my-page**
 
-### What a page is made of {id="what-a-page-is-made-of"}
+#### What a page is made of {id="what-a-page-is-made-of"}
 
 A page is made of three files, plus one entry in a shared [data file](#data-files).
 
@@ -64,7 +64,7 @@ You can write that content directly in the page, or split it into
 [components](#what-is-a-component): separate files you write once and pull into
 any page with a single line.
 
-## Layouts {id="layouts"}
+### Layouts {id="layouts"}
 
 A layout is the shell a page is rendered into. Your page provides the content; the layout provides everything around it: the **head**, the **header**, the **footer**, the stylesheets and the scripts.
 
@@ -81,7 +81,7 @@ layout: base.njk
 ```
 {% endraw %}
  
-### What base.njk gives you {id="what-base-gives-you"}
+#### What base.njk gives you {id="what-base-gives-you"}
  
 `base.njk` is the default, and it's the one every new page starts with. It writes for you:
 
@@ -99,7 +99,7 @@ The page's own stylesheet and script are found by **title**: a page whose title 
 
 The global stylesheet is loaded before the page one, so your page rules always win.
  
-### Loading something from a CDN {id="page-cdn"}
+#### Loading something from a CDN {id="page-cdn"}
  
 If a page needs a **library** that isn't in your project (a chart library, a font,
 an icon set), list its URL in that page's record in `data/pages.json`:
@@ -125,7 +125,7 @@ downloaded on all the others.
 
 > If you want to add a **CDN** to all pages, you should add a link into the layout
 
-### Making your own {id="custom-layouts"}
+#### Making your own {id="custom-layouts"}
 
 You may need a full-screen login that starts straight with the content, a
 **different header** on a group of pages, or a **CDN** loaded on all of them
@@ -137,7 +137,7 @@ changes for all of them, edit `base.njk` directly.
 Copy `layouts/base.njk`, give the copy a name of your own, and change only what
 those pages need.
 
-### Custom layouts examples {id="custom-layout-examples"}
+#### Custom layouts examples {id="custom-layout-examples"}
 
 **No header and no footer.** For a page that fills the screen on its own, create
 `layouts/straight-content.njk` and remove the two global includes:
@@ -194,9 +194,9 @@ layout: straight-content.njk
 ```
 {% endraw %}
 
-## Nibula CLI {id="nibula-cli"}
+### Nibula CLI {id="nibula-cli"}
 
-### Options {id="nibula-cli-options"}
+#### Options {id="nibula-cli-options"}
 
 The assistant writes the three files and the `pages.json` record for you, keeping the names in sync. Run it from anywhere inside a project:
 
@@ -217,7 +217,7 @@ Renaming leaves the contents of the record alone: your SEO title, description an
 
 A new page arrives empty apart from its settings and two commented examples: one for a [component](#include-a-component), one for a [markdown file](#what-is-markdown).
 
-### Commands {id="nibula-cli-commands"}
+#### Commands {id="nibula-cli-commands"}
 
 From **Nibula 3.1**, every option of the assistant is also a command of its own, so you can run it in one line without opening the menu:
 

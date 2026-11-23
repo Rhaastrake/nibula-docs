@@ -1,6 +1,6 @@
-# <i class="bi bi-cloud-arrow-up"></i> Deploy {id="deploy"}
+## <i class="bi bi-cloud-arrow-up"></i> Deploy {id="deploy"}
 
-## How to deploy {id="how-to-deploy"}
+### How to deploy {id="how-to-deploy"}
 
 Publishing means copying the `out` folder onto a web server. What you can use depends on the backend you picked when you created the project.
 
@@ -12,7 +12,7 @@ That's why shared hosting can't run the Node backend. On plans like Aruba or cPa
 
 > **Shared hosting** is a plan where you share a server with other customers and only get a folder to upload into. **A VPS** is a whole machine that's yours, where you can install and run whatever you want
 
-### What you need {id="deploy-requirements"}
+#### What you need {id="deploy-requirements"}
 
 | Backend | Requirements |
 |---|---|
@@ -20,7 +20,7 @@ That's why shared hosting can't run the Node backend. On plans like Aruba or cPa
 | **Node** | Node.js 18 or newer, and command-line access to start the backend |
 | **None** | Nothing at all: any static hosting will do |
 
-## Hosting options {id="hosting-options"}
+### Hosting options {id="hosting-options"}
 
 | Target | Frontend | PHP backend | Node backend |
 |---|---|---|---|
@@ -31,7 +31,7 @@ That's why shared hosting can't run the Node backend. On plans like Aruba or cPa
 
 Static hosting serves files and nothing else. Perfect if your site has no `/api` endpoints, unusable if it does.
 
-### Editing the server config {id="deploy-server-config"}
+#### Editing the server config {id="deploy-server-config"}
 
 Every server needs a file telling it how to behave: which page to show on a 404, which files to keep private, where to send `/api` requests. **Nibula** writes these for you.
 
@@ -39,13 +39,13 @@ Every server needs a file telling it how to behave: which page to show on a 404,
 
 `nginx.conf` is different. It sits in your project root and is **not** copied into `out`, because Nginx doesn't read config files from the site folder. You install it on the server yourself.
 
-## Apache / IIS {id="apache-iis"}
+### Apache / IIS {id="apache-iis"}
 
 Upload **the contents of `out`**, not the folder itself, into your web root. Depending on the host it's called `htdocs`, `public_html` or `www`.
 
 That's it. The config file is already in there and the server reads it automatically: folder listings are off, errors show your `/404.html`, sensitive files are blocked, the backend source is sealed off, and `/api/*` is routed.
 
-### Where /api goes {id="deploy-api-routing"}
+#### Where /api goes {id="deploy-api-routing"}
 
 **On Apache**, if the server has `mod_proxy` the request is forwarded to Node. If it doesn't, which is the usual case on shared hosting, `/api` goes to PHP instead. To force PHP on a server that does have `mod_proxy`, comment out the `mod_proxy` block in `.htaccess`.
 
@@ -53,13 +53,13 @@ That's it. The config file is already in there and the server reads it automatic
 
 > If you chose Node and your host has no ARR, don't upload the `backend` folder. Without it the static site works fine and `/api/*` shows your `404.html`. Upload it and every `/api` request returns an empty 404 instead
 
-## Nginx {id="nginx"}
+### Nginx {id="nginx"}
 
 Nginx doesn't read config files from the site folder: the whole site is described in one file kept elsewhere on the machine. **Nibula** ships that file as `nginx.conf` in your project root, and it handles both backends with no edits. `/api` goes to Node, and if Node isn't running the request falls through to PHP automatically.
 
 Upload the contents of `out` to `/var/www/SITE_FOLDER`, then work through the steps below.
 
-### Fill in the placeholders {id="nginx-placeholders"}
+#### Fill in the placeholders {id="nginx-placeholders"}
 
 | Placeholder | What to put there |
 |---|---|
@@ -68,7 +68,7 @@ Upload the contents of `out` to `/var/www/SITE_FOLDER`, then work through the st
 | `YOUR_CERTIFICATE` | The folder name under `/etc/letsencrypt/live/` |
 | `SITE_NAME` | The file name you'll use in the commands below |
 
-### Install what's missing {id="nginx-install"}
+#### Install what's missing {id="nginx-install"}
 
 ``` {class="clickable button link-button copy"}
 sudo apt update
@@ -81,7 +81,7 @@ With the PHP backend, also:
 sudo apt install -y php-fpm
 ```
 
-### Get an HTTPS certificate {id="nginx-certificate"}
+#### Get an HTTPS certificate {id="nginx-certificate"}
 
 This is what makes your site load over `https://`. Certificates are free and last 90 days; the second command renews them automatically.
 
@@ -93,7 +93,7 @@ sudo certbot certonly --nginx --cert-name SITE_NAME -d YOUR_DOMAIN
 sudo systemctl enable --now certbot.timer
 ```
 
-### Install the site file {id="nginx-site-file"}
+#### Install the site file {id="nginx-site-file"}
 
 Go to the folder where Nginx keeps site files, create the file, and paste in the contents of your edited `nginx.conf`:
 
@@ -111,7 +111,7 @@ sudo nginx -t && sudo systemctl reload nginx
 
 > If `nginx -t` reports an error, fix it before reloading. Nginx keeps running on the old config until the reload succeeds, so your site stays up
 
-### If something goes wrong {id="nginx-troubleshooting"}
+#### If something goes wrong {id="nginx-troubleshooting"}
 
 | What you see | What it usually means |
 |---|---|
@@ -124,7 +124,7 @@ sudo nginx -t && sudo systemctl reload nginx
 | 502 on `/api`, Node backend | The Node program isn't running |
 | 502 on `/api`, PHP backend | Wrong php-fpm socket path in the config |
 
-### Starting the Node backend {id="nginx-node-service"}
+#### Starting the Node backend {id="nginx-node-service"}
 
 Only for the Node backend. After uploading `out`, install its dependencies:
 
@@ -179,7 +179,7 @@ sudo systemctl status backend-node
 
 The last command should say `active (running)`.
 
-### Settings the Node backend reads {id="nginx-node-env"}
+#### Settings the Node backend reads {id="nginx-node-env"}
 
 These go in the systemd file, on their own lines, as `Environment=KEY=value`. All three have sensible defaults.
 
