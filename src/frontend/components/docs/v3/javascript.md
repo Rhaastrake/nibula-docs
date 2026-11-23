@@ -1,14 +1,14 @@
-# <i class="bi bi-braces"></i> Javascript {id="javascript"}
+## <i class="bi bi-braces"></i> Javascript {id="javascript"}
 
 > Examples use **JavaScript**. Everything applies to **TypeScript** too, except that imports leave the extension out and the project has an extra `tsconfig.json`
 
-## Javascript or TypeScript {id="javascript-or-typescript"}
+### Javascript or TypeScript {id="javascript-or-typescript"}
 
 When creating a project, **Nibula** asks you whether to use **JavaScript** or **TypeScript**. The difference is that TypeScript makes you say what kind of value each thing holds: a **string**, a **number**, the **return** of the function. It checks that you're consistent while you write, so a whole class of mistakes shows up in your editor instead of in the browser.
 
 It's more to learn, though. If you're not sure, start with **JavaScript**. You can always write the next project in TypeScript.
 
-## Structure {id="javascript-structure"}
+### Structure {id="javascript-structure"}
 
 The **JavaScript** structure is much the same as the [SCSS](#styling-structure) one, but imports work a little differently.
 
@@ -40,7 +40,7 @@ import '../global.js';
 
 > Unlike **SCSS**, there's no central file to register anything in. Each page pulls in what it needs
 
-## Modules {id="javascript-modules"}
+### Modules {id="javascript-modules"}
 
 A module is a file holding one piece of behaviour: a menu, a slider, a form check. Add it under `src/frontend/js/modules/`.
 

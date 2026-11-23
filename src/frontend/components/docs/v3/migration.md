@@ -1,6 +1,6 @@
-# <i class="bi bi-arrow-left-right"></i> Migration {id="migration"}
+## <i class="bi bi-arrow-left-right"></i> Migration {id="migration"}
 
-## From 2.x to 3 {id="migration-overview"}
+### From 2.x to 3 {id="migration-overview"}
 
 Start from the project root by updating **Nibula** itself:
 
@@ -18,7 +18,7 @@ Version 3 moves the global stylesheet out of every page and renames two backend 
 
 > Your endpoints keep working as they are. The new one-function-per-method form is available, not required
 
-### Stylesheets {id="migration-stylesheets"}
+#### Stylesheets {id="migration-stylesheets"}
 
 Until now every page's CSS carried a full copy of the framework and of every module, so a visitor reading three pages downloaded the same thing three times. The global stylesheet is now compiled on its own and linked by the layout.
 
@@ -36,7 +36,7 @@ Until now every page's CSS carried a full copy of the framework and of every mod
 <link rel="stylesheet" href="{{ '/css/global.css' | url }}">
 ```
 
-### Build scripts {id="migration-scripts"}
+#### Build scripts {id="migration-scripts"}
 
 The `build-js` command is gone: `esbuild` expands the entry pattern by itself, so the project calls it directly. A project created before version 3 still has the old scripts, and its build fails after updating.
 
@@ -55,7 +55,7 @@ Then remove the dependency that only existed to expand that pattern:
 npm uninstall glob
 ```
 
-### Backend {id="migration-backend"}
+#### Backend {id="migration-backend"}
 
 **1.** Rename the two folders:
 
@@ -72,7 +72,7 @@ The second one holds your route files, while `/api` stays the public URL prefix:
 
 > While `APP_ENV` is not `production`, every response carries a `Debug-Mode` header. A quick way to tell whether a live site was left in debug mode
 
-### Checking it worked {id="migration-check"}
+#### Checking it worked {id="migration-check"}
 
 ``` {class="clickable button link-button copy"}
 nib build
@@ -88,7 +88,7 @@ curl http://localhost:8080/api/example-public
 
 > Nothing in `data/`, `routes/`, `components/` or `layouts/` needs touching beyond the one line added to `base.njk`
 
-## From 3.1 to 3.2 {id="migration-3-2"}
+### From 3.1 to 3.2 {id="migration-3-2"}
 
 Update the copy of **Nibula** inside your project:
 
@@ -112,13 +112,13 @@ The new options of `nib new` work on their own. The other changes only reach new
 | [Link previews](#migration-3-2-previews) | Optional |
 | [eleventy-img](#migration-3-2-eleventy-img) | Optional |
 
-### Homepage file {id="migration-3-2-homepage"}
+#### Homepage file {id="migration-3-2-homepage"}
 
 Rename `src/frontend/routes/index.njk` to `homepage.njk`.
 
 From 3.2 the name **index** is no longer protected, so in a project that still has `index.njk`, `nib remove index` would delete the homepage. Its address stays `/` and nothing else changes.
 
-### Page scripts {id="migration-3-2-scripts"}
+#### Page scripts {id="migration-3-2-scripts"}
 
 The page script ran before Bootstrap and the CDN scripts of `pages.json`, so it could not use them. In `src/frontend/layouts/base.njk`, add `defer` to it:
 
@@ -128,7 +128,7 @@ The page script ran before Bootstrap and the CDN scripts of `pages.json`, so it 
 ```
 {% endraw %}
 
-### npm warnings {id="migration-3-2-npm"}
+#### npm warnings {id="migration-3-2-npm"}
 
 Recent versions of npm warn that the install scripts of esbuild and `@parcel/watcher` are not approved, and a future version will block them. In `package.json`, approve them:
 
@@ -139,7 +139,7 @@ Recent versions of npm warn that the install scripts of esbuild and `@parcel/wat
 }
 ```
 
-### Apache {id="migration-3-2-apache"}
+#### Apache {id="migration-3-2-apache"}
 
 **1.** With `mod_proxy` active, the whole site answered **500**: `ProxyPass` is not allowed in `.htaccess`. In `src/frontend/hosting/.htaccess`, replace the Node backend block with:
 
@@ -163,7 +163,7 @@ RewriteRule ^(web\.config|\..*)$ - [R=404,L,NC]
 
 > The client's own `X-Forwarded-For` is dropped, so the rate limiter sees each visitor's real address
 
-### nginx {id="migration-3-2-nginx"}
+#### nginx {id="migration-3-2-nginx"}
 
 A visitor could send a fake `X-Forwarded-For` and get around the rate limit. In `nginx.conf`, inside `location ^~ /api/`, change the line to:
 
@@ -171,7 +171,7 @@ A visitor could send a fake `X-Forwarded-For` and get around the rate limit. In 
 proxy_set_header X-Forwarded-For   $remote_addr;
 ```
 
-### PHP endpoints {id="migration-3-2-php"}
+#### PHP endpoints {id="migration-3-2-php"}
 
 An empty query reached the browser as `[]` with PHP and as `{}` with Node. Wherever an endpoint returns the query, cast it:
 
@@ -179,7 +179,7 @@ An empty query reached the browser as `[]` with PHP and as `{}` with Node. Where
 'query' => (object) $request['query'],
 ```
 
-### 404 page {id="migration-3-2-404"}
+#### 404 page {id="migration-3-2-404"}
 
 The homepage link lost the path prefix when the site lives in a subfolder. In `src/frontend/components/not-found.njk`:
 
@@ -189,7 +189,7 @@ The homepage link lost the path prefix when the site lives in a subfolder. In `s
 ```
 {% endraw %}
 
-### llms.txt and copyright {id="migration-3-2-llms"}
+#### llms.txt and copyright {id="migration-3-2-llms"}
 
 `llms.txt` now lists every indexed page as a link with its description, and shows the same copyright as the footer.
 
@@ -233,7 +233,7 @@ eleventyExcludeFromCollections: true
 
 > Drafts and pages marked **noindex** are left out
 
-### Live reload {id="migration-3-2-reload"}
+#### Live reload {id="migration-3-2-reload"}
 
 During `nib run` every rebuild reloaded the page twice, because the server also watched `prism.css` and `bootstrap.bundle.min.js`. In `.eleventy.js`, replace the `setServerOptions` call with:
 
@@ -253,7 +253,7 @@ eleventyConfig.setServerOptions({
 
 > The folders are created first because the server ignores a folder that does not exist yet
 
-### Link previews {id="migration-3-2-previews"}
+#### Link previews {id="migration-3-2-previews"}
 
 WhatsApp, Facebook, X and LinkedIn don't show SVG images, so shared links had no picture. Add a 1200×630 PNG as `src/frontend/assets/brand/og-image.png`, then in `base.njk` point `og:image` and `twitter:image` to it:
 
@@ -268,7 +268,7 @@ WhatsApp, Facebook, X and LinkedIn don't show SVG images, so shared links had no
 ```
 {% endraw %}
 
-### eleventy-img {id="migration-3-2-eleventy-img"}
+#### eleventy-img {id="migration-3-2-eleventy-img"}
 
 New projects no longer include `@11ty/eleventy-img`. If you never used the `image` shortcode, remove it:
 

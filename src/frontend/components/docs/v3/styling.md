@@ -1,12 +1,12 @@
-# <i class="bi bi-palette"></i> Styling {id="styling"}
+## <i class="bi bi-palette"></i> Styling {id="styling"}
 
-## What is SCSS {id="what-is-scss"}
+### What is SCSS {id="what-is-scss"}
 
 **SCSS** is basically the **CSS** you already know, with variables and nesting added. If you write it the way you're used to, it still works as you'd expect.
 
 The browser doesn't read `.scss` directly: your files are compiled into **CSS** when the site builds. **Nibula** handles that, so there's nothing to set up.
 
-## Structure {id="styling-structure"}
+### Structure {id="styling-structure"}
 
 Every page has its own **SCSS** file, named after the page in **camel case**. It's created for you under `src/frontend/scss/pages/` when you add a page with the [Nibula CLI](#nibula-cli).
 
@@ -49,7 +49,7 @@ Here are the modules **Nibula** already creates for you, all of them imported in
 >
 > The leading underscore marks a file meant to be imported rather than compiled into a stylesheet of its own. `global.scss` doesn't have it, because it becomes a real `.css` file that the layout loads
 
-## Modules {id="styling-modules"}
+### Modules {id="styling-modules"}
 
 You can create your custom **SCSS** module under `src/frontend/scss/modules/`, with an underscore in front of the name.
 
@@ -72,7 +72,7 @@ Once you created your module, `@import` it in **global** if every page needs it,
 
 > Order matters: a rule imported later wins over an earlier one with the same specificity. That's why the **CSS framework** comes first and your own modules after
 
-## CSS frameworks {id="css-frameworks"}
+### CSS frameworks {id="css-frameworks"}
 
 A **CSS framework** is a library of pre-existing styles already built for you. You **chose** one between **Bootstrap** and **Bulma** when you created your project, and **Nibula** installed it for you.
 

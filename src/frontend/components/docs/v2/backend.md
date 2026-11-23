@@ -1,6 +1,6 @@
-# <i class="bi bi-hdd-stack"></i> Backend {id="backend"}
+## <i class="bi bi-hdd-stack"></i> Backend {id="backend"}
 
-## Node.js or PHP {id="node-or-php"}
+### Node.js or PHP {id="node-or-php"}
 
 If you picked a backend when you created the project, you already have a small API working under `/api`. It's the same API written twice, once in **Node.js** and once in **PHP**: same folders, same way of writing an endpoint. Only the language changes.
 
@@ -18,7 +18,7 @@ If you're unsure, pick **PHP**: it runs everywhere. What each one needs on the s
 
 > Examples below are in **Node**, whose syntax is the shorter one to read. The logic is the same in PHP: same names, same folders, same order of things.
 
-## Structure {id="backend-structure"}
+### Structure {id="backend-structure"}
 
 Everything lives in `src/backend`:
 
@@ -38,7 +38,7 @@ You work in **api**. A file's path is its URL: `api/public/contact.js` answers a
 
 **_core** receives every request, checks the API key when needed, and calls your file. Nothing to configure.
 
-### The config file {id="backend-config"}
+#### The config file {id="backend-config"}
 
 `example.config.js` (or `.php`) is a template with no real values in it. Copy it to `config.js` and fill that one in:
 
@@ -89,7 +89,7 @@ GENERAL_ALLOWED_ORIGINS: [
 
 > Every one of these values is read when the backend starts, so restart it after you change the file
 
-## Endpoints logic {id="endpoints-logic"}
+### Endpoints logic {id="endpoints-logic"}
 
 An endpoint is one file that answers the request and stops:
 
@@ -139,7 +139,7 @@ The request arrives already unpacked:
 
 > Never trust what a client sends: check every value before you use it, above all before it reaches the database
 
-## Database {id="database"}
+### Database {id="database"}
 
 `Database.getInstance()` opens the connection with the values from your config, and reuses it for every call.
 
@@ -163,7 +163,7 @@ In `database/migrations` you keep the `.sql` files that create your tables: you 
 
 > With **Node** the database needs one extra package, see below. With **PHP** it works out of the box
 
-## Node service {id="node-service"}
+### Node service {id="node-service"}
 
 Only the Node backend needs this: somebody has to start the program, and start it again when the server reboots.
 

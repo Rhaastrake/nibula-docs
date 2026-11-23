@@ -1,6 +1,6 @@
-# <i class="bi bi-search"></i> SEO {id="seo"}
+## <i class="bi bi-search"></i> SEO {id="seo"}
 
-## What is SEO {id="what-is-seo"}
+### What is SEO {id="what-is-seo"}
 **SEO** is everything that helps search engines understand what every page of your site is about, so they can show it to the right people.
 
 Someone looking for computer repair in their city searches for the service, not for your site name, they don't know it yet.
@@ -14,7 +14,7 @@ You fill in two data files, and the layout turns them into tags, page by page.
 | `data/site.json` | The values shared by the whole site, used whenever a page doesn't set its own |
 | `data/pages.json` | One record per page, with its own title, description and the rest |
 
-## Each page SEO {id="each-page-seo"}
+### Each page SEO {id="each-page-seo"}
 
 Every page has a record in `data/pages.json`, created for you when you add a page with the [Nibula CLI](#nibula-cli):
 
@@ -46,7 +46,7 @@ Leave **title** or **description** empty and the value from `site.json` is used 
 
 > The key is the page's **title** from its front matter, and that's how the layout finds the record. Change one without the other and the page loses its tags
 
-## Best practices {id="seo-best-practices"}
+### Best practices {id="seo-best-practices"}
 
 **Write one title per page, and make it specific.** *Pricing · Acme* tells a reader more than *Home*. Keep it under about 60 characters, or search engines cut it off.
 
@@ -60,7 +60,7 @@ Leave **title** or **description** empty and the value from `site.json` is used 
 
 **The `url` in `site.json` has to be the real one.** It builds the canonical link and the addresses in your sitemap. Get it wrong and you're pointing search engines at a site that doesn't exist.
 
-## Sitemap generation {id="sitemap-generation"}
+### Sitemap generation {id="sitemap-generation"}
 
 From those same two files **Nibula** also generates, at every build, three things that help machines read your site:
 
@@ -89,7 +89,7 @@ In `src/frontend/indexing/llms.njk` you can add a couple of lines about what you
 
 > All three are built from `pages.json`, so a page without a record is missing from them
 
-## Robots & Crawlers {id="robots-and-crawlers"}
+### Robots & Crawlers {id="robots-and-crawlers"}
 
 A **crawler** is the program a search engine sends around the web to read pages. `robots.txt` sits at the root of your site and tells it what it may visit.
 

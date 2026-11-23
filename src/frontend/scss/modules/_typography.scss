@@ -62,14 +62,53 @@ a {
     // text-decoration: underline !important;
   }
 
+  // "Result" toggles under the examples: a small text button with a chevron
   details {
     margin-top: -0.5rem;
 
-    &[open] > summary {
-      margin-bottom: 1rem;
+    > summary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.3rem 0.7rem 0.3rem 0.55rem;
+      border-radius: 8px;
+      color: root.$link-button;
+      font-size: 0.875rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      list-style: none;
+      user-select: none;
+      transition: background-color root.$transition-fast;
+
+      &::-webkit-details-marker {
+        display: none;
+      }
 
       &::before {
-        transform: rotate(45deg) translateY(-2px);
+        content: "";
+        width: 0.4em;
+        height: 0.4em;
+        border-right: 2px solid currentColor;
+        border-bottom: 2px solid currentColor;
+        transform: rotate(-45deg);
+        transition: transform root.$transition-fast;
+      }
+
+      &:hover {
+        background: root.$link-button-tint;
+      }
+
+      &:focus-visible {
+        outline: 2px solid root.$link-button;
+        outline-offset: 2px;
+      }
+    }
+
+    &[open] > summary {
+      margin-bottom: 0.75rem;
+
+      &::before {
+        transform: rotate(45deg) translate(-1px, -1px);
       }
     }
 
@@ -79,44 +118,6 @@ a {
   }
 
   summary {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.6rem;
-    padding: 0.45rem 1.1rem;
-    border: 1px solid color-mix(in srgb, root.$link-button 70%, transparent);
-    border-radius: 999px;
-    background: root.$link-button-tint;
-    color: root.$link-button;
-    font-size: 0.95rem;
-    font-weight: 600;
-    list-style: none;
-    user-select: none;
-    transition: background-color root.$transition-fast, border-color root.$transition-fast;
-
-    &::-webkit-details-marker {
-      display: none;
-    }
-
-    &::before {
-      content: "";
-      width: 0.45em;
-      height: 0.45em;
-      border-right: 2px solid currentColor;
-      border-bottom: 2px solid currentColor;
-      transform: rotate(-45deg);
-      transition: transform root.$transition-fast;
-    }
-
-    &:hover {
-      background: color-mix(in srgb, root.$link-button 26%, transparent);
-      border-color: root.$link-button;
-    }
-
-    &:focus-visible {
-      outline: 2px solid root.$link-button;
-      outline-offset: 2px;
-    }
-
     .red-color {
       color: rgba(255, 0, 0, 0.712);
       transition: 0.5s;

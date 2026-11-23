@@ -1,6 +1,6 @@
-# <i class="bi bi-puzzle"></i> Components {id="components"}
+## <i class="bi bi-puzzle"></i> Components {id="components"}
 
-## What is a component {id="what-is-a-component"}
+### What is a component {id="what-is-a-component"}
 
 A component is a piece of a page you write once and use wherever you need it: a
 header, a card, a section of text. It's just a file in
@@ -8,7 +8,7 @@ header, a card, a section of text. It's just a file in
 
 There are two kinds, depending on what's inside.
 
-### Create a component {id="create-a-component"}
+#### Create a component {id="create-a-component"}
 
 To create a component (**.njk** or **.md**), just create a new file under
 `src/frontend/components/` and fill it with your content.
@@ -32,7 +32,7 @@ src/frontend/components/
 ```
 {% endraw %}
 
-## What is Nunjucks {id="what-is-nunjucks"}
+### What is Nunjucks {id="what-is-nunjucks"}
 
 Nunjucks (**.njk**) is basically an **HTML** file that can do a few more things like **if**
 statements, **for** loops, [includes](#include-a-component) of other components and
@@ -41,7 +41,7 @@ access to your [data files](#content-and-data).
 That's what lets you write a header once and have it on every page, or build a
 list of cards from a **JSON** file instead of copying the same markup ten times.
 
-### Nunjucks component examples {id="nunjucks-component-examples"}
+#### Nunjucks component examples {id="nunjucks-component-examples"}
 
 `components/feature-card.njk`
 {% raw %}
@@ -85,15 +85,24 @@ With three items, writing them out by hand is shorter. **Loops** earn their keep
 
 > You don't have to use this. Writing the content out by hand works just as well, and you can come back to loops when you need them
 
-## What is Markdown {id="what-is-markdown"}
+### What is Markdown {id="what-is-markdown"}
 
 Markdown (**.md**) is your best choice of component if you just need to write text like ***documentation*** or an **article**.
 
 They are easy to write and read even in raw form. You can create **headings**, **lists**, **links**, **tables** etc with just 1 symbol instead of **HTML** tags
 
-### Markdown component examples {id="markdown-component-examples"}
+#### Markdown component examples {id="markdown-component-examples"}
 
-`components/example.md`
+<div class="md-example">
+<div class="md-example-bar">
+<span class="md-example-file">components/example.md</span>
+<div class="md-example-switch">
+<label><input type="radio" name="md-example-1" checked> Source</label>
+<label><input type="radio" name="md-example-1" class="md-example-show-result"> Result</label>
+</div>
+</div>
+<div class="md-example-source">
+
 ```markdown
 ## h2 title
 
@@ -114,31 +123,33 @@ A table
 | Value  | Value   |
 ```
 
-<details>
-<summary>Result</summary>
+</div>
+<div class="md-example-result">
 
-> ## h2 title {class="reset"}
->
-> A paragraph of plain text. You can make a word **bold** or _italic_. {class="reset"}
->
-> - List element {class="reset"}
-> - Another one {class="reset"}
->
-> ### h3 title {class="reset"}
->
-> One more paragraph, with a [link](https://github.com/rhaastrake/nibula) in it. {class="reset"}
->
-> A table {class="reset"}
->
-> | Column | Another |
-> | ------ | ------- |
-> | Value  | Value   |
-> | Value  | Value   |
+### h2 title {class="reset"}
 
-</details>
+A paragraph of plain text. You can make a word **bold** or _italic_. {class="reset"}
+
+- List element {class="reset"}
+- Another one {class="reset"}
+
+#### h3 title {class="reset"}
+
+One more paragraph, with a [link](https://github.com/rhaastrake/nibula) in it. {class="reset"}
+
+A table {class="reset"}
+
+| Column | Another |
+| ------ | ------- |
+| Value  | Value   |
+| Value  | Value   |
+
+</div>
+</div>
 
 From your [SCSS](#styling), target the tags inside `.markdown-body` to reach every [Markdown](#what-is-markdown) file at once, and it's how you set things like heading **colours** or table **borders** across the whole site:
 
+`scss/modules/_typography.scss`
 ```scss
 .markdown-body {
   .red-color {
@@ -151,26 +162,46 @@ From your [SCSS](#styling), target the tags inside `.markdown-body` to reach eve
 
 Plain Markdown gives you no way to set an **id** or a **class**, and no logic. **Nibula** preconfigures both for you: **Ids and classes** in curly braces at the end of a line, so your [SCSS](#styling) can reach a specific piece of text:
 
+<div class="md-example">
+<div class="md-example-bar">
+<span class="md-example-file">markdown</span>
+<div class="md-example-switch">
+<label><input type="radio" name="md-example-2" checked> Source</label>
+<label><input type="radio" name="md-example-2" class="md-example-show-result"> Result</label>
+</div>
+</div>
+<div class="md-example-source">
+
 ```markdown
 ## Title {id="title-id" class="highlight"}
 
 Go to [the title](#title-id)
 ```
 
-<details>
-<summary>Result</summary>
+</div>
+<div class="md-example-result">
 
-> ## Title {id="example-title-id" class="highlight"}
->
-> Go to [the title](#example-title-id)
+### Title {id="example-title-id" class="highlight"}
 
-</details>
+Go to [the title](#example-title-id)
+
+</div>
+</div>
 
 > Headings already get an **id** from their text. Writing one yourself **replaces** it with a custom one
 
 **Nibula** also preconfigures Nunjucks inside Markdown, so the same **if**, **for** and variables you use in a `.njk` file work in a `.md` file too:
 
-`components/plans.md`
+<div class="md-example">
+<div class="md-example-bar">
+<span class="md-example-file">components/plans.md</span>
+<div class="md-example-switch">
+<label><input type="radio" name="md-example-3" checked> Source</label>
+<label><input type="radio" name="md-example-3" class="md-example-show-result"> Result</label>
+</div>
+</div>
+<div class="md-example-source">
+
 {% raw %}
 ```njk
 ## Our plans
@@ -183,25 +214,26 @@ Go to [the title](#title-id)
 ```
 {% endraw %}
 
-<details>
-<summary>Result</summary>
+</div>
+<div class="md-example-result">
 
-> ## Our plans {class="reset"}
-> - Free {class="reset"}
-> - Pro {class="reset"}
-> - Team {class="reset"}
+### Our plans {class="reset"}
+- Free {class="reset"}
+- Pro {class="reset"}
+- Team {class="reset"}
 
-</details>
+</div>
+</div>
 
 > Values from a [data file](#data-files) work too, but only if you pass them when you [include the file](#include-markdown): a `.md` doesn't see your data on its own
 
-## Include a component {id="include-a-component"}
+### Include a component {id="include-a-component"}
 
 A component does nothing until a page asks for it. You write that line in a [page](#page-structure), in a [layout](#layouts), or in another component. A card can pull in a button, a section can pull in three cards.
 
 The two kinds are included differently, because `.njk` is already a template while `.md` has to be turned into HTML first.
 
-### Include njk {id="include-njk"}
+#### Include njk {id="include-njk"}
 
 {% raw %}
 ```njk
@@ -217,7 +249,7 @@ Paths start from `src/frontend/components/`, so you never write that part.
 >
 > The component sees the same values the page sees, so `{{ site.title }}` works without passing anything
 
-### Include markdown {id="include-markdown"}
+#### Include markdown {id="include-markdown"}
 
 A `.md` file needs `renderFile`, which converts it and drops the result in place. This very page is built that way, mixing **.njk** components and **.md** files.
 
