@@ -183,3 +183,101 @@ section {
     color: root.$docs-h3;
   }
 }
+
+// Code blocks with a file name, and the markdown examples, share the same box:
+// a bar on top (file name, plus the Source/Result switch for the examples)
+// and the code below it. Without :has() support the examples show the source.
+.code-file,
+.md-example {
+  margin-bottom: var(--base-size-16);
+  border: 1px solid root.$divider-strong;
+  border-radius: root.$radius;
+  overflow: hidden;
+
+  pre {
+    margin: 0;
+    border-radius: 0;
+  }
+}
+
+.code-file-bar,
+.md-example-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  min-height: 2.5rem;
+  padding: 0.4rem 0.5rem 0.4rem 1rem;
+  border-bottom: 1px solid root.$divider;
+  background: root.$surface-raised;
+}
+
+.code-file-name,
+.md-example-file {
+  color: var(--bs-code-color);
+  font-family: var(--fontStack-monospace, monospace);
+  font-size: 0.8rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.md-example {
+  .md-example-switch {
+    display: inline-flex;
+    flex-shrink: 0;
+    padding: 3px;
+    border-radius: 999px;
+    background: root.$link-button-tint;
+
+    label {
+      padding: 0.2rem 0.8rem;
+      border-radius: 999px;
+      color: root.$link-button;
+      font-size: 0.8rem;
+      font-weight: 600;
+      cursor: pointer;
+      user-select: none;
+      transition: background-color root.$transition-fast, color root.$transition-fast;
+
+      &:has(input:checked) {
+        background: root.$link-button;
+        color: #0d1117;
+      }
+
+      &:has(input:focus-visible) {
+        outline: 2px solid root.$link-button;
+        outline-offset: 2px;
+      }
+    }
+
+    input {
+      position: absolute;
+      opacity: 0;
+      pointer-events: none;
+    }
+  }
+
+  .md-example-result {
+    display: none;
+    padding: 1rem 1.25rem;
+
+    > :first-child {
+      margin-top: 0;
+    }
+
+    > :last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &:has(.md-example-show-result:checked) {
+    .md-example-source {
+      display: none;
+    }
+
+    .md-example-result {
+      display: block;
+    }
+  }
+}

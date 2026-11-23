@@ -84,6 +84,30 @@ module.exports = function (eleventyConfig) {
         }),
       })
       .use(markdownItAttrs);
+
+    // A file name in backticks on its own line, right above a code block,
+    // becomes a bar on top of that block
+    markdownLibrary.core.ruler.push("code_file_bar", (state) => {
+      const tokens = state.tokens;
+
+      for (let i = 0; i + 3 < tokens.length; i++) {
+        const [open, inline, close, fence] = tokens.slice(i, i + 4);
+        if (open.type !== "paragraph_open" || close.type !== "paragraph_close" || fence.type !== "fence") continue;
+
+        const children = inline.children || [];
+        if (children.length !== 1 || children[0].type !== "code_inline") continue;
+
+        const name = children[0].content;
+        if (!/^[\w.\-/]+\.\w+$/.test(name)) continue;
+
+        const before = new state.Token("html_block", "", 0);
+        before.content = `<div class="code-file"><div class="code-file-bar"><span class="code-file-name">${markdownLibrary.utils.escapeHtml(name)}</span></div>\n`;
+        const after = new state.Token("html_block", "", 0);
+        after.content = "</div>\n";
+
+        tokens.splice(i, 4, before, fence, after);
+      }
+    });
   });
 
   // ---------------------------------------------------------------------------
