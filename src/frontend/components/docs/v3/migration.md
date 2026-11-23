@@ -103,6 +103,10 @@ The new options of `nib new` work on their own. The other changes only reach new
 | [Homepage file](#migration-3-2-homepage) | Every project |
 | [Page scripts](#migration-3-2-scripts) | Every project |
 | [npm warnings](#migration-3-2-npm) | Every project |
+| [Apache](#migration-3-2-apache) | Sites on **Apache** |
+| [nginx](#migration-3-2-nginx) | Sites with the **Node** backend on **nginx** |
+| [PHP endpoints](#migration-3-2-php) | Only if you picked **PHP** |
+| [404 page](#migration-3-2-404) | Sites published in a subfolder |
 | [llms.txt and copyright](#migration-3-2-llms) | Optional |
 | [Live reload](#migration-3-2-reload) | Optional |
 | [Link previews](#migration-3-2-previews) | Optional |
@@ -134,6 +138,56 @@ Recent versions of npm warn that the install scripts of esbuild and `@parcel/wat
   "@parcel/watcher": true
 }
 ```
+
+### Apache {id="migration-3-2-apache"}
+
+**1.** With `mod_proxy` active, the whole site answered **500**: `ProxyPass` is not allowed in `.htaccess`. In `src/frontend/hosting/.htaccess`, replace the Node backend block with:
+
+```apache
+<IfModule mod_proxy_http.c>
+    <IfModule mod_headers.c>
+        RequestHeader unset X-Forwarded-For
+        RequestHeader set X-Forwarded-Proto "https"
+    </IfModule>
+
+    RewriteEngine On
+    RewriteRule ^api/(.*)$ http://127.0.0.1:3000/api/$1 [P,L,QSA]
+</IfModule>
+```
+
+**2.** `web.config` and files starting with a dot already showed the 404 page, but with status **200**. In the same file, change the rule that blocks them:
+
+```apache
+RewriteRule ^(web\.config|\..*)$ - [R=404,L,NC]
+```
+
+> The client's own `X-Forwarded-For` is dropped, so the rate limiter sees each visitor's real address
+
+### nginx {id="migration-3-2-nginx"}
+
+A visitor could send a fake `X-Forwarded-For` and get around the rate limit. In `nginx.conf`, inside `location ^~ /api/`, change the line to:
+
+```nginx
+proxy_set_header X-Forwarded-For   $remote_addr;
+```
+
+### PHP endpoints {id="migration-3-2-php"}
+
+An empty query reached the browser as `[]` with PHP and as `{}` with Node. Wherever an endpoint returns the query, cast it:
+
+```php
+'query' => (object) $request['query'],
+```
+
+### 404 page {id="migration-3-2-404"}
+
+The homepage link lost the path prefix when the site lives in a subfolder. In `src/frontend/components/not-found.njk`:
+
+{% raw %}
+```njk
+<a href="{{ '/' | url }}">Return to homepage</a>
+```
+{% endraw %}
 
 ### llms.txt and copyright {id="migration-3-2-llms"}
 
@@ -223,70 +277,3 @@ npm uninstall @11ty/eleventy-img
 ```
 
 Then, in `.eleventy.js`, delete the `require("@11ty/eleventy-img")` line and the `eleventyConfig.addShortcode("image", ...)` block.
-
-## From 3.2 to 3.2.2 {id="migration-3-2-2"}
-
-Update the copy of **Nibula** inside your project:
-
-``` {class="clickable button link-button copy"}
-npm install -D nibula@latest
-```
-
-These fixes are in the server files and in the examples of a new project, so an existing one picks them up by hand.
-
-| Step | Who it concerns |
-|---|---|
-| [Apache](#migration-3-2-2-apache) | Sites on **Apache** |
-| [nginx](#migration-3-2-2-nginx) | Sites with the **Node** backend on **nginx** |
-| [PHP endpoints](#migration-3-2-2-php) | Only if you picked **PHP** |
-| [404 page](#migration-3-2-2-404) | Sites published in a subfolder |
-
-### Apache {id="migration-3-2-2-apache"}
-
-**1.** With `mod_proxy` active, the whole site answered **500**: `ProxyPass` is not allowed in `.htaccess`. In `src/frontend/hosting/.htaccess`, replace the Node backend block with:
-
-```apache
-<IfModule mod_proxy_http.c>
-    <IfModule mod_headers.c>
-        RequestHeader unset X-Forwarded-For
-        RequestHeader set X-Forwarded-Proto "https"
-    </IfModule>
-
-    RewriteEngine On
-    RewriteRule ^api/(.*)$ http://127.0.0.1:3000/api/$1 [P,L,QSA]
-</IfModule>
-```
-
-**2.** `web.config` and files starting with a dot already showed the 404 page, but with status **200**. In the same file, change the rule that blocks them:
-
-```apache
-RewriteRule ^(web\.config|\..*)$ - [R=404,L,NC]
-```
-
-> The client's own `X-Forwarded-For` is dropped, so the rate limiter sees each visitor's real address
-
-### nginx {id="migration-3-2-2-nginx"}
-
-A visitor could send a fake `X-Forwarded-For` and get around the rate limit. In `nginx.conf`, inside `location ^~ /api/`, change the line to:
-
-```nginx
-proxy_set_header X-Forwarded-For   $remote_addr;
-```
-
-### PHP endpoints {id="migration-3-2-2-php"}
-
-An empty query reached the browser as `[]` with PHP and as `{}` with Node. Wherever an endpoint returns the query, cast it:
-
-```php
-'query' => (object) $request['query'],
-```
-
-### 404 page {id="migration-3-2-2-404"}
-
-The homepage link lost the path prefix when the site lives in a subfolder. In `src/frontend/components/not-found.njk`:
-
-{% raw %}
-```njk
-<a href="{{ '/' | url }}">Return to homepage</a>
-```
-{% endraw %}
